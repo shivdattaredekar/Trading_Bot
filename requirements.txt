@@ -1,0 +1,10 @@
+langchain_groq
+langchain_community
+fyers-apiv3
+schedule
+flask
+pandas
+openpyxl
+python-dotenv
+ipykernel
+truedata_ws
