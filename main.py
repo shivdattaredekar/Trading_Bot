@@ -1,24 +1,24 @@
 import os
 import json
 import time
+import asyncio 
 from datetime import datetime, time as dtime
-import asyncio
+import traceback
 
-from .stock_filter.filter_logic import (
-    final_filter_with_volume
-)
-from .trade_logic.trade_executor import apply_trade_logic
-from .utlis.logger import log
-from .auth import get_fyers_instance
-from .fyers_auto_login import auto_login
-from .rate_limiter.counter import RateLimiter
-from .stock_filter.datasocket import run_gapup_websocket
+from src.tradingsetup.stock_filter.filter_logic import final_filter_with_volume
+from src.tradingsetup.stock_filter.datasocket import run_gapup_websocket
+from src.tradingsetup.trade_logic.trade_executor import apply_trade_logic
+from src.tradingsetup.utlis.logger import log
+from src.tradingsetup.login.auth import get_fyers_instance
+from src.tradingsetup.login.fyers_auto_login import auto_login
+from src.tradingsetup.rate_limiter.counter import RateLimiter
 
-
+# Importing Datafiles
 FILTERED_FILE = "filtered_stocks.json"
 MARKET_START = dtime(9, 15)
 MARKET_END = dtime(15, 15)
 
+# Checking for market condition
 def is_market_open():
     now = datetime.now().time()
     return MARKET_START <= now <= MARKET_END
@@ -48,10 +48,15 @@ def main():
             rate_limiter = RateLimiter()
 
             # Stage 1: GAP-UP based filtering
-            print("Starting WebSocket to fetch gap-up stocks...")
-            log("WebSocket for gap-up stocks started.")
+            log("Starting WebSocket to fetch gap-up stocks...")
             run_gapup_websocket(duration=10)
             
+            if not os.path.exists("GapUp_stocks.json"):
+                log("No GapUp_stocks.json file  stocks found.")
+                # create the file
+                with open("GapUp_stocks.json", "w") as f:
+                    json.dump([], f)
+
             with open("GapUp_stocks.json", "r") as f:
                 gapup_stocks = json.load(f)
             log(f"Gap-up stocks loaded: {len(gapup_stocks)}")
@@ -76,16 +81,21 @@ def main():
     already_traded = set()
 
     while True:
+        counter = 0
         if not is_market_open():
             log("Market closed. Sleeping for 60 seconds.")
             time.sleep(60)
+            counter += 1
+            if counter == 3:
+                log("Market closed for 5 minutes. Exiting.")
+                break
             continue
 
-        log("Checking for trade setups...")
+        log(f"Heartbeat: Checking for trade setups at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         try:
             apply_trade_logic(fyers, filtered_stocks, already_traded)
-        except Exception as e:
-            log(f"Error in trade logic: {e}")
+        except Exception :
+            log(f"Error in trade logic: \n {traceback.format_exc()}")
 
         time.sleep(10)
 

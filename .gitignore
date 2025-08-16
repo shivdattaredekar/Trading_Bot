@@ -1,2 +1,9 @@
 venv
 .env
+tradingsetup.egg-info
+filtered_stocks
+filtered_stocks
+GapUp_stocks
+fyersApi
+fyersRequest
+index_stocks.xlsx
