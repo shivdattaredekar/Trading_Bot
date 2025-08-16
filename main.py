@@ -80,8 +80,8 @@ def main():
     log("Entering monitoring loop...")
     already_traded = set()
 
+    counter = 0
     while True:
-        counter = 0
         if not is_market_open():
             log("Market closed. Sleeping for 60 seconds.")
             time.sleep(60)
