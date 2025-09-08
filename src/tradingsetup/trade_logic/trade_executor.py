@@ -32,13 +32,12 @@ def apply_trade_logic(fyers,filtered_stocks, already_traded):
                 signal_date = datetime.strptime(signal['timestamp'], '%Y-%m-%d %H:%M').date()
                 today_date = datetime.now().date()
                 if signal_date < today_date:
-                    log(f"Skipping signal from previous day: {signal['timestamp']}")
+                    #log(f"Skipping signal from previous day: {signal['timestamp']}")
                     continue  # Skip signals from previous days
 
                 unique_key = (symbol, signal["timestamp"])
                 if unique_key in already_traded:
                     log(f"Skipping already traded signal: {unique_key}")
-                    log(f"Skipping duplicate trade for {symbol} at {signal['timestamp']}")
                     continue  # Skip duplicate trade
 
                 log(f"Executing trade for {symbol}: {signal}")

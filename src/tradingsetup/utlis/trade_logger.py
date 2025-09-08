@@ -30,10 +30,14 @@ def check_trades(symbol, file_path=TRADE_LOG_FILE):
     trades = []
     with open(file_path, mode="r") as file:
         reader = csv.DictReader(file)
+        today = datetime.now().strftime("%Y-%m-%d")
         for row in reader:
-            if row["symbol"] == symbol:
-                trades.append(row)
+            # Check for trade date 
+            trade_date = datetime.strptime(row['timestamp'],'%Y-%m-%d %H:%M:%S').strftime("%Y-%m-%d")
 
+            # Check for the symbol and if it is traded today
+            if row["symbol"] == symbol and trade_date == today:
+                trades.append(row)
     return trades
 
 

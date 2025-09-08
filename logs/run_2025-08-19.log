@@ -1,0 +1,598 @@
+2025-08-19 09:19:07,637 [INFO] Starting trading script...
+2025-08-19 09:19:07,638 [INFO] Creating FyersModel instance with access token...
+2025-08-19 09:19:07,639 [INFO] Authenticated Fyers instance created.
+2025-08-19 09:19:07,639 [INFO] Fetching index symbols and running filtering stages...
+2025-08-19 09:19:07,639 [INFO] Starting WebSocket to fetch gap-up stocks...
+2025-08-19 09:19:08,103 [INFO] Loaded symbols from Stock_list.xlsx.
+2025-08-19 09:19:10,106 [INFO] WebSocket connection opened. Subscribing to data...
+2025-08-19 09:19:14,515 [INFO] Websocket connected
+2025-08-19 09:20:14,528 [INFO] Gap-up stocks saved to gapup_data.csv with 2 entries.
+2025-08-19 09:20:14,546 [INFO] Gap-up stocks loaded: 2
+2025-08-19 09:20:15,189 [INFO] Symbol              Gap Up %    Avg Volume  Status
+2025-08-19 09:20:15,191 [INFO] Included NSE:CCL-EQ | Volume: 294887
+2025-08-19 09:20:15,192 [INFO] Included NSE:VTL-EQ | Volume: 453203
+2025-08-19 09:20:15,197 [INFO] Final filtered stocks after volume check: 2
+2025-08-19 09:20:15,197 [INFO] Stocks to be traded: NSE:CCL-EQ, NSE:VTL-EQ
+2025-08-19 09:20:15,198 [INFO] Filtered stocks saved to filtered_stocks.json.
+2025-08-19 09:20:15,199 [INFO] Entering monitoring loop...
+2025-08-19 09:20:15,200 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:20:15
+2025-08-19 09:20:15,200 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:20:15,201 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:20:16,270 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:20:16,271 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:20:16,272 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:20:16,272 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:20:16,272 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:20:16,273 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:20:16,829 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:20:16,830 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:20:16,830 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:20:16,830 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:20:26,832 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:20:26
+2025-08-19 09:20:26,832 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:20:26,833 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:20:27,471 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:20:27,472 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:20:27,472 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:20:27,473 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:20:27,473 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:20:27,473 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:20:27,917 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:20:27,917 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:20:27,918 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:20:27,918 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:20:37,919 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:20:37
+2025-08-19 09:20:37,919 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:20:37,920 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:20:38,394 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:20:38,395 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:20:38,395 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:20:38,396 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:20:38,396 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:20:38,397 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:20:38,843 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:20:38,843 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:20:38,844 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:20:38,844 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:20:48,845 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:20:48
+2025-08-19 09:20:48,846 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:20:48,846 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:20:49,453 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:20:49,453 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:20:49,454 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:20:49,455 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:20:49,455 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:20:49,455 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:20:51,166 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:20:51,167 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:20:51,167 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:20:51,167 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:21:01,168 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:21:01
+2025-08-19 09:21:01,169 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:21:01,169 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:21:01,740 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:21:01,740 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:21:01,741 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:21:01,741 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:21:01,742 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:21:01,742 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:21:02,395 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:21:02,397 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:21:02,397 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:21:02,397 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:21:12,398 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:21:12
+2025-08-19 09:21:12,399 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:21:12,399 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:21:12,951 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:21:12,952 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:21:12,952 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:21:12,953 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:21:12,953 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:21:12,953 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:21:13,514 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:21:13,515 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:21:13,515 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:21:13,515 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:21:23,516 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:21:23
+2025-08-19 09:21:23,517 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:21:23,517 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:21:23,988 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:21:23,989 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:21:23,990 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:21:23,990 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:21:23,991 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:21:23,991 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:21:24,577 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:21:24,577 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:21:24,578 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:21:24,579 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:21:34,579 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:21:34
+2025-08-19 09:21:34,580 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:21:34,580 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:21:35,105 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:21:35,106 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:21:35,106 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:21:35,106 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:21:35,107 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:21:35,108 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:21:35,734 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:21:35,734 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:21:35,735 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:21:35,736 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:21:45,736 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:21:45
+2025-08-19 09:21:45,737 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:21:45,737 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:21:46,386 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:21:46,386 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:21:46,387 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:21:46,388 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:21:46,389 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:21:46,389 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:21:46,890 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:21:46,890 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:21:46,890 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:21:46,891 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:21:56,892 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:21:56
+2025-08-19 09:21:56,892 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:21:56,892 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:21:58,089 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:21:58,090 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:21:58,090 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:21:58,091 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:21:58,091 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:21:58,091 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:21:58,993 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:21:58,994 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:21:58,994 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:21:58,994 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:22:08,995 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:22:08
+2025-08-19 09:22:08,996 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:22:08,996 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:22:09,525 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:22:09,525 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:22:09,526 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:22:09,527 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:22:09,527 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:22:09,527 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:22:10,055 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:22:10,055 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:22:10,056 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:22:10,056 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:22:20,057 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:22:20
+2025-08-19 09:22:20,058 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:22:20,058 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:22:20,583 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:22:20,583 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:22:20,584 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:22:20,584 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:22:20,585 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:22:20,585 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:22:21,100 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:22:21,100 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:22:21,101 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:22:21,101 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:22:31,102 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:22:31
+2025-08-19 09:22:31,102 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:22:31,103 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:22:31,570 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:22:31,570 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:22:31,570 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:22:31,571 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:22:31,571 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:22:31,571 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:22:32,157 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:22:32,157 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:22:32,158 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:22:32,158 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:22:42,159 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:22:42
+2025-08-19 09:22:42,159 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:22:42,159 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:22:42,710 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:22:42,711 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:22:42,711 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:22:42,711 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:22:42,712 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:22:42,712 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:22:43,216 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:22:43,216 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:22:43,217 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:22:43,217 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:22:53,218 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:22:53
+2025-08-19 09:22:53,219 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:22:53,219 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:22:53,697 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:22:53,697 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:22:53,698 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:22:53,698 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:22:53,699 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:22:53,699 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:22:54,273 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:22:54,274 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:22:54,274 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:22:54,275 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:23:04,275 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:23:04
+2025-08-19 09:23:04,275 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:23:04,276 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:23:04,930 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:23:04,931 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:23:04,931 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:23:04,932 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:23:04,932 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:23:04,932 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:23:05,443 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:23:05,444 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:23:05,445 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:23:05,445 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:23:15,446 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:23:15
+2025-08-19 09:23:15,447 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:23:15,447 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:23:16,048 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:23:16,048 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:23:16,049 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:23:16,049 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:23:16,050 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:23:16,050 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:23:16,608 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:23:16,610 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:23:16,610 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:23:16,610 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:23:26,611 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:23:26
+2025-08-19 09:23:26,611 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:23:26,612 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:23:27,094 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:23:27,095 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:23:27,095 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:23:27,095 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:23:27,096 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:23:27,096 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:23:27,669 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:23:27,669 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:23:27,670 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:23:27,670 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:23:37,671 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:23:37
+2025-08-19 09:23:37,671 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:23:37,671 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:23:38,335 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:23:38,336 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:23:38,336 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:23:38,337 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:23:38,337 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:23:38,338 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:23:39,118 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:23:39,119 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:23:39,120 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:23:39,121 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:23:49,122 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:23:49
+2025-08-19 09:23:49,122 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:23:49,122 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:23:49,679 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:23:49,681 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:23:49,681 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:23:49,682 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:23:49,682 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:23:49,683 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:23:50,296 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:23:50,296 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:23:50,296 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:23:50,297 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:28:05,772 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:28:05
+2025-08-19 09:28:05,789 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:28:05,789 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:28:07,389 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:28:07,390 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:28:07,392 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:28:07,394 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:28:07,396 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:28:07,397 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:28:08,242 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:28:08,243 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:28:08,244 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:28:08,245 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:28:18,245 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:28:18
+2025-08-19 09:28:18,245 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:28:18,247 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:28:18,749 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:28:18,751 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:28:18,751 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:28:18,752 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:28:18,752 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:28:18,752 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:28:19,211 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:28:19,212 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:28:19,212 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:28:19,212 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:28:29,213 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:28:29
+2025-08-19 09:28:29,214 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:28:29,214 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:28:29,956 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:28:29,956 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:28:29,957 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:28:29,957 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:28:29,958 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:28:29,958 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:28:30,464 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:28:30,465 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:28:30,465 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:28:30,466 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:28:40,467 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:28:40
+2025-08-19 09:28:40,467 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:28:40,468 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:28:41,017 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:28:41,017 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:28:41,018 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:28:41,018 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:28:41,019 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:28:41,019 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:28:41,590 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:28:41,590 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:28:41,590 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:28:41,591 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:28:51,592 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:28:51
+2025-08-19 09:28:51,592 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:28:51,593 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:28:52,180 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:28:52,180 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:28:52,180 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:28:52,181 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:28:52,181 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:28:52,182 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:28:52,726 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:28:52,726 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:28:52,727 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:28:52,727 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:29:02,728 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:29:02
+2025-08-19 09:29:02,729 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:29:02,729 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:29:04,053 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:29:04,054 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:29:04,055 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:29:04,055 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:29:04,055 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:29:04,056 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:29:05,183 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:29:05,184 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:29:05,185 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:29:05,185 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:29:15,186 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:29:15
+2025-08-19 09:29:15,186 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:29:15,186 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:29:15,832 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:29:15,834 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:29:15,835 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:29:15,837 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:29:15,839 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:29:15,840 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:29:16,364 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:29:16,365 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:29:16,365 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:29:16,366 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:29:26,367 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:29:26
+2025-08-19 09:29:26,367 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:29:26,368 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:29:26,991 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:29:26,992 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:29:26,992 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:29:26,993 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:29:26,993 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:29:26,993 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:29:27,606 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:29:27,607 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:29:27,607 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:29:27,607 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:29:37,608 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:29:37
+2025-08-19 09:29:37,609 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:29:37,609 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:29:38,157 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:29:38,158 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:29:38,158 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:29:38,158 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:29:38,158 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:29:38,159 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:29:38,630 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:29:38,630 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:29:38,630 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:29:38,631 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:29:48,632 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:29:48
+2025-08-19 09:29:48,633 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:29:48,634 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:29:49,207 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:29:49,207 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:29:49,208 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:29:49,208 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:29:49,209 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:29:49,209 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:29:49,737 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:29:49,737 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:29:49,737 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:29:49,738 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:29:59,739 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:29:59
+2025-08-19 09:29:59,739 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:29:59,739 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:30:01,816 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:30:01,817 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:30:01,817 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:30:01,818 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:30:01,818 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:30:01,819 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:30:02,430 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:30:02,430 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:30:02,431 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:30:02,433 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:30:12,434 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:30:12
+2025-08-19 09:30:12,435 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:30:12,436 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:30:13,178 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:30:13,178 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:30:13,179 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:30:13,179 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:30:13,180 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:30:13,180 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:30:13,800 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:30:13,800 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:30:13,801 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:30:13,802 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:30:23,803 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:30:23
+2025-08-19 09:30:23,803 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:30:23,803 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:30:24,346 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:30:24,346 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:30:24,347 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:30:24,348 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:30:24,348 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:30:24,348 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:30:24,952 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:30:24,952 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:30:24,952 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:30:24,953 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:30:34,954 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:30:34
+2025-08-19 09:30:34,954 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:30:34,954 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:30:35,559 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:30:35,560 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:30:35,560 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:30:35,561 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:30:35,561 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:30:35,562 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:30:36,085 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:30:36,085 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:30:36,087 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:30:36,087 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:30:46,089 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:30:46
+2025-08-19 09:30:46,089 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:30:46,089 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:30:46,771 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:30:46,771 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:30:46,772 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:30:46,773 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:30:46,774 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:30:46,774 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:30:47,377 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:30:47,378 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:30:47,378 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:30:47,379 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 09:30:57,380 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 09:30:57
+2025-08-19 09:30:57,380 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 09:30:57,380 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 09:30:57,872 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 09:30:57,873 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 09:30:57,873 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 09:30:57,873 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 09:30:57,874 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 09:30:57,875 [INFO] Executing trade for NSE:CCL-EQ: {'timestamp': '2025-08-19 09:30', 'action': 'SELL', 'entry_price': 930.75, 'stop_loss': 939, 'target': 906.0}
+2025-08-19 09:30:57,875 [INFO] [TRADE] NSE:CCL-EQ - Entry: 930.75, SL: 939.00, Target: 906.00
+2025-08-19 09:30:57,876 [INFO] Placing trade for NSE:CCL-EQ at price 930.75 with SL 939 and Target 906.0.
+2025-08-19 09:30:57,896 [INFO] Error placing trade for NSE:CCL-EQ: time data '2025-08-06 09:20:06' does not match format '%d-%m-%Y %H:%M'
+2025-08-19 09:30:57,897 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 09:30:59,363 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 09:30:59,364 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 09:30:59,364 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 09:30:59,364 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 15:37:50,145 [INFO] Market closed. Sleeping for 60 seconds.
+2025-08-19 15:38:50,249 [INFO] Market closed. Sleeping for 60 seconds.
+2025-08-19 15:39:50,256 [INFO] Market closed. Sleeping for 60 seconds.
+2025-08-19 15:40:50,257 [INFO] Market closed, Exiting......
+2025-08-19 19:40:41,077 [INFO] Starting trading script...
+2025-08-19 19:40:41,077 [INFO] Creating FyersModel instance with access token...
+2025-08-19 19:40:41,078 [INFO] Authenticated Fyers instance created.
+2025-08-19 19:40:41,078 [INFO] Loading filtered stocks from filtered_stocks.json...
+2025-08-19 19:40:41,090 [INFO] Loaded 2 stocks.
+2025-08-19 19:40:41,090 [INFO] Stocks to be traded: NSE:CCL-EQ, NSE:VTL-EQ
+2025-08-19 19:40:41,090 [INFO] Entering monitoring loop...
+2025-08-19 19:40:41,091 [INFO] Market closed. Sleeping for 60 seconds.
+2025-08-19 19:41:05,114 [INFO] Starting trading script...
+2025-08-19 19:41:05,117 [INFO] Creating FyersModel instance with access token...
+2025-08-19 19:41:05,121 [INFO] Authenticated Fyers instance created.
+2025-08-19 19:41:05,122 [INFO] Loading filtered stocks from filtered_stocks.json...
+2025-08-19 19:41:05,123 [INFO] Loaded 2 stocks.
+2025-08-19 19:41:05,125 [INFO] Stocks to be traded: NSE:CCL-EQ, NSE:VTL-EQ
+2025-08-19 19:41:05,125 [INFO] Entering monitoring loop...
+2025-08-19 19:41:05,126 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 19:41:05
+2025-08-19 19:41:05,126 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 19:41:05,126 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 19:41:05,699 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 19:41:05,700 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 19:41:05,702 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 19:41:05,702 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 19:41:05,702 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 19:41:05,703 [INFO] Executing trade for NSE:CCL-EQ: {'timestamp': '2025-08-19 09:30', 'action': 'SELL', 'entry_price': 930.75, 'stop_loss': 939, 'target': 906.0}
+2025-08-19 19:41:05,703 [INFO] [TRADE] NSE:CCL-EQ - Entry: 930.75, SL: 939.00, Target: 906.00
+2025-08-19 19:41:05,704 [INFO] Trade for NSE:CCL-EQ at 2025-08-19 09:30 is outside the trading window. as current time is 19:41:05.704225 hence Skipping.
+2025-08-19 19:41:05,704 [INFO] Executing trade for NSE:CCL-EQ: {'timestamp': '2025-08-19 14:55', 'action': 'SELL', 'entry_price': 924.05, 'stop_loss': 926.9, 'target': 915.4999999999999}
+2025-08-19 19:41:05,705 [INFO] [TRADE] NSE:CCL-EQ - Entry: 924.05, SL: 926.90, Target: 915.50
+2025-08-19 19:41:05,705 [INFO] Trade for NSE:CCL-EQ at 2025-08-19 14:55 is outside the trading window. as current time is 19:41:05.705019 hence Skipping.
+2025-08-19 19:41:05,705 [INFO] Executing trade for NSE:CCL-EQ: {'timestamp': '2025-08-19 09:15', 'action': 'SELL', 'entry_price': 913.65, 'stop_loss': 919.15, 'target': 897.15}
+2025-08-19 19:41:05,706 [INFO] [TRADE] NSE:CCL-EQ - Entry: 913.65, SL: 919.15, Target: 897.15
+2025-08-19 19:41:05,711 [INFO] Trade for NSE:CCL-EQ at 2025-08-19 09:15 is outside the trading window. as current time is 19:41:05.711732 hence Skipping.
+2025-08-19 19:41:05,713 [INFO] Skipping already traded signal: ('NSE:CCL-EQ', '2025-08-19 09:30')
+2025-08-19 19:41:05,714 [INFO] Skipping duplicate trade for NSE:CCL-EQ at 2025-08-19 09:30
+2025-08-19 19:41:05,715 [INFO] Skipping already traded signal: ('NSE:CCL-EQ', '2025-08-19 14:55')
+2025-08-19 19:41:05,716 [INFO] Skipping duplicate trade for NSE:CCL-EQ at 2025-08-19 14:55
+2025-08-19 19:41:05,717 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 19:41:06,224 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 19:41:06,224 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 19:41:06,225 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 19:41:06,225 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 19:41:06,226 [INFO] Executing trade for NSE:VTL-EQ: {'timestamp': '2025-08-19 09:30', 'action': 'SELL', 'entry_price': 441.45, 'stop_loss': 447, 'target': 424.79999999999995}
+2025-08-19 19:41:06,226 [INFO] [TRADE] NSE:VTL-EQ - Entry: 441.45, SL: 447.00, Target: 424.80
+2025-08-19 19:41:06,226 [INFO] Trade for NSE:VTL-EQ at 2025-08-19 09:30 is outside the trading window. as current time is 19:41:06.226853 hence Skipping.
+2025-08-19 19:41:06,227 [INFO] Executing trade for NSE:VTL-EQ: {'timestamp': '2025-08-19 09:50', 'action': 'SELL', 'entry_price': 442.5, 'stop_loss': 444.8, 'target': 435.59999999999997}
+2025-08-19 19:41:06,227 [INFO] [TRADE] NSE:VTL-EQ - Entry: 442.50, SL: 444.80, Target: 435.60
+2025-08-19 19:41:06,228 [INFO] Trade for NSE:VTL-EQ at 2025-08-19 09:50 is outside the trading window. as current time is 19:41:06.228091 hence Skipping.
+2025-08-19 19:41:06,228 [INFO] Executing trade for NSE:VTL-EQ: {'timestamp': '2025-08-19 10:55', 'action': 'SELL', 'entry_price': 441.4, 'stop_loss': 444.75, 'target': 431.3499999999999}
+2025-08-19 19:41:06,228 [INFO] [TRADE] NSE:VTL-EQ - Entry: 441.40, SL: 444.75, Target: 431.35
+2025-08-19 19:41:06,229 [INFO] Trade for NSE:VTL-EQ at 2025-08-19 10:55 is outside the trading window. as current time is 19:41:06.229290 hence Skipping.
+2025-08-19 19:41:06,229 [INFO] Executing trade for NSE:VTL-EQ: {'timestamp': '2025-08-19 13:20', 'action': 'SELL', 'entry_price': 441.1, 'stop_loss': 442.15, 'target': 437.95000000000016}
+2025-08-19 19:41:06,229 [INFO] [TRADE] NSE:VTL-EQ - Entry: 441.10, SL: 442.15, Target: 437.95
+2025-08-19 19:41:06,230 [INFO] Trade for NSE:VTL-EQ at 2025-08-19 13:20 is outside the trading window. as current time is 19:41:06.230385 hence Skipping.
+2025-08-19 19:41:06,230 [INFO] Executing trade for NSE:VTL-EQ: {'timestamp': '2025-08-19 09:15', 'action': 'SELL', 'entry_price': 431.1, 'stop_loss': 434.55, 'target': 420.75000000000006}
+2025-08-19 19:41:06,231 [INFO] [TRADE] NSE:VTL-EQ - Entry: 431.10, SL: 434.55, Target: 420.75
+2025-08-19 19:41:06,232 [INFO] Trade for NSE:VTL-EQ at 2025-08-19 09:15 is outside the trading window. as current time is 19:41:06.232176 hence Skipping.
+2025-08-19 19:41:06,232 [INFO] Skipping already traded signal: ('NSE:VTL-EQ', '2025-08-19 09:30')
+2025-08-19 19:41:06,233 [INFO] Skipping duplicate trade for NSE:VTL-EQ at 2025-08-19 09:30
+2025-08-19 19:41:06,234 [INFO] Skipping already traded signal: ('NSE:VTL-EQ', '2025-08-19 09:50')
+2025-08-19 19:41:06,235 [INFO] Skipping duplicate trade for NSE:VTL-EQ at 2025-08-19 09:50
+2025-08-19 19:41:06,236 [INFO] Skipping already traded signal: ('NSE:VTL-EQ', '2025-08-19 10:55')
+2025-08-19 19:41:06,236 [INFO] Skipping duplicate trade for NSE:VTL-EQ at 2025-08-19 10:55
+2025-08-19 19:41:06,237 [INFO] Skipping already traded signal: ('NSE:VTL-EQ', '2025-08-19 13:20')
+2025-08-19 19:41:06,237 [INFO] Skipping duplicate trade for NSE:VTL-EQ at 2025-08-19 13:20
+2025-08-19 19:41:16,238 [INFO] Heartbeat: Checking for trade setups at 2025-08-19 19:41:16
+2025-08-19 19:41:16,238 [INFO] Applying trade logic to 2 stocks.
+2025-08-19 19:41:16,238 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-19 19:41:16,750 [INFO] Skipping signal from previous day: 2025-08-18 10:05
+2025-08-19 19:41:16,750 [INFO] Skipping signal from previous day: 2025-08-18 10:10
+2025-08-19 19:41:16,750 [INFO] Skipping signal from previous day: 2025-08-18 10:25
+2025-08-19 19:41:16,751 [INFO] Skipping signal from previous day: 2025-08-18 10:35
+2025-08-19 19:41:16,751 [INFO] Skipping signal from previous day: 2025-08-18 13:00
+2025-08-19 19:41:16,751 [INFO] Skipping already traded signal: ('NSE:CCL-EQ', '2025-08-19 09:30')
+2025-08-19 19:41:16,752 [INFO] Skipping duplicate trade for NSE:CCL-EQ at 2025-08-19 09:30
+2025-08-19 19:41:16,752 [INFO] Skipping already traded signal: ('NSE:CCL-EQ', '2025-08-19 14:55')
+2025-08-19 19:41:16,753 [INFO] Skipping duplicate trade for NSE:CCL-EQ at 2025-08-19 14:55
+2025-08-19 19:41:16,753 [INFO] Skipping already traded signal: ('NSE:CCL-EQ', '2025-08-19 09:15')
+2025-08-19 19:41:16,753 [INFO] Skipping duplicate trade for NSE:CCL-EQ at 2025-08-19 09:15
+2025-08-19 19:41:16,754 [INFO] Skipping already traded signal: ('NSE:CCL-EQ', '2025-08-19 09:30')
+2025-08-19 19:41:16,754 [INFO] Skipping duplicate trade for NSE:CCL-EQ at 2025-08-19 09:30
+2025-08-19 19:41:16,754 [INFO] Skipping already traded signal: ('NSE:CCL-EQ', '2025-08-19 14:55')
+2025-08-19 19:41:16,754 [INFO] Skipping duplicate trade for NSE:CCL-EQ at 2025-08-19 14:55
+2025-08-19 19:41:16,755 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-19 19:41:17,262 [INFO] Skipping signal from previous day: 2025-08-18 09:55
+2025-08-19 19:41:17,281 [INFO] Skipping signal from previous day: 2025-08-18 10:55
+2025-08-19 19:41:17,284 [INFO] Skipping signal from previous day: 2025-08-18 12:55
+2025-08-19 19:41:17,284 [INFO] Skipping signal from previous day: 2025-08-18 13:05
+2025-08-19 19:41:17,287 [INFO] Skipping already traded signal: ('NSE:VTL-EQ', '2025-08-19 09:30')
+2025-08-19 19:41:17,287 [INFO] Skipping duplicate trade for NSE:VTL-EQ at 2025-08-19 09:30
+2025-08-19 19:41:17,287 [INFO] Skipping already traded signal: ('NSE:VTL-EQ', '2025-08-19 09:50')
+2025-08-19 19:41:17,288 [INFO] Skipping duplicate trade for NSE:VTL-EQ at 2025-08-19 09:50
+2025-08-19 19:41:17,288 [INFO] Skipping already traded signal: ('NSE:VTL-EQ', '2025-08-19 10:55')
+2025-08-19 19:41:17,289 [INFO] Skipping duplicate trade for NSE:VTL-EQ at 2025-08-19 10:55
+2025-08-19 19:41:17,291 [INFO] Skipping already traded signal: ('NSE:VTL-EQ', '2025-08-19 13:20')
+2025-08-19 19:41:17,292 [INFO] Skipping duplicate trade for NSE:VTL-EQ at 2025-08-19 13:20
+2025-08-19 19:41:17,293 [INFO] Skipping already traded signal: ('NSE:VTL-EQ', '2025-08-19 09:15')
+2025-08-19 19:41:17,293 [INFO] Skipping duplicate trade for NSE:VTL-EQ at 2025-08-19 09:15
+2025-08-19 19:41:17,294 [INFO] Skipping already traded signal: ('NSE:VTL-EQ', '2025-08-19 09:30')
+2025-08-19 19:41:17,294 [INFO] Skipping duplicate trade for NSE:VTL-EQ at 2025-08-19 09:30
+2025-08-19 19:41:17,295 [INFO] Skipping already traded signal: ('NSE:VTL-EQ', '2025-08-19 09:50')
+2025-08-19 19:41:17,296 [INFO] Skipping duplicate trade for NSE:VTL-EQ at 2025-08-19 09:50
+2025-08-19 19:41:17,296 [INFO] Skipping already traded signal: ('NSE:VTL-EQ', '2025-08-19 10:55')
+2025-08-19 19:41:17,297 [INFO] Skipping duplicate trade for NSE:VTL-EQ at 2025-08-19 10:55
+2025-08-19 19:41:17,298 [INFO] Skipping already traded signal: ('NSE:VTL-EQ', '2025-08-19 13:20')
+2025-08-19 19:41:17,298 [INFO] Skipping duplicate trade for NSE:VTL-EQ at 2025-08-19 13:20

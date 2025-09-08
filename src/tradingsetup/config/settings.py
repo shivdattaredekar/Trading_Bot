@@ -17,6 +17,7 @@ EMA_PERIOD = os.getenv("EMA_PERIOD")
 TIMEFRAME = os.getenv("TIMEFRAME")
 GAP_UP_THRESHOLD = os.getenv("GAP_UP_THRESHOLD")
 MIN_VOLUME = os.getenv("MIN_VOLUME")
+RR = os.getenv('RR')
 
 # Trading control
 MAX_TRADES = os.getenv("MAX_TRADES")

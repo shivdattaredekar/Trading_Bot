@@ -1,0 +1,969 @@
+2025-08-20 09:34:05,952 [INFO] Starting trading script...
+2025-08-20 09:34:05,952 [INFO] Creating FyersModel instance with access token...
+2025-08-20 09:34:05,953 [INFO] Authenticated Fyers instance created.
+2025-08-20 09:34:05,953 [INFO] Loading filtered stocks from filtered_stocks.json...
+2025-08-20 09:34:05,963 [INFO] Loaded 2 stocks.
+2025-08-20 09:34:05,963 [INFO] Stocks to be traded: NSE:CCL-EQ, NSE:VTL-EQ
+2025-08-20 09:34:05,969 [INFO] Entering monitoring loop...
+2025-08-20 09:34:05,969 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:34:05
+2025-08-20 09:34:05,969 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:34:05,969 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:34:07,249 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:34:07,249 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:34:07,970 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:34:07,970 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:34:17,972 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:34:17
+2025-08-20 09:34:17,972 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:34:17,972 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:34:18,430 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:34:18,430 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:34:18,899 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:34:18,899 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:34:28,903 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:34:28
+2025-08-20 09:34:28,903 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:34:28,903 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:34:29,478 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:34:29,478 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:34:30,054 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:34:30,054 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:34:40,061 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:34:40
+2025-08-20 09:34:40,061 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:34:40,061 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:34:40,546 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:34:40,546 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:34:41,033 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:34:41,033 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:34:51,039 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:34:51
+2025-08-20 09:34:51,039 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:34:51,039 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:34:51,515 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:34:51,515 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:35:03,565 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:35:03,565 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:35:13,569 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:35:13
+2025-08-20 09:35:13,569 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:35:13,569 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:35:14,023 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:35:14,036 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:35:14,509 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:35:14,511 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:35:24,512 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:35:24
+2025-08-20 09:35:24,512 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:35:24,512 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:35:25,057 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:35:25,057 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:35:25,403 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:35:25,403 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:35:35,408 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:35:35
+2025-08-20 09:35:35,408 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:35:35,409 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:35:36,130 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:35:36,134 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:35:36,851 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:35:36,851 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:35:46,855 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:35:46
+2025-08-20 09:35:46,855 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:35:46,855 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:35:47,171 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:35:47,171 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:35:47,690 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:35:47,690 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:35:57,696 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:35:57
+2025-08-20 09:35:57,696 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:35:57,696 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:35:58,067 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:35:58,067 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:35:58,408 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:35:58,408 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:36:08,409 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:36:08
+2025-08-20 09:36:08,409 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:36:08,409 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:36:08,895 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:36:08,895 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:36:09,501 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:36:09,501 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:36:19,503 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:36:19
+2025-08-20 09:36:19,503 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:36:19,503 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:36:19,865 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:36:19,865 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:36:20,228 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:36:20,228 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:36:30,230 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:36:30
+2025-08-20 09:36:30,230 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:36:30,230 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:36:30,679 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:36:30,679 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:36:31,209 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:36:31,209 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:36:41,216 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:36:41
+2025-08-20 09:36:41,216 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:36:41,218 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:36:41,675 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:36:41,675 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:36:42,132 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:36:42,132 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:36:52,137 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:36:52
+2025-08-20 09:36:52,137 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:36:52,137 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:36:52,707 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:36:52,707 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:36:53,349 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:36:53,349 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:37:03,353 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:37:03
+2025-08-20 09:37:03,353 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:37:03,353 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:37:04,075 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:37:04,075 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:37:04,497 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:37:04,497 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:37:14,502 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:37:14
+2025-08-20 09:37:14,502 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:37:14,502 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:37:14,870 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:37:14,870 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:37:15,346 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:37:15,346 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:37:25,349 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:37:25
+2025-08-20 09:37:25,349 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:37:25,349 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:37:25,778 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:37:25,779 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:37:26,264 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:37:26,264 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:37:36,271 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:37:36
+2025-08-20 09:37:36,271 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:37:36,271 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:37:36,954 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:37:36,954 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:37:37,569 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:37:37,569 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:37:47,574 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:37:47
+2025-08-20 09:37:47,574 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:37:47,574 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:37:48,057 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:37:48,057 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:37:48,798 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:37:48,798 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:37:58,800 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:37:58
+2025-08-20 09:37:58,800 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:37:58,800 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:37:59,277 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:37:59,277 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:37:59,780 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:37:59,780 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:38:09,788 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:38:09
+2025-08-20 09:38:09,788 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:38:09,788 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:38:10,350 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:38:10,350 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:38:10,854 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:38:10,854 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:38:20,856 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:38:20
+2025-08-20 09:38:20,856 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:38:20,856 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:38:21,302 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:38:21,302 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:38:21,917 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:38:21,917 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:38:31,921 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:38:31
+2025-08-20 09:38:31,921 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:38:31,921 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:38:32,445 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:38:32,445 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:38:32,979 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:38:32,979 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:38:42,988 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:38:42
+2025-08-20 09:38:42,988 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:38:42,988 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:38:43,513 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:38:43,513 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:38:43,979 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:38:43,979 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:38:53,988 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:38:53
+2025-08-20 09:38:53,988 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:38:53,988 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:38:54,509 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:38:54,509 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:38:55,083 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:38:55,085 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:39:05,087 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:39:05
+2025-08-20 09:39:05,087 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:39:05,087 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:39:05,749 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:39:05,750 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:39:06,454 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:39:06,455 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:39:16,456 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:39:16
+2025-08-20 09:39:16,456 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:39:16,456 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:39:17,213 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:39:17,213 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:39:17,721 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:39:17,721 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:39:27,727 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:39:27
+2025-08-20 09:39:27,727 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:39:27,727 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:39:28,369 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:39:28,370 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:39:28,840 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:39:28,840 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:39:38,843 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:39:38
+2025-08-20 09:39:38,843 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:39:38,843 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:39:39,279 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:39:39,279 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:39:39,838 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:39:39,838 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:39:49,840 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:39:49
+2025-08-20 09:39:49,840 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:39:49,840 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:39:50,362 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:39:50,362 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:39:50,838 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:39:50,838 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:40:00,841 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:40:00
+2025-08-20 09:40:00,841 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:40:00,841 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:40:01,319 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:40:01,319 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:40:01,791 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:40:01,792 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:40:11,794 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:40:11
+2025-08-20 09:40:11,794 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:40:11,794 [INFO] [Trade Candidate: NSE:CCL-EQ]
+2025-08-20 09:40:12,465 [INFO] Skipping signal from previous day: 2025-08-19 14:55
+2025-08-20 09:40:12,465 [INFO] [Trade Candidate: NSE:VTL-EQ]
+2025-08-20 09:40:12,948 [INFO] Skipping signal from previous day: 2025-08-19 10:55
+2025-08-20 09:40:12,948 [INFO] Skipping signal from previous day: 2025-08-19 13:20
+2025-08-20 09:40:46,840 [INFO] Starting trading script...
+2025-08-20 09:40:46,840 [INFO] Creating FyersModel instance with access token...
+2025-08-20 09:40:46,841 [INFO] Authenticated Fyers instance created.
+2025-08-20 09:40:46,841 [INFO] Fetching index symbols and running filtering stages...
+2025-08-20 09:40:46,841 [INFO] Starting WebSocket to fetch gap-up stocks...
+2025-08-20 09:40:47,393 [INFO] Loaded symbols from Stock_list.xlsx.
+2025-08-20 09:40:48,233 [INFO] Websocket connected
+2025-08-20 09:40:49,420 [INFO] WebSocket connection opened. Subscribing to data...
+2025-08-20 09:41:48,259 [INFO] Gap-up stocks saved to gapup_data.csv with 2 entries.
+2025-08-20 09:41:48,290 [INFO] Gap-up stocks loaded: 2
+2025-08-20 09:41:48,714 [INFO] Symbol              Gap Up %    Avg Volume  Status
+2025-08-20 09:41:48,717 [INFO] Included NSE:HBLENGINE-EQ | Volume: 3597430
+2025-08-20 09:41:48,717 [INFO] Included NSE:HAL-EQ | Volume: 1170662
+2025-08-20 09:41:48,723 [INFO] Final filtered stocks after volume check: 2
+2025-08-20 09:41:48,723 [INFO] Stocks to be traded: NSE:HBLENGINE-EQ, NSE:HAL-EQ
+2025-08-20 09:41:48,723 [INFO] Filtered stocks saved to filtered_stocks.json.
+2025-08-20 09:41:48,725 [INFO] Entering monitoring loop...
+2025-08-20 09:41:48,725 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:41:48
+2025-08-20 09:41:48,725 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:41:48,725 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:41:49,194 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:41:49,194 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:41:50,097 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:41:50,097 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:41:50,100 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:41:50,101 [INFO] Executing trade for NSE:HAL-EQ: {'timestamp': '2025-08-20 09:20', 'action': 'SELL', 'entry_price': 4551.2, 'stop_loss': 4605, 'target': 4389.799999999999}
+2025-08-20 09:41:50,101 [INFO] [TRADE] NSE:HAL-EQ - Entry: 4551.20, SL: 4605.00, Target: 4389.80
+2025-08-20 09:41:50,101 [INFO] Trade for NSE:HAL-EQ at 2025-08-20 09:20 is outside the trading window. as current time is 09:41:50.101518 hence Skipping.
+2025-08-20 09:42:00,103 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:42:00
+2025-08-20 09:42:00,103 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:42:00,103 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:42:00,559 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:42:00,559 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:42:01,003 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:42:01,003 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:42:01,003 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:42:01,003 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:42:01,012 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:42:11,014 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:42:11
+2025-08-20 09:42:11,014 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:42:11,014 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:42:11,500 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:42:11,500 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:42:11,916 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:42:11,916 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:42:11,916 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:42:11,916 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:42:11,919 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:42:21,920 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:42:21
+2025-08-20 09:42:21,920 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:42:21,920 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:42:22,357 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:42:22,357 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:42:22,865 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:42:22,865 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:42:22,865 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:42:22,865 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:42:22,865 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:42:32,867 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:42:32
+2025-08-20 09:42:32,867 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:42:32,867 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:42:33,403 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:42:33,403 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:42:33,921 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:42:33,921 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:42:33,931 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:42:33,931 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:42:33,931 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:42:43,935 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:42:43
+2025-08-20 09:42:43,935 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:42:43,935 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:42:44,476 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:42:44,476 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:42:44,984 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:42:44,984 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:42:44,984 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:42:44,984 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:42:44,988 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:42:54,989 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:42:54
+2025-08-20 09:42:54,989 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:42:54,989 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:42:55,454 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:42:55,454 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:42:55,939 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:42:55,939 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:42:55,939 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:42:55,939 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:42:55,939 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:43:05,949 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:43:05
+2025-08-20 09:43:05,949 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:43:05,949 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:43:06,691 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:43:06,694 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:43:07,201 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:43:07,201 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:43:07,201 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:43:07,201 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:43:07,207 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:43:17,209 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:43:17
+2025-08-20 09:43:17,209 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:43:17,209 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:43:17,688 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:43:17,688 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:43:18,053 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:43:18,063 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:43:18,063 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:43:18,063 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:43:18,063 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:43:28,066 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:43:28
+2025-08-20 09:43:28,066 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:43:28,066 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:43:28,511 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:43:28,511 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:43:28,873 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:43:28,873 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:43:28,873 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:43:28,873 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:43:28,873 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:43:38,876 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:43:38
+2025-08-20 09:43:38,876 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:43:38,876 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:43:39,356 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:43:39,356 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:43:39,727 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:43:39,727 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:43:39,727 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:43:39,727 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:43:39,727 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:43:49,734 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:43:49
+2025-08-20 09:43:49,734 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:43:49,734 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:43:50,167 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:43:50,167 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:43:50,708 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:43:50,708 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:43:50,710 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:43:50,710 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:43:50,710 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:56:23,848 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:56:23
+2025-08-20 09:56:23,864 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:56:23,864 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:56:25,835 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:56:25,835 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:56:26,612 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:56:26,612 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:56:26,612 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:56:26,612 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:56:26,612 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:56:26,612 [INFO] Executing trade for NSE:HAL-EQ: {'timestamp': '2025-08-20 09:45', 'action': 'SELL', 'entry_price': 4545.9, 'stop_loss': 4553.5, 'target': 4523.0999999999985}
+2025-08-20 09:56:26,612 [INFO] [TRADE] NSE:HAL-EQ - Entry: 4545.90, SL: 4553.50, Target: 4523.10
+2025-08-20 09:56:26,612 [INFO] Trade for NSE:HAL-EQ at 2025-08-20 09:45 is outside the trading window. as current time is 09:56:26.612928 hence Skipping.
+2025-08-20 09:56:36,618 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:56:36
+2025-08-20 09:56:36,618 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:56:36,618 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:56:37,320 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:56:37,320 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:56:37,934 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:56:37,934 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:56:37,934 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:56:37,934 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:56:37,934 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:56:37,934 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:56:37,934 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:56:47,940 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:56:47
+2025-08-20 09:56:47,940 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:56:47,940 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:56:48,512 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:56:48,519 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:56:49,092 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:56:49,092 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:56:49,101 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:56:49,101 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:56:49,101 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:56:49,102 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:56:49,102 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:56:59,103 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:56:59
+2025-08-20 09:56:59,103 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:56:59,103 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:56:59,893 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:56:59,893 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:57:00,769 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:57:00,769 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:57:00,769 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:57:00,769 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:57:00,773 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:57:00,773 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:57:00,774 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:57:10,776 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:57:10
+2025-08-20 09:57:10,776 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:57:10,776 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:57:11,225 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:57:11,225 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:57:11,832 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:57:11,832 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:57:11,832 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:57:11,834 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:57:11,834 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:57:11,834 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:57:11,835 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:57:21,836 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:57:21
+2025-08-20 09:57:21,836 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:57:21,836 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:57:23,389 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:57:23,389 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:57:24,016 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:57:24,016 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:57:24,016 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:57:24,016 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:57:24,016 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:57:24,019 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:57:24,019 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:57:34,022 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:57:34
+2025-08-20 09:57:34,022 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:57:34,022 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:57:35,235 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:57:35,235 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:57:36,513 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:57:36,513 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:57:36,513 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:57:36,518 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:57:36,518 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:57:36,518 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:57:36,518 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:57:46,520 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:57:46
+2025-08-20 09:57:46,520 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:57:46,521 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:57:47,048 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:57:47,048 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:57:47,559 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:57:47,559 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:57:47,561 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:57:47,561 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:57:47,562 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:57:47,562 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:57:47,562 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:57:57,564 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:57:57
+2025-08-20 09:57:57,564 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:57:57,564 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:57:58,111 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:57:58,111 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:57:58,627 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:57:58,627 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:57:58,627 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:57:58,629 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:57:58,629 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:57:58,629 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:57:58,631 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:58:08,631 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:58:08
+2025-08-20 09:58:08,631 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:58:08,631 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:58:09,284 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:58:09,284 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:58:10,093 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:58:10,093 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:58:10,093 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:58:10,093 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:58:10,093 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:58:10,093 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:58:10,093 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:58:20,099 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:58:20
+2025-08-20 09:58:20,099 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:58:20,099 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:58:20,843 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:58:20,843 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:58:21,359 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:58:21,359 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:58:21,359 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:58:21,359 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:58:21,359 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:58:21,359 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:58:21,371 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:58:31,372 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:58:31
+2025-08-20 09:58:31,372 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:58:31,372 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:58:31,952 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:58:31,952 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:58:32,581 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:58:32,581 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:58:32,581 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:58:32,588 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:58:32,588 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:58:32,620 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:58:32,623 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:58:42,628 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:58:42
+2025-08-20 09:58:42,628 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:58:42,628 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:58:43,174 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:58:43,174 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:58:43,694 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:58:43,694 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:58:43,694 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:58:43,694 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:58:43,697 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:58:43,697 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:58:43,697 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:58:53,699 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:58:53
+2025-08-20 09:58:53,699 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:58:53,699 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:58:54,109 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:58:54,109 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:58:54,495 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:58:54,495 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:58:54,495 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:58:54,495 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:58:54,497 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:58:54,497 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:58:54,497 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:59:04,498 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:59:04
+2025-08-20 09:59:04,498 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:59:04,499 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:59:05,092 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:59:05,092 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:59:05,615 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:59:05,615 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:59:05,615 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:59:05,615 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:59:05,621 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:59:05,622 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:59:05,622 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:59:15,623 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:59:15
+2025-08-20 09:59:15,623 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:59:15,623 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:59:16,039 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:59:16,039 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:59:16,546 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:59:16,552 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:59:16,552 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:59:16,553 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:59:16,553 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:59:16,553 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:59:16,553 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:59:26,556 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:59:26
+2025-08-20 09:59:26,556 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:59:26,556 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:59:27,206 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:59:27,206 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:59:28,109 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:59:28,109 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:59:28,109 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:59:28,114 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:59:28,114 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:59:28,115 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:59:28,115 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:59:38,116 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:59:38
+2025-08-20 09:59:38,117 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:59:38,117 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:59:38,668 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:59:38,669 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:59:39,073 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:59:39,073 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:59:39,073 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:59:39,073 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:59:39,073 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:59:39,073 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:59:39,078 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 09:59:49,079 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 09:59:49
+2025-08-20 09:59:49,079 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 09:59:49,079 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 09:59:49,628 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:59:49,628 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 09:59:50,199 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 09:59:50,199 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 09:59:50,199 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 09:59:50,206 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 09:59:50,206 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 09:59:50,206 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 09:59:50,206 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 10:00:00,208 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 10:00:00
+2025-08-20 10:00:00,208 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 10:00:00,208 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 10:00:00,886 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:00:00,886 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 10:00:01,267 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 10:00:01,267 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:00:01,267 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 10:00:01,267 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 10:00:01,267 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 10:00:01,267 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 10:00:01,267 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 10:00:11,278 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 10:00:11
+2025-08-20 10:00:11,278 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 10:00:11,278 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 10:00:11,849 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:00:11,849 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 10:00:12,367 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 10:00:12,367 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:00:12,375 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 10:00:12,375 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 10:00:12,375 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 10:00:12,375 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 10:00:12,375 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 10:00:22,379 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 10:00:22
+2025-08-20 10:00:22,379 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 10:00:22,379 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 10:00:22,843 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:00:22,843 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 10:00:23,514 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 10:00:23,514 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:00:23,514 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 10:00:23,514 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 10:00:23,521 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 10:00:23,521 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 10:00:23,521 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 10:00:33,523 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 10:00:33
+2025-08-20 10:00:33,523 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 10:00:33,523 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 10:00:34,073 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:00:34,073 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 10:00:34,591 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 10:00:34,591 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:00:34,591 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 10:00:34,594 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 10:00:34,594 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 10:00:34,594 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 10:00:34,595 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 10:00:44,597 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 10:00:44
+2025-08-20 10:00:44,597 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 10:00:44,597 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 10:00:45,252 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:00:45,252 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 10:00:46,375 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 10:00:46,375 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:00:46,375 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 10:00:46,375 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 10:00:46,375 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 10:00:46,375 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 10:00:46,375 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 10:00:56,386 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 10:00:56
+2025-08-20 10:00:56,386 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 10:00:56,388 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 10:00:56,903 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:00:56,903 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 10:00:57,412 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 10:00:57,412 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:00:57,412 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 10:00:57,412 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 10:00:57,416 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 10:00:57,416 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 10:00:57,416 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 10:01:07,417 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 10:01:07
+2025-08-20 10:01:07,417 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 10:01:07,417 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 10:01:07,967 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:01:07,967 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 10:01:08,436 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 10:01:08,437 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:01:08,437 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 10:01:08,437 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 10:01:08,439 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 10:01:08,439 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 10:01:08,439 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 10:01:18,443 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 10:01:18
+2025-08-20 10:01:18,443 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 10:01:18,443 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 10:01:18,880 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:01:18,880 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 10:01:19,338 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 10:01:19,344 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:01:19,344 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 10:01:19,346 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 10:01:19,346 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 10:01:19,346 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 10:01:19,347 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 10:01:29,348 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 10:01:29
+2025-08-20 10:01:29,348 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 10:01:29,348 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 10:01:29,890 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:01:29,890 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 10:01:36,942 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 10:01:36,942 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:01:36,942 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 10:01:36,942 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 10:01:36,949 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 10:01:36,949 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 10:01:36,950 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 10:01:46,951 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 10:01:46
+2025-08-20 10:01:46,952 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 10:01:46,952 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 10:01:47,449 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:01:47,449 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 10:01:47,997 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 10:01:47,997 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 10:01:48,001 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 10:01:48,001 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 10:01:48,001 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 10:01:48,001 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 10:01:48,001 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:39:26,147 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:39:26
+2025-08-20 11:39:26,194 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:39:26,306 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:39:30,135 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:39:30,135 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:39:30,847 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:39:30,848 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:39:30,848 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:39:30,848 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:39:30,850 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:39:30,851 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:39:30,851 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:39:40,853 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:39:40
+2025-08-20 11:39:40,853 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:39:40,855 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:39:41,381 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:39:41,381 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:39:41,955 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:39:41,955 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:39:41,955 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:39:41,955 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:39:41,971 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:39:41,971 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:39:41,971 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:39:51,974 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:39:51
+2025-08-20 11:39:51,974 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:39:51,974 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:39:52,574 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:39:52,574 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:39:53,110 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:39:53,110 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:39:53,110 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:39:53,110 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:39:53,110 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:39:53,121 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:39:53,121 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:40:03,122 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:40:03
+2025-08-20 11:40:03,122 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:40:03,122 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:40:03,770 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:40:03,770 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:40:04,265 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:40:04,265 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:40:04,265 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:40:04,270 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:40:04,270 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:40:04,270 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:40:04,272 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:40:14,272 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:40:14
+2025-08-20 11:40:14,272 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:40:14,273 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:40:14,797 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:40:14,797 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:40:15,318 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:40:15,318 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:40:15,318 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:40:15,318 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:40:15,318 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:40:15,324 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:40:15,324 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:40:25,326 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:40:25
+2025-08-20 11:40:25,326 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:40:25,326 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:40:25,964 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:40:25,964 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:40:26,576 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:40:26,576 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:40:26,576 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:40:26,576 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:40:26,576 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:40:26,576 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:40:26,576 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:40:36,580 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:40:36
+2025-08-20 11:40:36,580 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:40:36,580 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:40:37,134 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:40:37,134 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:40:37,649 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:40:37,659 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:40:37,659 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:40:37,660 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:40:37,660 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:40:37,663 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:40:37,663 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:40:47,665 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:40:47
+2025-08-20 11:40:47,665 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:40:47,665 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:40:48,187 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:40:48,187 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:40:48,623 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:40:48,623 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:40:48,625 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:40:48,626 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:40:48,626 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:40:48,626 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:40:48,626 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:40:58,629 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:40:58
+2025-08-20 11:40:58,629 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:40:58,629 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:40:59,139 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:40:59,139 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:40:59,760 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:40:59,760 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:40:59,760 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:40:59,760 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:40:59,760 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:40:59,760 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:40:59,760 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:41:09,779 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:41:09
+2025-08-20 11:41:09,779 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:41:09,781 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:41:10,423 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:41:10,423 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:41:10,924 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:41:10,924 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:41:10,924 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:41:10,924 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:41:10,924 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:41:10,924 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:41:10,924 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:41:20,937 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:41:20
+2025-08-20 11:41:20,937 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:41:20,937 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:41:21,414 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:41:21,414 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:41:21,980 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:41:21,980 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:41:21,980 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:41:21,980 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:41:21,988 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:41:21,988 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:41:21,988 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:41:31,991 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:41:31
+2025-08-20 11:41:31,991 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:41:31,991 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:41:32,632 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:41:32,632 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:41:33,243 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:41:33,243 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:41:33,243 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:41:33,247 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:41:33,247 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:41:33,247 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:41:33,247 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:41:43,250 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:41:43
+2025-08-20 11:41:43,250 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:41:43,250 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:41:43,797 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:41:43,797 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:41:44,405 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:41:44,405 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:41:44,405 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:41:44,415 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:41:44,415 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:41:44,417 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:41:44,417 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:41:54,419 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:41:54
+2025-08-20 11:41:54,419 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:41:54,419 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:41:54,960 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:41:54,960 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:41:55,461 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:41:55,461 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:41:55,461 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:41:55,470 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:41:55,470 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:41:55,471 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:41:55,471 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:42:05,472 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:42:05
+2025-08-20 11:42:05,472 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:42:05,472 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:42:05,941 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:42:05,941 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:42:06,526 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:42:06,526 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:42:06,526 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:42:06,526 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:42:06,533 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:42:06,533 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:42:06,533 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:42:16,534 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:42:16
+2025-08-20 11:42:16,534 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:42:16,534 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:42:17,074 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:42:17,074 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:42:17,587 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:42:17,587 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:42:17,587 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:42:17,587 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:42:17,587 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:42:17,587 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:42:17,587 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:42:27,600 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:42:27
+2025-08-20 11:42:27,600 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:42:27,600 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:42:28,507 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:42:28,514 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:42:29,870 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:42:29,870 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:42:29,870 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:42:29,879 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:42:29,879 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:42:29,879 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:42:29,879 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:42:39,882 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:42:39
+2025-08-20 11:42:39,882 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:42:39,882 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:42:40,421 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:42:40,421 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:42:41,025 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:42:41,025 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:42:41,025 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:42:41,035 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:42:41,035 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:42:41,035 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:42:41,035 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:42:51,039 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:42:51
+2025-08-20 11:42:51,040 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:42:51,040 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:42:51,655 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:42:51,655 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:42:52,502 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:42:52,502 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:42:52,502 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:42:52,502 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:42:52,502 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:42:52,502 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:42:52,504 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 11:43:02,505 [INFO] Heartbeat: Checking for trade setups at 2025-08-20 11:43:02
+2025-08-20 11:43:02,505 [INFO] Applying trade logic to 2 stocks.
+2025-08-20 11:43:02,505 [INFO] [Trade Candidate: NSE:HBLENGINE-EQ]
+2025-08-20 11:43:03,156 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:43:03,156 [INFO] [Trade Candidate: NSE:HAL-EQ]
+2025-08-20 11:43:03,658 [INFO] Skipping signal from previous day: 2025-08-19 11:20
+2025-08-20 11:43:03,658 [INFO] Skipping signal from previous day: 2025-08-19 12:40
+2025-08-20 11:43:03,658 [INFO] Skipping signal from previous day: 2025-08-19 14:45
+2025-08-20 11:43:03,658 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:20')
+2025-08-20 11:43:03,658 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:20
+2025-08-20 11:43:03,658 [INFO] Skipping already traded signal: ('NSE:HAL-EQ', '2025-08-20 09:45')
+2025-08-20 11:43:03,658 [INFO] Skipping duplicate trade for NSE:HAL-EQ at 2025-08-20 09:45
+2025-08-20 15:58:35,884 [INFO] Market closed. Sleeping for 60 seconds.
+2025-08-20 20:28:36,251 [INFO] Market closed. Sleeping for 60 seconds.
+2025-08-20 20:30:01,291 [INFO] Market closed. Sleeping for 60 seconds.
+2025-08-20 20:31:01,421 [INFO] Market closed, Exiting......

@@ -8,7 +8,8 @@ from tradingsetup.config.settings import (
     SIMULATE,
     MAX_TRADES,
     DATE_FROM,
-    DATE_TO
+    DATE_TO,
+    RR
 )
 from tradingsetup.utlis.logger import log
 from tradingsetup.utlis.trade_logger import (
@@ -120,7 +121,7 @@ def evaluate_trade_signal(candles, ema, symbol):
                     "action": "SELL",
                     "entry_price": prev_low,
                     "stop_loss": prev["high"],
-                    "target": prev_low - 3 * (prev["high"] - prev_low)
+                    "target": prev_low - int(RR) * (prev["high"] - prev_low)
                 })
 
         #log(f"Generated {signals} trade signals for {symbol}.")
@@ -165,15 +166,14 @@ def place_trade(fyers,symbol, price, sl, target, timestamp):
         }
         
         # Check if the symbol can be traded
-        if not can_trade(symbol=symbol, file_path=TRADE_LOG_FILE):
-            log(f"Cannot trade {symbol} as it has already been traded twice.")
-            return
-        
-        # Place the order
-        response = fyers.place_order(order_data)
-        log_trade_result(symbol, datetime.now().strftime("%Y-%m-%d %H:%M"), price, sl, target, status="success")
-        log(f"Trade placed successfully: {response}")
-    
+        if can_trade(symbol=symbol, file_path=TRADE_LOG_FILE):        
+            # Place the order
+            response = fyers.place_order(order_data)
+            log_trade_result(symbol, datetime.now().strftime("%Y-%m-%d %H:%M"), price, sl, target, status="success")
+            log(f"Trade placed successfully: {response}")
+        else:
+            log(f"Cannot trade {symbol} as it has already been traded twice.")     
+            
     except Exception as e:
         log(f"Error placing trade for {symbol}: {e}")
         log_trade_result(symbol, datetime.now().strftime("%Y-%m-%d %H:%M"), price, sl, target, status="failed", error_message=str(e))

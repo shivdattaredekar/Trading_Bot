@@ -33,8 +33,6 @@ def main():
         log("Authentication successful.")
 
     fyers = get_fyers_instance()
-    log("Authenticated Fyers instance created.")
-
     # Step 2: Filtering logic
     if os.path.exists(FILTERED_FILE):
         log(f"Loading filtered stocks from {FILTERED_FILE}...")
@@ -49,7 +47,7 @@ def main():
 
             # Stage 1: GAP-UP based filtering
             log("Starting WebSocket to fetch gap-up stocks...")
-            run_gapup_websocket(duration=10)
+            run_gapup_websocket(duration=50)
             
             if not os.path.exists("GapUp_stocks.json"):
                 log("No GapUp_stocks.json file  stocks found.")
@@ -87,7 +85,7 @@ def main():
             time.sleep(60)
             counter += 1
             if counter == 3:
-                log("Market closed for 5 minutes. Exiting.")
+                log("Market closed, Exiting......")
                 break
             continue
 
@@ -101,3 +99,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
