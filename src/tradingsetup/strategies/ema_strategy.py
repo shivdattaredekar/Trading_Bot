@@ -5,7 +5,8 @@ from tradingsetup.config.settings import (
     EMA_PERIOD,
     ORDER_QUANTITY,
     SIMULATE,
-    MAX_TRADES
+    MAX_TRADES,
+    CAPITAL
 )
 from tradingsetup.utlis.logger import log
 from tradingsetup.login.auth import get_fyers_instance
@@ -47,7 +48,7 @@ def evaluate_entry_and_trade(symbol):
             place_trade(symbol, price, sl, target)
             break
 
-def place_trade(symbol, price, sl, target):
+def place_trade(symbol, price, sl, target, CAPITAL):
     print(f"[TRADE] {symbol} - Entry: {price:.2f}, SL: {sl:.2f}, Target: {target:.2f}")
     log(symbol, price, sl, target, "SIMULATED" if SIMULATE else "LIVE")
 

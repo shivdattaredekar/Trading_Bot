@@ -1,0 +1,25 @@
+2025-09-10 20:12:56,064 [INFO] Starting trading script...
+2025-09-10 20:12:56,064 [INFO] Creating FyersModel instance with access token...
+2025-09-10 20:12:56,074 [INFO] Authenticated Fyers instance created.
+2025-09-10 20:12:56,075 [INFO] Fetching index symbols and running filtering stages...
+2025-09-10 20:12:56,075 [INFO] Starting WebSocket to fetch gap-up stocks...
+2025-09-10 20:12:56,630 [INFO] Loaded symbols from Stock_list.xlsx.
+2025-09-10 20:12:57,597 [INFO] Websocket connected
+2025-09-10 20:12:58,650 [INFO] WebSocket connection opened. Subscribing to data...
+2025-09-10 20:13:57,626 [INFO] Gap-up stocks saved to gapup_data.csv with 6 entries.
+2025-09-10 20:13:57,653 [INFO] Gap-up stocks loaded: 6
+2025-09-10 20:13:58,739 [INFO] Symbol              Gap Up %    Avg Volume  Status
+2025-09-10 20:13:58,739 [INFO] Included NSE:WELSPUNLIV-EQ | Volume: 4278784
+2025-09-10 20:13:58,739 [INFO] Included NSE:SWSOLAR-EQ | Volume: 2388928
+2025-09-10 20:13:58,739 [INFO] Included NSE:OFSS-EQ | Volume: 133674
+2025-09-10 20:13:58,739 [INFO] Included NSE:VTL-EQ | Volume: 1280013
+2025-09-10 20:13:58,739 [INFO] Included NSE:THERMAX-EQ | Volume: 381958
+2025-09-10 20:13:58,749 [INFO] Included NSE:INDUSTOWER-EQ | Volume: 8343644
+2025-09-10 20:13:58,764 [INFO] Final filtered stocks after volume check: 6
+2025-09-10 20:13:58,776 [INFO] Stocks to be traded: NSE:WELSPUNLIV-EQ, NSE:SWSOLAR-EQ, NSE:OFSS-EQ, NSE:VTL-EQ, NSE:THERMAX-EQ, NSE:INDUSTOWER-EQ
+2025-09-10 20:13:58,786 [INFO] Filtered stocks saved to filtered_stocks.json.
+2025-09-10 20:13:58,791 [INFO] Entering monitoring loop...
+2025-09-10 20:13:58,792 [INFO] Market closed. Sleeping for 60 seconds.
+2025-09-10 20:14:58,795 [INFO] Market closed. Sleeping for 60 seconds.
+2025-09-10 20:15:58,796 [INFO] Market closed. Sleeping for 60 seconds.
+2025-09-10 20:16:58,798 [INFO] Market closed, Exiting......

@@ -1,0 +1,6 @@
+2025-09-13 18:20:15,471 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-13 18:20:15,473 [INFO] [33mPress CTRL+C to quit[0m
+2025-09-13 18:21:02,997 [INFO] 127.0.0.1 - - [13/Sep/2025 18:21:02] "GET /callback?s=ok&code=200&auth_code=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBfaWQiOiJNWDNaSTYzOFlJIiwidXVpZCI6ImIzNDFiMzE4MDhiNTQ3NjVhYWMzYWQ0MDljYTJiNWMyIiwiaXBBZGRyIjoiIiwibm9uY2UiOiIiLCJzY29wZSI6IiIsImRpc3BsYXlfbmFtZSI6IlhSMDQ3NTAiLCJvbXMiOiJLMSIsImhzbV9rZXkiOiI1ZWUxMmUxN2I3NzExMGQ2MmZjZTZlNGU3YTA3YjFjMzU1MGNmNTYyMjZiMDZkYzU2NjUwYTE2ZCIsImlzRGRwaUVuYWJsZWQiOiJZIiwiaXNNdGZFbmFibGVkIjoiTiIsImF1ZCI6IltcImQ6MVwiLFwiZDoyXCIsXCJ4OjBcIixcIng6MVwiLFwieDoyXCJdIiwiZXhwIjoxNzU3Nzk3ODYzLCJpYXQiOjE3NTc3Njc4NjMsImlzcyI6ImFwaS5sb2dpbi5meWVycy5pbiIsIm5iZiI6MTc1Nzc2Nzg2Mywic3ViIjoiYXV0aF9jb2RlIn0.2dFaIphK_vbDtXsfpwLUP27egDDNCFR2ynJVhoxlVEY&state=sample HTTP/1.1" 200 -
+2025-09-13 18:21:03,194 [INFO] 127.0.0.1 - - [13/Sep/2025 18:21:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-13 18:21:04,230 [INFO] Authentication successful.

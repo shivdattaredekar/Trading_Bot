@@ -10,13 +10,18 @@ from src.tradingsetup.stock_filter.datasocket import run_gapup_websocket
 from src.tradingsetup.trade_logic.trade_executor import apply_trade_logic
 from src.tradingsetup.utlis.logger import log
 from src.tradingsetup.login.auth import get_fyers_instance
-from src.tradingsetup.login.fyers_auto_login import auto_login
+from src.tradingsetup.login.auth_manager import AuthManager 
 from src.tradingsetup.rate_limiter.counter import RateLimiter
+from src.tradingsetup.config.settings import MAX_TRADES
+from src.tradingsetup.utlis.trade_logger import TradeManager
 
 # Importing Datafiles
 FILTERED_FILE = "filtered_stocks.json"
 MARKET_START = dtime(9, 15)
-MARKET_END = dtime(15, 15)
+MARKET_END = dtime(15, 00)
+
+# Initialize TradeManager
+trade_manager = TradeManager(int(MAX_TRADES))
 
 # Checking for market condition
 def is_market_open():
@@ -27,12 +32,18 @@ def main():
     log("Starting trading script...")
 
     # Step 1: Authentication
-    if os.getenv("FYERS_ACCESS_TOKEN") is None:
-        log("FYERS_ACCESS_TOKEN not found. Authenticating...")
-        auto_login()
-        log("Authentication successful.")
+    log("Authenticating with Fyers to use its API...")
+    auth = AuthManager()
+    try:
+        auth.auto_login()
+        log("✅ Authentication successful.")
+    except Exception as e:
+        log(f"❌ Auth failed: {e}")
+        exit(1)
 
+    # This uses the valid access_token from .env 
     fyers = get_fyers_instance()
+
     # Step 2: Filtering logic
     if os.path.exists(FILTERED_FILE):
         log(f"Loading filtered stocks from {FILTERED_FILE}...")

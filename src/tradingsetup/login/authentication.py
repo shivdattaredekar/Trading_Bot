@@ -16,7 +16,7 @@ state = "sample"
 
 ### Connect to the sessionModel object here with the required input parameters
 appSession = fyersModel.SessionModel(client_id = client_id, redirect_uri = redirect_uri,
-                                     response_type=response_type,state=state,secret_key=secret_key,grant_type=grant_type)
+                                    response_type=response_type,state=state,secret_key=secret_key,grant_type=grant_type)
 
 # ## Make  a request to generate_authcode object this will return a login url which you need to open in your browser from where you can get the generated auth_code 
 generateTokenUrl = appSession.generate_authcode()

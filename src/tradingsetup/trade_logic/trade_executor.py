@@ -37,8 +37,8 @@ def apply_trade_logic(fyers,filtered_stocks, already_traded):
 
                 unique_key = (symbol, signal["timestamp"])
                 if unique_key in already_traded:
-                    log(f"Skipping already traded signal: {unique_key}")
-                    continue  # Skip duplicate trade
+                    #log(f"Skipping already traded signal: {unique_key}")
+                    continue  # Skip duplicate trade taken today
 
                 log(f"Executing trade for {symbol}: {signal}")
                 # Place the trade
@@ -48,3 +48,4 @@ def apply_trade_logic(fyers,filtered_stocks, already_traded):
         except Exception as e:
             log(f"Error evaluating trade for {symbol}: {e}")
             continue
+

@@ -18,6 +18,8 @@ TIMEFRAME = os.getenv("TIMEFRAME")
 GAP_UP_THRESHOLD = os.getenv("GAP_UP_THRESHOLD")
 MIN_VOLUME = os.getenv("MIN_VOLUME")
 RR = os.getenv('RR')
+CAPITAL = os.getenv("CAPITAL")  # Total capital for trading for the day
+CAPITAL_PER_TRADE = os.getenv("CAPITAL_PER_TRADE")  # Capital allocated per trade
 
 # Trading control
 MAX_TRADES = os.getenv("MAX_TRADES")

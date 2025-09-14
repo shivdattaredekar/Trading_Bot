@@ -1,8 +1,6 @@
 from fyers_apiv3 import fyersModel
-
 from tradingsetup.config.settings import CLIENT_ID, FYERS_ACCESS_TOKEN
 from tradingsetup.utlis.logger import log
-from tradingsetup.login.fyers_auto_login import auto_login
 
 # Function to create an authenticated Fyers instance
 def get_fyers_instance():

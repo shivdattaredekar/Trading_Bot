@@ -4,18 +4,21 @@ from datetime import datetime, timedelta
 import traceback
 from tradingsetup.config.settings import (
     EMA_PERIOD,
-    ORDER_QUANTITY,
+    CAPITAL_PER_TRADE,
     SIMULATE,
     MAX_TRADES,
     DATE_FROM,
     DATE_TO,
-    RR
+    RR,
+    CAPITAL
 )
 from tradingsetup.utlis.logger import log
 from tradingsetup.utlis.trade_logger import (
     log_trade_result,
     can_trade,
-    TRADE_LOG_FILE
+    TRADE_LOG_FILE,
+    order_quantity_calculator,
+    TradeManager
 )
 
 def get_5min_candles(fyers, symbol):
@@ -132,9 +135,25 @@ def evaluate_trade_signal(candles, ema, symbol):
         log(f"Error evaluating trade signals for {symbol}: {e}")
         return []
 
+# Initialize TradeManager
+trade_manager = TradeManager(int(MAX_TRADES))
 
-def place_trade(fyers,symbol, price, sl, target, timestamp):
-    log(f"[TRADE] {symbol} - Entry: {price:.2f}, SL: {sl:.2f}, Target: {target:.2f}")
+def place_trade(fyers, symbol, price, sl, target, timestamp):
+    
+    """
+    Places a trade using the Fyers API.
+    Args:
+        fyers: Fyers API client instance.
+        symbol (str): Stock symbol to trade.
+        price (float): Entry price for the trade.
+        sl (float): Stop loss price.
+        target (float): Target price.
+        timestamp (str): Timestamp of the trade signal.
+        max_trades (int): Maximum trades allowed per day.
+    Returns:
+        None
+    """
+    global trade_manager
 
     try:
 
@@ -147,12 +166,31 @@ def place_trade(fyers,symbol, price, sl, target, timestamp):
             return
 
         # Place the trade using Fyers API
-        log(f"Placing trade for {symbol} at price {price} with SL {sl} and Target {target}.")
-        
+        #log(f"Placing trade for {symbol} at price {price:.2f} with SL {sl:2f} and Target {target:.2f}.")
+
+        # Calculate order quantity based on CAPITAL_PER_TRADE and current price
+        ORDER_QUANTITY = order_quantity_calculator(CAPITAL_PER_TRADE, STOCK_PRICE=price, STOP_LOSS=sl)
+        log(f"Calculated order quantity for {symbol}: {ORDER_QUANTITY} shares based on CAPITAL_PER_TRADE: {CAPITAL_PER_TRADE} and stock price: {price}")
+
+        # Calculating SL
+        St_L = abs(price - sl)
+
+        if St_L >= abs(0.01* price):
+            St_L = abs(0.01* price)
+            target = abs(price - 3*St_L)
+
+        elif St_L <= 0.5:
+            St_L = 0.51
+            target = abs(price - 3*St_L)
+        else:
+            St_L = St_L
+            target = target
+        log(f"Final SL: {St_L:.2f}, Final Target: {target:.2f}")
+
         # Prepare order data
         order_data = {
             "symbol": symbol,
-            "qty": int(ORDER_QUANTITY),
+            "qty": ORDER_QUANTITY,
             "type": 2,  # Market order
             "side": -1,  # Sell
             "productType": "BO",
@@ -161,18 +199,25 @@ def place_trade(fyers,symbol, price, sl, target, timestamp):
             "validity": "DAY",
             "disclosedQty": 0,
             "offlineOrder": False,
-            "stopLoss": abs(price - sl),
+            "stopLoss": St_L,
             "takeProfit": abs(price - target)
         }
-        
-        # Check if the symbol can be traded
+                
+
         if can_trade(symbol=symbol, file_path=TRADE_LOG_FILE):        
-            # Place the order
-            response = fyers.place_order(order_data)
-            log_trade_result(symbol, datetime.now().strftime("%Y-%m-%d %H:%M"), price, sl, target, status="success")
-            log(f"Trade placed successfully: {response}")
+            # Update trade counts
+            if trade_manager.get_trades() >= int(MAX_TRADES):
+                log(f"Maximum trades reached for today. Cannot place more trades.")
+                return
+            else:    
+                # Place the order
+                response = fyers.place_order(order_data)
+                log_trade_result(symbol, datetime.now().strftime("%Y-%m-%d %H:%M"), price, sl, target, status="success")
+                log(f"Trade placed successfully: {response}")
+                trade_manager.create_trades()
         else:
-            log(f"Cannot trade {symbol} as it has already been traded twice.")     
+            log(f"Cannot trade {symbol} as it has already been traded twice today.")
+    
             
     except Exception as e:
         log(f"Error placing trade for {symbol}: {e}")
