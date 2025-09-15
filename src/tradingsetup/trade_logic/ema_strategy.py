@@ -212,9 +212,18 @@ def place_trade(fyers, symbol, price, sl, target, timestamp):
             else:    
                 # Place the order
                 response = fyers.place_order(order_data)
-                log_trade_result(symbol, datetime.now().strftime("%Y-%m-%d %H:%M"), price, sl, target, status="success")
-                log(f"Trade placed successfully: {response}")
-                trade_manager.create_trades()
+
+                if response.get('code') == 1101:
+                    status = "success"
+                    log_trade_result(symbol, datetime.now().strftime("%Y-%m-%d %H:%M"), price, sl, target, status=status)
+                    log(f"Order placed successfully: {response}")
+                    trade_manager.create_trades()
+                    
+                elif response.get('code') == -99:
+                    status = "failed"
+                    log_trade_result(symbol, datetime.now().strftime("%Y-%m-%d %H:%M"), price, sl, target, status=status)
+                    log(f"Failed to place order: {response}")
+                    
         else:
             log(f"Cannot trade {symbol} as it has already been traded twice today.")
     
