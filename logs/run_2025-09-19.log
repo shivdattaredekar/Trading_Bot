@@ -1053,3 +1053,85 @@
 2025-09-19 20:22:49,061 [INFO] file gapup_data.csv deleted successfully
 2025-09-19 20:22:49,061 [INFO] file gapup_data.json deleted successfully
 2025-09-19 20:22:49,061 [INFO] file trades.txt deleted successfully
+2025-09-19 22:47:04,576 [INFO] Starting trading script...
+2025-09-19 22:47:04,577 [INFO] Authenticating with Fyers to use its API...
+2025-09-19 22:47:05,777 [INFO] Access token is valid.
+2025-09-19 22:47:05,777 [INFO] Authentication is already done as access token is valid.
+2025-09-19 22:47:05,779 [INFO] Creating FyersModel instance with access token...
+2025-09-19 22:47:05,779 [INFO] Authenticated Fyers instance created.
+2025-09-19 22:47:05,781 [INFO] Fetching index symbols and running filtering stages...
+2025-09-19 22:47:05,781 [INFO] Starting WebSocket to fetch gap-up stocks...
+2025-09-19 22:47:06,624 [INFO] Loaded symbols from Stock_list.xlsx.
+2025-09-19 22:47:07,704 [INFO] Websocket connected
+2025-09-19 22:47:08,686 [INFO] WebSocket connection opened. Subscribing to data...
+2025-09-19 22:48:07,734 [INFO] Gap-up stocks saved to gapup_data.csv with 7 entries.
+2025-09-19 22:48:07,745 [INFO] Gap-up stocks loaded: 7
+2025-09-19 22:48:10,183 [INFO] Symbol              Gap Up %    Avg Volume  Status
+2025-09-19 22:48:10,183 [INFO] Included NSE:ATGL-EQ | Volume: 950364
+2025-09-19 22:48:10,183 [INFO] Included NSE:ADANIENSOL-EQ | Volume: 1750387
+2025-09-19 22:48:10,183 [INFO] Included NSE:ADANIPORTS-EQ | Volume: 1941437
+2025-09-19 22:48:10,183 [INFO] Included NSE:ADANIPOWER-EQ | Volume: 6768520
+2025-09-19 22:48:10,183 [INFO] Included NSE:ADANIENT-EQ | Volume: 930300
+2025-09-19 22:48:10,183 [INFO] Included NSE:ADANIGREEN-EQ | Volume: 1902603
+2025-09-19 22:48:10,183 [INFO] Included NSE:JSWENERGY-EQ | Volume: 2764880
+2025-09-19 22:48:10,191 [INFO] Final filtered stocks after volume check: 7
+2025-09-19 22:48:10,191 [INFO] Stocks to be traded: NSE:ATGL-EQ, NSE:ADANIENSOL-EQ, NSE:ADANIPORTS-EQ, NSE:ADANIPOWER-EQ, NSE:ADANIENT-EQ, NSE:ADANIGREEN-EQ, NSE:JSWENERGY-EQ
+2025-09-19 22:48:10,199 [INFO] Filtered stocks saved to filtered_stocks.json.
+2025-09-19 22:48:10,202 [INFO] Entering monitoring loop...
+2025-09-19 22:48:10,202 [INFO] file filtered_stocks.csv deleted successfully
+2025-09-19 22:48:10,206 [INFO] file filtered_stocks.json deleted successfully
+2025-09-19 22:48:10,208 [INFO] file gapup_data.csv deleted successfully
+2025-09-19 22:48:10,208 [INFO] file gapup_data.json deleted successfully
+2025-09-19 22:48:10,212 [INFO] file trades.txt deleted successfully
+2025-09-19 22:48:10,213 [INFO] Market closed. Sleeping for 60 seconds.
+2025-09-19 22:49:10,214 [INFO] file filtered_stocks.csv deleted successfully
+2025-09-19 22:49:10,215 [INFO] file filtered_stocks.json deleted successfully
+2025-09-19 22:49:10,215 [INFO] file gapup_data.csv deleted successfully
+2025-09-19 22:49:10,215 [INFO] file gapup_data.json deleted successfully
+2025-09-19 22:49:10,215 [INFO] file trades.txt deleted successfully
+2025-09-19 22:49:18,429 [INFO] Starting trading script...
+2025-09-19 22:49:18,431 [INFO] Authenticating with Fyers to use its API...
+2025-09-19 22:49:20,522 [INFO] Access token is valid.
+2025-09-19 22:49:20,522 [INFO] Authentication is already done as access token is valid.
+2025-09-19 22:49:20,522 [INFO] Creating FyersModel instance with access token...
+2025-09-19 22:49:20,522 [INFO] Authenticated Fyers instance created.
+2025-09-19 22:49:20,525 [INFO] Fetching index symbols and running filtering stages...
+2025-09-19 22:49:20,525 [INFO] Starting WebSocket to fetch gap-up stocks...
+2025-09-19 22:49:20,918 [INFO] Loaded symbols from Stock_list.xlsx.
+2025-09-19 22:49:21,916 [INFO] Websocket connected
+2025-09-19 22:49:22,921 [INFO] WebSocket connection opened. Subscribing to data...
+2025-09-19 22:50:21,935 [INFO] Gap-up stocks saved to gapup_data.csv with 7 entries.
+2025-09-19 22:50:21,941 [INFO] Gap-up stocks loaded: 7
+2025-09-19 22:50:24,114 [INFO] Symbol              Gap Up %    Avg Volume  Status
+2025-09-19 22:50:24,119 [INFO] Included NSE:ATGL-EQ | Volume: 950364
+2025-09-19 22:50:24,120 [INFO] Included NSE:ADANIENSOL-EQ | Volume: 1750387
+2025-09-19 22:50:24,120 [INFO] Included NSE:ADANIPORTS-EQ | Volume: 1941437
+2025-09-19 22:50:24,120 [INFO] Included NSE:ADANIPOWER-EQ | Volume: 6768520
+2025-09-19 22:50:24,120 [INFO] Included NSE:ADANIENT-EQ | Volume: 930300
+2025-09-19 22:50:24,120 [INFO] Included NSE:ADANIGREEN-EQ | Volume: 1902603
+2025-09-19 22:50:24,120 [INFO] Included NSE:JSWENERGY-EQ | Volume: 2764880
+2025-09-19 22:50:24,127 [INFO] Final filtered stocks after volume check: 7
+2025-09-19 22:50:24,127 [INFO] Stocks to be traded: NSE:ATGL-EQ, NSE:ADANIENSOL-EQ, NSE:ADANIPORTS-EQ, NSE:ADANIPOWER-EQ, NSE:ADANIENT-EQ, NSE:ADANIGREEN-EQ, NSE:JSWENERGY-EQ
+2025-09-19 22:50:24,127 [INFO] Filtered stocks saved to filtered_stocks.json.
+2025-09-19 22:50:24,127 [INFO] Entering monitoring loop...
+2025-09-19 22:50:24,127 [INFO] Market closed. Sleeping for 60 seconds.
+2025-09-19 22:51:24,131 [INFO] Market closed. Sleeping for 60 seconds.
+2025-09-19 22:56:19,265 [INFO] Starting trading script...
+2025-09-19 22:56:19,266 [INFO] Authenticating with Fyers to use its API...
+2025-09-19 22:56:20,788 [INFO] Access token is valid.
+2025-09-19 22:56:20,788 [INFO] Authentication is already done as access token is valid.
+2025-09-19 22:56:20,788 [INFO] Creating FyersModel instance with access token...
+2025-09-19 22:56:20,791 [INFO] Authenticated Fyers instance created.
+2025-09-19 22:56:20,791 [INFO] Loading filtered stocks from filtered_stocks.json...
+2025-09-19 22:56:20,791 [INFO] Loaded 7 stocks.
+2025-09-19 22:56:20,791 [INFO] Stocks to be traded: NSE:ATGL-EQ, NSE:ADANIENSOL-EQ, NSE:ADANIPORTS-EQ, NSE:ADANIPOWER-EQ, NSE:ADANIENT-EQ, NSE:ADANIGREEN-EQ, NSE:JSWENERGY-EQ
+2025-09-19 22:56:20,791 [INFO] Entering monitoring loop...
+2025-09-19 22:56:20,791 [INFO] Market closed. Sleeping for 60 seconds.
+2025-09-19 22:57:20,797 [INFO] Market closed. Sleeping for 60 seconds.
+2025-09-19 22:58:20,798 [INFO] Market closed. Sleeping for 60 seconds.
+2025-09-19 22:59:20,800 [INFO] file filtered_stocks.csv deleted successfully
+2025-09-19 22:59:20,802 [INFO] file filtered_stocks.json deleted successfully
+2025-09-19 22:59:20,808 [INFO] file gapup_data.csv deleted successfully
+2025-09-19 22:59:20,808 [INFO] file gapup_data.json deleted successfully
+2025-09-19 22:59:20,811 [INFO] file trades.txt deleted successfully
+2025-09-19 22:59:20,817 [INFO] Market closed, Exiting......

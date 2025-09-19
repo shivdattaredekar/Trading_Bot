@@ -11,4 +11,6 @@ truedata_ws
 fastapi 
 uvicorn 
 pyotp
+streamlit
+streamlit_autorefresh
 -e .

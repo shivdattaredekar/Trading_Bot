@@ -107,7 +107,7 @@ def can_trade(symbol, file_path=TRADE_LOG_FILE):
 
 # To clean the files daily
 def clean_up():
-    filename = ['filtered_stocks.csv','filtered_stocks.json','gapup_data.csv','gapup_data.json','trades.txt']
+    filename = ['filtered_stocks.csv','filtered_stocks.json','gapup_data.csv','gapup_data.json','trades.txt','GapUp_stocks.json']
     for file in filename:
         try:
             if os.path.exists(file):

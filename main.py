@@ -9,20 +9,16 @@ from src.tradingsetup.stock_filter.filter_logic import final_filter_with_volume
 from src.tradingsetup.stock_filter.datasocket import run_gapup_websocket
 from src.tradingsetup.trade_logic.trade_executor import apply_trade_logic
 from src.tradingsetup.utlis.logger import log
-from src.tradingsetup.login.auth import get_fyers_instance
-from src.tradingsetup.login.auth_manager import AuthManager 
+from src.tradingsetup.login.auth import get_fyers_instance, is_access_token_valid
+from src.tradingsetup.login.authentication import auto_login
 from src.tradingsetup.rate_limiter.counter import RateLimiter
 from src.tradingsetup.config.settings import MAX_TRADES
-from src.tradingsetup.utlis.trade_logger import TradeManager, clean_up
+from src.tradingsetup.utlis.trade_logger import  clean_up
 
 # Importing Datafiles
 FILTERED_FILE = "filtered_stocks.json"
 MARKET_START = dtime(9, 15)
 MARKET_END = dtime(15, 00)
-
-# Initialize TradeManager
-TRADE_FILE = 'trades.txt'
-trade_manager = TradeManager(int(MAX_TRADES), trade_file=TRADE_FILE)
 
 # Checking for market condition
 def is_market_open():
@@ -31,15 +27,16 @@ def is_market_open():
 
 def main():
     log("Starting trading script...")
-
+    
     # Step 1: Authentication
     log("Authenticating with Fyers to use its API...")
-    auth = AuthManager()
     try:
-        auth.auto_login()
-        log("✅ Authentication successful.")
+        if not is_access_token_valid():
+            auto_login()
+            log("Authentication successful.")
+        log("Authentication is already done as access token is valid.")
     except Exception as e:
-        log(f"❌ Auth failed: {e}")
+        log(f"Auth failed: {e}")
         exit(1)
 
     # This uses the valid access_token from .env 
@@ -93,11 +90,11 @@ def main():
     counter = 0
     while True:
         if not is_market_open():
-            clean_up()
             log("Market closed. Sleeping for 60 seconds.")
             time.sleep(60)
             counter += 1
             if counter == 3:
+                clean_up()
                 log("Market closed, Exiting......")
                 break
             continue

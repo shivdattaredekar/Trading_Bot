@@ -4,33 +4,22 @@ import pyotp
 import hashlib
 from urllib import parse
 import sys
-from src.tradingsetup.utlis.logger import log
-from src.tradingsetup.config.settings import (
-                                            FYERS_CLIENT_ID,
-                                            LOGIN_CLIENT_ID,
-                                            PIN,
-                                            SECRET_KEY,
-                                            TOTP_SECRET_KEY,
-                                            REDIRECT_URI                                                
-                                                )
-from dotenv import set_key 
-
-
+#from src.tradingsetup.config.settings import (CLIENT_ID,PIN,SECRET_KEY,)
 
 
 # This script will only work if TOTP is enabled. 
 # You can enable TOTP using this link: https://myaccount.fyers.in/ManageAccount >> External 2FA TOTP >> click on "Enable".
 
 # Client Information (ENTER YOUR OWN INFO HERE! Data varies from users and app types)
-CLIENT_ID = FYERS_CLIENT_ID       # Your Fyers Client ID
-PIN = PIN               # User pin for Fyers account
-APP_ID = str(LOGIN_CLIENT_ID.split('-')[0])        # App ID from MyAPI dashboard (https://myapi.fyers.in/dashboard). The format is appId-appType. 
+CLIENT_ID = "XR04750"       # Your Fyers Client ID
+PIN = "1995"               # User pin for Fyers account
+APP_ID = "MX3ZI638YI"        # App ID from MyAPI dashboard (https://myapi.fyers.in/dashboard). The format is appId-appType. 
 # Example: YIXXXXXSE-100. In this code, YIXXXXXSE is the APP_ID and 100 is the APP_TYPE
-APP_TYPE = str(LOGIN_CLIENT_ID.split('-')[1])
-APP_SECRET = str(SECRET_KEY)   # App Secret from myapi dashboard (https://myapi.fyers.in/dashboard)
-TOTP_SECRET_KEY = str(TOTP_SECRET_KEY)  # TOTP secret key, copy the secret while enabling TOTP.
+APP_TYPE = "100"
+APP_SECRET = "2IC9MIKXVJ"   # App Secret from myapi dashboard (https://myapi.fyers.in/dashboard)
+TOTP_SECRET_KEY = "Z4SMDAFYBQA6QMMNKC6KPFVFDENDTFHH"  # TOTP secret key, copy the secret while enabling TOTP.
 
-REDIRECT_URI = str(REDIRECT_URI)  # Redirect URL from the app
+REDIRECT_URI = "http://127.0.0.1:5000/callback"  # Redirect URL from the app
 
 # NOTE: Do not share these secrets with anyone.
 
@@ -180,74 +169,131 @@ def validate_authcode(auth_code):
         return [ERROR, e]
 
 
-def auto_login():
-    try:
-        # Step 1 - Retrieve request_key from verify_client_id Function
-        verify_client_id_result = verify_client_id(client_id=CLIENT_ID)
-        if verify_client_id_result[0] != SUCCESS:
-            print(f"verify_client_id failure - {verify_client_id_result[1]}")
-            sys.exit()
-        else:
-            print("verify_client_id success")
+def main():
+    # Step 1 - Retrieve request_key from verify_client_id Function
+    verify_client_id_result = verify_client_id(client_id=CLIENT_ID)
+    if verify_client_id_result[0] != SUCCESS:
+        print(f"verify_client_id failure - {verify_client_id_result[1]}")
+        sys.exit()
+    else:
+        print("verify_client_id success")
 
-        # Step 2 - Generate totp
-        generate_totp_result = generate_totp(secret=TOTP_SECRET_KEY)
-        if generate_totp_result[0] != SUCCESS:
-            print(f"generate_totp failure - {generate_totp_result[1]}")
-            sys.exit()
-        else:
-            print("generate_totp success")
+    # Step 2 - Generate totp
+    generate_totp_result = generate_totp(secret=TOTP_SECRET_KEY)
+    if generate_totp_result[0] != SUCCESS:
+        print(f"generate_totp failure - {generate_totp_result[1]}")
+        sys.exit()
+    else:
+        print("generate_totp success")
 
-        # Step 3 - Verify totp and get request key from verify_totp Function.
-        request_key = verify_client_id_result[1]
-        totp = generate_totp_result[1]
-        verify_totp_result = verify_totp(request_key=request_key, totp=totp)
-        if verify_totp_result[0] != SUCCESS:
-            print(f"verify_totp_result failure - {verify_totp_result[1]}")
-            sys.exit()
-        else:
-            print("verify_totp_result success")
-        
-        # Step 4 - Verify pin and send back access token
-        request_key_2 = verify_totp_result[1]
-        verify_pin_result = verify_PIN(request_key=request_key_2, pin=PIN)
-        if verify_pin_result[0] != SUCCESS:
-            print(f"verify_pin_result failure - {verify_pin_result[1]}")
-            sys.exit()
-        else:
-            print("verify_pin_result success")
-        
-        # Step 5 - Get auth code for API V3 App from trade access token
-        token_result = token(
-            client_id=CLIENT_ID, app_id=APP_ID, redirect_uri=REDIRECT_URI, app_type=APP_TYPE,
-            access_token=verify_pin_result[1]
-        )
-        if token_result[0] != SUCCESS:
-            print(f"token_result failure - {token_result[1]}")
-            sys.exit()
-        else:
-            print("token_result success")
-
-        # Step 6 - Get API V3 access token from validating auth code
-        auth_code = token_result[1]
-        validate_authcode_result = validate_authcode(auth_code=auth_code)
-        if token_result[0] != SUCCESS:
-            print(f"validate_authcode failure - {validate_authcode_result[1]}")
-            sys.exit()
-        else:
-            print("validate_authcode success")
-        
-        access_token = APP_ID + "-" + APP_TYPE + ":" + validate_authcode_result[1]
-
-        final_access_token = access_token.split(':')[1]
-        set_key('.env', 'FYERS_ACCESS_TOKEN', final_access_token)
-        log(f"Authentication successful")
+    # Step 3 - Verify totp and get request key from verify_totp Function.
+    request_key = verify_client_id_result[1]
+    totp = generate_totp_result[1]
+    verify_totp_result = verify_totp(request_key=request_key, totp=totp)
+    if verify_totp_result[0] != SUCCESS:
+        print(f"verify_totp_result failure - {verify_totp_result[1]}")
+        sys.exit()
+    else:
+        print("verify_totp_result success")
     
-    except Exception as e:
-        log(f"Authentication failed - {e}")
-        
+    # Step 4 - Verify pin and send back access token
+    request_key_2 = verify_totp_result[1]
+    verify_pin_result = verify_PIN(request_key=request_key_2, pin=PIN)
+    if verify_pin_result[0] != SUCCESS:
+        print(f"verify_pin_result failure - {verify_pin_result[1]}")
+        sys.exit()
+    else:
+        print("verify_pin_result success")
+    
+    # Step 5 - Get auth code for API V3 App from trade access token
+    token_result = token(
+        client_id=CLIENT_ID, app_id=APP_ID, redirect_uri=REDIRECT_URI, app_type=APP_TYPE,
+        access_token=verify_pin_result[1]
+    )
+    if token_result[0] != SUCCESS:
+        print(f"token_result failure - {token_result[1]}")
+        sys.exit()
+    else:
+        print("token_result success")
+
+    # Step 6 - Get API V3 access token from validating auth code
+    auth_code = token_result[1]
+    validate_authcode_result = validate_authcode(auth_code=auth_code)
+    if token_result[0] != SUCCESS:
+        print(f"validate_authcode failure - {validate_authcode_result[1]}")
+        sys.exit()
+    else:
+        print("validate_authcode success")
+    
+    access_token = APP_ID + "-" + APP_TYPE + ":" + validate_authcode_result[1]
+
+    print(f"\naccess_token - {access_token}\n")
+
 if __name__ == "__main__":
-    auto_login()
+    main()
 
 
 
+
+"""
+# Code for trade manager 
+
+from src.tradingsetup.utlis.logger import log
+
+import os
+import json
+
+trade_file = 'trades.txt'
+
+class TradeManager:
+    Manages the number of trades taken in a day.
+    args:
+        MAX_TRADES (int): Maximum number of trades allowed in a day.
+    Returns:
+        Remaining trades after each trade creation.
+
+    def __init__(self, MAX_TRADES:int):
+        self.max_trades = MAX_TRADES
+        
+        # Initialize file if not exists
+        if not os.path.exists(trade_file):
+            with open(trade_file, 'w') as f:
+                json.dump({'trades_taken': 0}, f)
+        
+        # Load trades from file    
+        with open(trade_file,'r') as f:
+            data = json.load(f)
+        
+        self.trades_taken = data.get('trades_taken', 0)
+
+    def create_trades(self):
+        # Increment counter
+        self.trades_taken += 1
+
+        # Log status
+        log(f"Trades taken today: {self.trades_taken}")
+        log(f"Remaining trades for the day: {self.max_trades - self.trades_taken}")
+        
+        # Save back to the file
+        with open(trade_file, 'w') as f:
+            json.dump({'trades_taken':self.trades_taken}, f)        
+
+    def get_trades(self):
+        return self.trades_taken
+
+
+
+
+
+
+a = TradeManager(6)
+a.create_trades()
+a.get_trades
+
+now = datetime.now().time()
+then = time(15,30)
+print(now>time)
+
+    
+
+"""

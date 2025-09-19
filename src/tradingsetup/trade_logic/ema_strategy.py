@@ -136,7 +136,9 @@ def evaluate_trade_signal(candles, ema, symbol):
         return []
 
 # Initialize TradeManager
-trade_manager = TradeManager(int(MAX_TRADES))
+TRADE_FILE = 'trades.txt'
+trade_manager = TradeManager(int(MAX_TRADES), trade_file=TRADE_FILE)
+
 
 def place_trade(fyers, symbol, price, sl, target, timestamp):
     

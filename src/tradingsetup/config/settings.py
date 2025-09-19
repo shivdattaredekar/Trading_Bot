@@ -14,8 +14,12 @@ GRANT_TYPE = os.getenv("GRANT_TYPE")
 RESPONSE_TYPE = os.getenv("RESPONSE_TYPE")
 APP_URL = os.getenv("APP_URL")
 GRANT_TYPE2=os.getenv("GRANT_TYPE2")
-PIN = int(os.getenv("PIN"))
+PIN = str(os.getenv("PIN"))
 APP_URL_V2 = os.getenv("APP_URL_V2")
+FYERS_CLIENT_ID = os.getenv("FYERS_CLIENT_ID")
+TOTP_SECRET_KEY = os.getenv("TOTP_SECRET_KEY")
+LOGIN_CLIENT_ID = os.getenv("LOGIN_CLIENT_ID")
+
 
 # Strategy parameters
 EMA_PERIOD = os.getenv("EMA_PERIOD")
