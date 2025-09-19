@@ -8,13 +8,14 @@ from datetime import datetime, timedelta
 CLIENT_ID = os.getenv("CLIENT_ID")
 SECRET_KEY = os.getenv("SECRET_KEY")
 REDIRECT_URI = os.getenv("REDIRECT_URI")
-FYERS_ACCESS_TOKEN = os.getenv("FYERS_ACCESS_TOKEN")  # You can update this dynamically if needed
+FYERS_ACCESS_TOKEN = os.getenv("FYERS_ACCESS_TOKEN")
+FYERS_REFRESH_TOKEN = os.getenv("FYERS_REFRESH_TOKEN")  # You can update this dynamically if needed
 GRANT_TYPE = os.getenv("GRANT_TYPE")
 RESPONSE_TYPE = os.getenv("RESPONSE_TYPE")
 APP_URL = os.getenv("APP_URL")
 GRANT_TYPE2=os.getenv("GRANT_TYPE2")
 PIN = int(os.getenv("PIN"))
-
+APP_URL_V2 = os.getenv("APP_URL_V2")
 
 # Strategy parameters
 EMA_PERIOD = os.getenv("EMA_PERIOD")

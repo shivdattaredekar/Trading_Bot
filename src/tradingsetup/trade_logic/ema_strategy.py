@@ -203,7 +203,7 @@ def place_trade(fyers, symbol, price, sl, target, timestamp):
             "takeProfit": abs(price - target)
         }
                 
-
+        #log(f"Checking if we can trade the {symbol}")
         if can_trade(symbol=symbol, file_path=TRADE_LOG_FILE):        
             # Update trade counts
             if trade_manager.get_trades() >= int(MAX_TRADES):
@@ -211,7 +211,10 @@ def place_trade(fyers, symbol, price, sl, target, timestamp):
                 return
             else:    
                 # Place the order
+                log(f"Sending order request for {symbol}: {order_data}")
                 response = fyers.place_order(order_data)
+                log(f"Received response for {symbol}: {response}")
+                
 
                 if response.get('code') == 1101:
                     status = "success"

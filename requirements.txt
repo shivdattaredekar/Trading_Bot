@@ -8,4 +8,7 @@ openpyxl
 python-dotenv
 ipykernel
 truedata_ws
+fastapi 
+uvicorn 
+pyotp
 -e .

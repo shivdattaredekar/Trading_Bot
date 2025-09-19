@@ -1,6 +1,7 @@
 import csv
 import os
-from datetime import datetime
+import json
+from datetime import datetime, time
 from tradingsetup.config.settings import CAPITAL_PER_TRADE, CAPITAL
 from tradingsetup.utlis.logger import log
 
@@ -64,23 +65,54 @@ class TradeManager:
         Remaining trades after each trade creation.
     """
 
-    def __init__(self, MAX_TRADES):
+    def __init__(self, MAX_TRADES:int, trade_file:str):
         self.max_trades = MAX_TRADES
-        self.trades_taken = 0
+        self.trade_file = trade_file
+        # Initialize file if not exists
+        if not os.path.exists(trade_file):
+            with open(trade_file, 'w') as f:
+                json.dump({'trades_taken': 0}, f)
+        
+        # Load trades from file    
+        with open(self.trade_file,'r') as f:
+            data = json.load(f)
+        
+        self.trades_taken = data.get('trades_taken', 0)
 
     def create_trades(self):
+        # Increment counter
         self.trades_taken += 1
+
+        # Log status
         log(f"Trades taken today: {self.trades_taken}")
         log(f"Remaining trades for the day: {self.max_trades - self.trades_taken}")
+        
+        # Save back to the file
+        with open(self.trade_file, 'w') as f:
+            json.dump({'trades_taken':self.trades_taken}, f)        
 
     def get_trades(self):
         return self.trades_taken
 
-# If trades for any symbol are equal to two then don't trade again on that symbol 
 
+
+
+# If trades for any symbol are equal to two then don't trade again on that symbol 
 def can_trade(symbol, file_path=TRADE_LOG_FILE):
             
     trades = check_trades(symbol, file_path)
     if len(trades) >= 2:
         return False
     return True 
+
+# To clean the files daily
+def clean_up():
+    filename = ['filtered_stocks.csv','filtered_stocks.json','gapup_data.csv','gapup_data.json','trades.txt']
+    for file in filename:
+        try:
+            if os.path.exists(file):
+                os.remove(file)
+            log(f"file {file} deleted successfully")
+
+        except Exception as e:
+            log(f"Error deleting file {file}: {e}")

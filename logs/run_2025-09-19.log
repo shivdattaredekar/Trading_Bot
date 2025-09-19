@@ -1,0 +1,1055 @@
+2025-09-19 09:20:22,292 [INFO] Starting trading script...
+2025-09-19 09:20:22,292 [INFO] Authenticating with Fyers to use its API...
+2025-09-19 09:20:23,413 [INFO] Token valid, skipping login.
+2025-09-19 09:20:23,478 [INFO] Creating FyersModel instance with access token...
+2025-09-19 09:20:23,479 [INFO] Authenticated Fyers instance created.
+2025-09-19 09:20:23,481 [INFO] Fetching index symbols and running filtering stages...
+2025-09-19 09:20:23,481 [INFO] Starting WebSocket to fetch gap-up stocks...
+2025-09-19 09:20:24,126 [INFO] Loaded symbols from Stock_list.xlsx.
+2025-09-19 09:20:25,257 [INFO] Websocket connected
+2025-09-19 09:20:26,150 [INFO] WebSocket connection opened. Subscribing to data...
+2025-09-19 09:21:25,284 [INFO] Gap-up stocks saved to gapup_data.csv with 7 entries.
+2025-09-19 09:21:25,325 [INFO] Gap-up stocks loaded: 7
+2025-09-19 09:21:26,811 [INFO] Symbol              Gap Up %    Avg Volume  Status
+2025-09-19 09:21:26,811 [INFO] Included NSE:ATGL-EQ | Volume: 633507
+2025-09-19 09:21:26,812 [INFO] Included NSE:ADANIENSOL-EQ | Volume: 1590012
+2025-09-19 09:21:26,812 [INFO] Included NSE:ADANIPORTS-EQ | Volume: 1785276
+2025-09-19 09:21:26,813 [INFO] Included NSE:ADANIPOWER-EQ | Volume: 4941480
+2025-09-19 09:21:26,814 [INFO] Included NSE:ADANIENT-EQ | Volume: 778320
+2025-09-19 09:21:26,814 [INFO] Included NSE:ADANIGREEN-EQ | Volume: 1544298
+2025-09-19 09:21:26,816 [INFO] Included NSE:JSWENERGY-EQ | Volume: 2685361
+2025-09-19 09:21:26,818 [INFO] Final filtered stocks after volume check: 7
+2025-09-19 09:21:26,821 [INFO] Stocks to be traded: NSE:ATGL-EQ, NSE:ADANIENSOL-EQ, NSE:ADANIPORTS-EQ, NSE:ADANIPOWER-EQ, NSE:ADANIENT-EQ, NSE:ADANIGREEN-EQ, NSE:JSWENERGY-EQ
+2025-09-19 09:21:26,823 [INFO] Filtered stocks saved to filtered_stocks.json.
+2025-09-19 09:21:26,823 [INFO] Entering monitoring loop...
+2025-09-19 09:21:26,825 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 09:21:26
+2025-09-19 09:21:26,825 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 09:21:26,825 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 09:21:27,519 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 09:21:28,242 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 09:21:29,059 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 09:21:29,937 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 09:21:30,901 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 09:21:31,668 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 09:21:32,436 [INFO] Executing trade for NSE:JSWENERGY-EQ: {'timestamp': '2025-09-19 09:20', 'action': 'SELL', 'entry_price': 545.1, 'stop_loss': 552, 'target': 524.4000000000001}
+2025-09-19 09:21:32,438 [INFO] Calculated order quantity for NSE:JSWENERGY-EQ: 14 shares based on CAPITAL_PER_TRADE: 100 and stock price: 545.1
+2025-09-19 09:21:32,438 [INFO] Final SL: 5.45, Final Target: 528.75
+2025-09-19 09:21:32,438 [INFO] Checking if we can trade the NSE:JSWENERGY-EQ
+2025-09-19 09:21:43,809 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 09:21:43
+2025-09-19 09:21:43,809 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 09:21:43,809 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 09:21:44,539 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 09:21:45,545 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 09:21:46,471 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 09:21:47,404 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 09:21:48,107 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 09:21:49,026 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 09:21:59,952 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 09:21:59
+2025-09-19 09:21:59,952 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 09:21:59,952 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 09:22:00,911 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 09:22:01,794 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 09:22:03,668 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 09:22:05,991 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 09:22:07,950 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 09:22:10,126 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 09:22:24,458 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 09:22:24
+2025-09-19 09:22:24,458 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 09:22:24,458 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 09:22:25,788 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 09:22:27,021 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 09:22:28,244 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 09:22:29,160 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 09:22:30,012 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 09:22:31,433 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 09:22:42,451 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 09:22:42
+2025-09-19 09:22:42,451 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 09:22:42,451 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 09:22:43,094 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 09:22:43,709 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 09:22:44,320 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 09:22:45,048 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 09:22:45,655 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 09:22:46,372 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 09:22:57,108 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 09:22:57
+2025-09-19 09:22:57,108 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 09:22:57,108 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 09:22:57,993 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 09:22:58,763 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 09:22:59,532 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 09:23:00,836 [INFO] Executing trade for NSE:ADANIPOWER-EQ: {'timestamp': '2025-09-19 09:20', 'action': 'SELL', 'entry_price': 670.05, 'stop_loss': 686.95, 'target': 619.3499999999997}
+2025-09-19 09:23:00,836 [INFO] Calculated order quantity for NSE:ADANIPOWER-EQ: 5 shares based on CAPITAL_PER_TRADE: 100 and stock price: 670.05
+2025-09-19 09:23:00,836 [INFO] Final SL: 6.70, Final Target: 649.95
+2025-09-19 09:23:00,836 [INFO] Checking if we can trade the NSE:ADANIPOWER-EQ
+2025-09-19 09:23:04,265 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 09:23:05,420 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 09:23:06,250 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 09:28:36,568 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 09:28:36
+2025-09-19 09:28:36,640 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 09:28:36,804 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 09:29:21,227 [INFO] Executing trade for NSE:ATGL-EQ: {'timestamp': '2025-09-19 09:25', 'action': 'SELL', 'entry_price': 663.35, 'stop_loss': 671.95, 'target': 637.55}
+2025-09-19 09:29:21,227 [INFO] Calculated order quantity for NSE:ATGL-EQ: 11 shares based on CAPITAL_PER_TRADE: 100 and stock price: 663.35
+2025-09-19 09:29:21,227 [INFO] Final SL: 6.63, Final Target: 643.45
+2025-09-19 09:29:21,227 [INFO] Checking if we can trade the NSE:ATGL-EQ
+2025-09-19 09:30:04,339 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 09:30:47,653 [INFO] Executing trade for NSE:ADANIENSOL-EQ: {'timestamp': '2025-09-19 09:25', 'action': 'SELL', 'entry_price': 868.25, 'stop_loss': 876.75, 'target': 842.75}
+2025-09-19 09:30:47,653 [INFO] Trade for NSE:ADANIENSOL-EQ at 2025-09-19 09:25 is outside the trading window. as current time is 09:30:47.653205 hence Skipping.
+2025-09-19 09:30:47,655 [INFO] Executing trade for NSE:ADANIENSOL-EQ: {'timestamp': '2025-09-19 09:30', 'action': 'SELL', 'entry_price': 867.6, 'stop_loss': 870.55, 'target': 858.7500000000002}
+2025-09-19 09:30:47,655 [INFO] Calculated order quantity for NSE:ADANIENSOL-EQ: 33 shares based on CAPITAL_PER_TRADE: 100 and stock price: 867.6
+2025-09-19 09:30:47,655 [INFO] Final SL: 2.95, Final Target: 858.75
+2025-09-19 09:30:47,655 [INFO] Checking if we can trade the NSE:ADANIENSOL-EQ
+2025-09-19 09:31:31,073 [INFO] Order placed successfully: {'code': 1101, 'message': 'Successfully placed order', 's': 'ok', 'id': '25091900034928-BO-1'}
+2025-09-19 09:31:31,073 [INFO] Trades taken today: 1
+2025-09-19 09:31:31,076 [INFO] Remaining trades for the day: 5
+2025-09-19 09:31:31,077 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 09:32:14,285 [INFO] Executing trade for NSE:ADANIPORTS-EQ: {'timestamp': '2025-09-19 09:25', 'action': 'SELL', 'entry_price': 1438.8, 'stop_loss': 1447.9, 'target': 1411.4999999999995}
+2025-09-19 09:32:14,285 [INFO] Trade for NSE:ADANIPORTS-EQ at 2025-09-19 09:25 is outside the trading window. as current time is 09:32:14.285980 hence Skipping.
+2025-09-19 09:32:14,285 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 09:32:58,364 [INFO] Executing trade for NSE:ADANIPOWER-EQ: {'timestamp': '2025-09-19 09:30', 'action': 'SELL', 'entry_price': 673, 'stop_loss': 679.5, 'target': 653.5}
+2025-09-19 09:32:58,365 [INFO] Calculated order quantity for NSE:ADANIPOWER-EQ: 15 shares based on CAPITAL_PER_TRADE: 100 and stock price: 673
+2025-09-19 09:32:58,365 [INFO] Final SL: 6.50, Final Target: 653.50
+2025-09-19 09:32:58,365 [INFO] Checking if we can trade the NSE:ADANIPOWER-EQ
+2025-09-19 09:33:41,533 [INFO] Order placed successfully: {'code': 1101, 'message': 'Successfully placed order', 's': 'ok', 'id': '25091900038998-BO-1'}
+2025-09-19 09:33:41,533 [INFO] Trades taken today: 2
+2025-09-19 09:33:41,536 [INFO] Remaining trades for the day: 4
+2025-09-19 09:33:41,536 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 09:34:25,162 [INFO] Executing trade for NSE:ADANIENT-EQ: {'timestamp': '2025-09-19 09:25', 'action': 'SELL', 'entry_price': 2500, 'stop_loss': 2515, 'target': 2455}
+2025-09-19 09:34:25,162 [INFO] Trade for NSE:ADANIENT-EQ at 2025-09-19 09:25 is outside the trading window. as current time is 09:34:25.162674 hence Skipping.
+2025-09-19 09:34:25,164 [INFO] Executing trade for NSE:ADANIENT-EQ: {'timestamp': '2025-09-19 09:30', 'action': 'SELL', 'entry_price': 2495, 'stop_loss': 2508.2, 'target': 2455.4000000000005}
+2025-09-19 09:34:25,166 [INFO] Calculated order quantity for NSE:ADANIENT-EQ: 7 shares based on CAPITAL_PER_TRADE: 100 and stock price: 2495
+2025-09-19 09:34:25,166 [INFO] Final SL: 13.20, Final Target: 2455.40
+2025-09-19 09:34:25,166 [INFO] Checking if we can trade the NSE:ADANIENT-EQ
+2025-09-19 09:35:08,373 [INFO] Order placed successfully: {'code': 1101, 'message': 'Successfully placed order', 's': 'ok', 'id': '25091900042489-BO-1'}
+2025-09-19 09:35:08,374 [INFO] Trades taken today: 3
+2025-09-19 09:35:08,375 [INFO] Remaining trades for the day: 3
+2025-09-19 09:35:08,375 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 09:35:51,581 [INFO] Executing trade for NSE:ADANIGREEN-EQ: {'timestamp': '2025-09-19 09:25', 'action': 'SELL', 'entry_price': 1013.65, 'stop_loss': 1020.85, 'target': 992.0499999999998}
+2025-09-19 09:35:51,581 [INFO] Trade for NSE:ADANIGREEN-EQ at 2025-09-19 09:25 is outside the trading window. as current time is 09:35:51.581913 hence Skipping.
+2025-09-19 09:35:51,581 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 09:36:34,804 [INFO] Executing trade for NSE:JSWENERGY-EQ: {'timestamp': '2025-09-19 09:30', 'action': 'SELL', 'entry_price': 546.1, 'stop_loss': 550.65, 'target': 532.4500000000002}
+2025-09-19 09:36:34,804 [INFO] Trade for NSE:JSWENERGY-EQ at 2025-09-19 09:30 is outside the trading window. as current time is 09:36:34.804984 hence Skipping.
+2025-09-19 09:36:44,807 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 09:36:44
+2025-09-19 09:36:44,807 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 09:36:44,807 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 09:37:28,055 [INFO] Executing trade for NSE:ATGL-EQ: {'timestamp': '2025-09-19 09:30', 'action': 'SELL', 'entry_price': 662.55, 'stop_loss': 668.4, 'target': 644.9999999999999}
+2025-09-19 09:37:28,055 [INFO] Trade for NSE:ATGL-EQ at 2025-09-19 09:30 is outside the trading window. as current time is 09:37:28.055321 hence Skipping.
+2025-09-19 09:37:28,055 [INFO] Executing trade for NSE:ATGL-EQ: {'timestamp': '2025-09-19 09:35', 'action': 'SELL', 'entry_price': 659.85, 'stop_loss': 667.9, 'target': 635.7000000000002}
+2025-09-19 09:37:28,058 [INFO] Calculated order quantity for NSE:ATGL-EQ: 12 shares based on CAPITAL_PER_TRADE: 100 and stock price: 659.85
+2025-09-19 09:37:28,058 [INFO] Final SL: 6.60, Final Target: 640.05
+2025-09-19 09:37:28,058 [INFO] Checking if we can trade the NSE:ATGL-EQ
+2025-09-19 09:38:11,365 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 09:38:54,692 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 09:39:38,040 [INFO] Executing trade for NSE:ADANIPORTS-EQ: {'timestamp': '2025-09-19 09:30', 'action': 'SELL', 'entry_price': 1437.3, 'stop_loss': 1445, 'target': 1414.1999999999998}
+2025-09-19 09:39:38,040 [INFO] Trade for NSE:ADANIPORTS-EQ at 2025-09-19 09:30 is outside the trading window. as current time is 09:39:38.040677 hence Skipping.
+2025-09-19 09:39:38,040 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 09:40:21,217 [INFO] Executing trade for NSE:ADANIPOWER-EQ: {'timestamp': '2025-09-19 09:35', 'action': 'SELL', 'entry_price': 669.25, 'stop_loss': 676.3, 'target': 648.1000000000001}
+2025-09-19 09:40:21,217 [INFO] Trade for NSE:ADANIPOWER-EQ at 2025-09-19 09:35 is outside the trading window. as current time is 09:40:21.217768 hence Skipping.
+2025-09-19 09:40:21,217 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 09:41:05,048 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 09:41:48,466 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 09:42:41,582 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 09:42:41
+2025-09-19 09:42:41,582 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 09:42:41,582 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 09:43:24,831 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 09:44:08,254 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 09:44:51,668 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 09:45:34,885 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 09:46:18,197 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 09:47:01,518 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 09:47:54,939 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 09:47:54
+2025-09-19 09:47:54,939 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 09:47:54,939 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 09:48:38,289 [INFO] Executing trade for NSE:ATGL-EQ: {'timestamp': '2025-09-19 09:45', 'action': 'SELL', 'entry_price': 660.15, 'stop_loss': 665.4, 'target': 644.4}
+2025-09-19 09:48:38,291 [INFO] Calculated order quantity for NSE:ATGL-EQ: 19 shares based on CAPITAL_PER_TRADE: 100 and stock price: 660.15
+2025-09-19 09:48:38,291 [INFO] Final SL: 5.25, Final Target: 644.40
+2025-09-19 09:48:38,291 [INFO] Checking if we can trade the NSE:ATGL-EQ
+2025-09-19 09:49:21,401 [INFO] Order placed successfully: {'code': 1101, 'message': 'Successfully placed order', 's': 'ok', 'id': '25091900065916-BO-1'}
+2025-09-19 09:49:21,401 [INFO] Trades taken today: 4
+2025-09-19 09:49:21,401 [INFO] Remaining trades for the day: 2
+2025-09-19 09:49:21,403 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 09:50:04,757 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 09:50:47,934 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 09:51:31,145 [INFO] Executing trade for NSE:ADANIPOWER-EQ: {'timestamp': '2025-09-19 09:45', 'action': 'SELL', 'entry_price': 670.15, 'stop_loss': 673.5, 'target': 660.0999999999999}
+2025-09-19 09:51:31,145 [INFO] Trade for NSE:ADANIPOWER-EQ at 2025-09-19 09:45 is outside the trading window. as current time is 09:51:31.145602 hence Skipping.
+2025-09-19 09:51:31,147 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 09:52:14,156 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 09:52:57,371 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 09:53:50,586 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 09:53:50
+2025-09-19 09:53:50,586 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 09:53:50,586 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 09:54:33,731 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 09:55:17,050 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 09:56:00,468 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 09:56:43,478 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 09:57:26,589 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 09:58:09,697 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 09:59:02,856 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 09:59:02
+2025-09-19 09:59:02,856 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 09:59:02,857 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 09:59:46,258 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 10:00:29,895 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 10:01:13,147 [INFO] Executing trade for NSE:ADANIPORTS-EQ: {'timestamp': '2025-09-19 10:00', 'action': 'SELL', 'entry_price': 1439.2, 'stop_loss': 1445.4, 'target': 1420.6}
+2025-09-19 10:01:13,147 [INFO] Calculated order quantity for NSE:ADANIPORTS-EQ: 16 shares based on CAPITAL_PER_TRADE: 100 and stock price: 1439.2
+2025-09-19 10:01:13,147 [INFO] Final SL: 6.20, Final Target: 1420.60
+2025-09-19 10:01:13,147 [INFO] Checking if we can trade the NSE:ADANIPORTS-EQ
+2025-09-19 10:01:56,422 [INFO] Order placed successfully: {'code': 1101, 'message': 'Successfully placed order', 's': 'ok', 'id': '25091900085475-BO-1'}
+2025-09-19 10:01:56,423 [INFO] Trades taken today: 5
+2025-09-19 10:01:56,423 [INFO] Remaining trades for the day: 1
+2025-09-19 10:01:56,425 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 10:02:39,740 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 10:03:22,893 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 10:04:06,274 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 10:04:59,794 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 10:04:59
+2025-09-19 10:04:59,794 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 10:04:59,794 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 10:05:42,945 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 10:06:26,109 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 10:07:09,475 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 10:07:52,677 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 10:08:35,788 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 10:09:19,111 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 10:10:12,541 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 10:10:12
+2025-09-19 10:10:12,541 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 10:10:12,541 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 10:10:55,771 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 10:11:39,001 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 10:12:22,476 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 10:13:05,739 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 10:13:48,956 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 10:14:32,172 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 10:15:25,591 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 10:15:25
+2025-09-19 10:15:25,591 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 10:15:25,591 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 10:16:08,733 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 10:16:51,950 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 10:17:35,576 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 10:18:18,684 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 10:19:01,839 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 10:19:45,464 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 10:20:38,984 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 10:20:38
+2025-09-19 10:20:38,984 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 10:20:38,985 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 10:21:22,135 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 10:22:05,393 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 10:22:48,509 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 10:23:31,632 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 10:24:14,953 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 10:24:58,266 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 10:25:51,688 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 10:25:51
+2025-09-19 10:25:51,688 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 10:25:51,688 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 10:26:34,734 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 10:27:17,846 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 10:28:01,268 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 10:28:44,607 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 10:29:28,002 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 10:30:11,214 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 10:30:54,737 [INFO] Executing trade for NSE:JSWENERGY-EQ: {'timestamp': '2025-09-19 10:30', 'action': 'SELL', 'entry_price': 546, 'stop_loss': 547, 'target': 543}
+2025-09-19 10:30:54,737 [INFO] Calculated order quantity for NSE:JSWENERGY-EQ: 100 shares based on CAPITAL_PER_TRADE: 100 and stock price: 546
+2025-09-19 10:30:54,737 [INFO] Final SL: 1.00, Final Target: 543.00
+2025-09-19 10:30:54,737 [INFO] Checking if we can trade the NSE:JSWENERGY-EQ
+2025-09-19 10:31:39,088 [INFO] Failed to place order: {'code': -99, 'message': 'RED:Margin Shortfall:INR 1,238.13 Available:INR 14,779.50 for C-XR04750 [FYERS_RISK_CUG]', 's': 'error', 'id': '25091900114889-BO-1'}
+2025-09-19 10:31:49,089 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 10:31:49
+2025-09-19 10:31:49,089 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 10:31:49,089 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 10:32:32,231 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 10:33:15,647 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 10:33:58,849 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 10:34:42,072 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 10:35:25,182 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 10:36:08,595 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 10:37:01,823 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 10:37:01
+2025-09-19 10:37:01,823 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 10:37:01,823 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 10:37:44,965 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 10:38:28,273 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 10:39:11,496 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 10:39:54,605 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 10:40:37,822 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 10:41:21,245 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 10:42:14,361 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 10:42:14
+2025-09-19 10:42:14,361 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 10:42:14,361 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 10:42:57,712 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 10:43:41,231 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 10:44:24,502 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 10:45:07,661 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 10:45:50,775 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 10:46:34,181 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 10:47:27,307 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 10:47:27
+2025-09-19 10:47:27,307 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 10:47:27,307 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 10:48:10,660 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 10:48:54,082 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 10:49:37,379 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 10:50:20,606 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 10:51:03,723 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 10:51:47,224 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 10:52:40,449 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 10:52:40
+2025-09-19 10:52:40,449 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 10:52:40,449 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 10:53:23,713 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 10:54:07,230 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 10:54:50,241 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 10:55:33,448 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 10:56:16,773 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 10:57:00,904 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 10:57:54,331 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 10:57:54
+2025-09-19 10:57:54,331 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 10:57:54,331 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 10:58:37,882 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 10:59:21,300 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:00:04,417 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:00:47,527 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:01:30,628 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:02:13,960 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:02:57,273 [INFO] Executing trade for NSE:JSWENERGY-EQ: {'timestamp': '2025-09-19 10:55', 'action': 'SELL', 'entry_price': 546.65, 'stop_loss': 547.3, 'target': 544.7}
+2025-09-19 11:02:57,273 [INFO] Trade for NSE:JSWENERGY-EQ at 2025-09-19 10:55 is outside the trading window. as current time is 11:02:57.273449 hence Skipping.
+2025-09-19 11:03:07,279 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:03:07
+2025-09-19 11:03:07,279 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:03:07,280 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:03:50,526 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:04:34,049 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:05:17,264 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:06:00,375 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:06:43,592 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:07:27,210 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:08:20,420 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:08:20
+2025-09-19 11:08:20,420 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:08:20,420 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:09:03,669 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:09:47,199 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:10:30,313 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:11:13,523 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:11:56,627 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:12:39,958 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:13:33,174 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:13:33
+2025-09-19 11:13:33,174 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:13:33,174 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:14:16,409 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:14:59,735 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:15:42,952 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:16:26,270 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:17:09,624 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:17:10,697 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:17:21,776 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:17:21
+2025-09-19 11:17:21,776 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:17:21,776 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:17:22,884 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:17:23,957 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:17:24,781 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:17:25,600 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:17:26,418 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:17:27,239 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:17:38,467 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:17:38
+2025-09-19 11:17:38,467 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:17:38,467 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:17:39,747 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:17:40,820 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:17:41,973 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:17:43,071 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:17:44,302 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:17:45,530 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:17:56,552 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:17:56
+2025-09-19 11:17:56,552 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:17:56,552 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:17:57,410 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:17:58,314 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:17:59,138 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:17:59,955 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:18:00,761 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:18:01,638 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:18:12,519 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:18:12
+2025-09-19 11:18:12,519 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:18:12,519 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:18:13,479 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:18:14,407 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:18:15,288 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:18:16,251 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:18:17,163 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:18:17,988 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:18:28,850 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:18:28
+2025-09-19 11:18:28,850 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:18:28,850 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:18:29,768 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:18:30,679 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:18:31,497 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:18:32,330 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:18:33,235 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:18:34,101 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:18:45,251 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:18:45
+2025-09-19 11:18:45,251 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:18:45,251 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:18:46,447 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:18:47,280 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:18:48,136 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:18:48,957 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:18:49,780 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:18:50,647 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:19:01,469 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:19:01
+2025-09-19 11:19:01,469 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:19:01,469 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:19:02,324 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:19:03,132 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:19:03,966 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:19:04,775 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:19:05,598 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:19:06,467 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:19:17,339 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:19:17
+2025-09-19 11:19:17,339 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:19:17,339 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:19:18,504 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:19:19,368 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:19:20,289 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:19:21,160 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:19:21,982 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:19:22,804 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:19:33,678 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:19:33
+2025-09-19 11:19:33,678 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:19:33,678 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:19:34,680 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:19:35,755 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:19:36,573 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:19:37,392 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:19:38,264 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:19:39,083 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:19:49,904 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:19:49
+2025-09-19 11:19:49,904 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:19:49,904 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:19:50,857 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:19:51,730 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:19:52,550 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:19:53,375 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:19:54,189 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:19:55,107 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:20:06,097 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:20:06
+2025-09-19 11:20:06,097 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:20:06,097 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:20:06,952 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:20:07,881 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:20:08,778 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:20:09,756 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:20:11,099 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:20:12,108 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:20:23,031 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:20:23
+2025-09-19 11:20:23,031 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:20:23,031 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:20:23,948 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:20:24,857 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:20:25,693 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:20:26,613 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:20:27,568 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:20:28,459 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:20:39,366 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:20:39
+2025-09-19 11:20:39,366 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:20:39,367 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:20:40,333 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:20:41,195 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:20:42,475 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:20:43,443 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:20:44,314 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:20:45,188 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:20:56,057 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:20:56
+2025-09-19 11:20:56,057 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:20:56,057 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:20:56,909 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:20:57,780 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:20:58,650 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:20:59,519 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:21:00,340 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:21:01,168 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:21:11,979 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:21:11
+2025-09-19 11:21:11,980 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:21:11,980 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:21:12,836 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:21:13,656 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:21:14,523 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:21:15,351 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:21:16,212 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:21:17,032 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:21:27,850 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:21:27
+2025-09-19 11:21:27,850 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:21:27,851 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:21:28,808 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:21:29,629 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:21:30,447 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:21:31,318 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:21:32,135 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:21:33,061 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:21:43,893 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:21:43
+2025-09-19 11:21:43,893 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:21:43,893 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:21:44,745 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:21:45,669 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:21:47,087 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:21:47,958 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:21:48,929 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:21:50,468 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:22:01,336 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:22:01
+2025-09-19 11:22:01,337 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:22:01,337 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:22:02,359 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:22:03,289 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:22:04,393 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:22:05,314 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:22:06,185 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:22:07,056 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:22:18,492 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:22:18
+2025-09-19 11:22:18,492 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:22:18,492 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:22:19,701 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:22:20,572 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:22:21,805 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:22:22,675 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:22:23,651 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:22:24,729 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:22:35,747 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:22:35
+2025-09-19 11:22:35,747 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:22:35,747 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:22:36,804 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:22:37,625 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:22:38,443 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:22:39,263 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:22:40,135 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:22:40,995 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:22:51,874 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:22:51
+2025-09-19 11:22:51,874 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:22:51,874 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:22:53,043 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:22:53,908 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:22:54,738 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:22:55,959 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:22:56,775 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:22:58,108 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:23:10,211 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:23:10
+2025-09-19 11:23:10,211 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:23:10,211 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:23:11,675 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:23:15,053 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:23:16,589 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:23:17,461 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:23:18,279 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:23:24,115 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:23:34,986 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:23:34
+2025-09-19 11:23:34,986 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:23:34,987 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:23:35,992 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:23:36,813 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:23:37,683 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:23:38,608 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:23:39,477 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:23:40,294 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:23:51,165 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:23:51
+2025-09-19 11:23:51,166 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:23:51,166 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:23:52,020 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:23:52,890 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:23:53,760 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:23:54,580 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:23:55,506 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:23:56,373 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:24:07,191 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:24:07
+2025-09-19 11:24:07,191 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:24:07,191 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:24:08,198 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:24:09,019 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:24:09,939 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:24:10,810 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:24:11,630 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:24:12,554 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:24:23,423 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:24:23
+2025-09-19 11:24:23,423 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:24:23,423 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:24:24,485 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:24:25,360 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:24:26,236 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:24:27,093 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:24:27,916 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:24:28,900 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:24:39,755 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:24:39
+2025-09-19 11:24:39,755 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:24:39,755 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:24:40,662 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:24:41,488 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:24:42,299 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:24:43,140 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:24:44,106 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:24:44,977 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:24:56,103 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:24:56
+2025-09-19 11:24:56,103 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:24:56,104 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:24:56,996 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:24:57,868 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:24:58,684 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:25:00,275 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:25:01,145 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:25:02,730 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:25:13,910 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:25:13
+2025-09-19 11:25:13,910 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:25:13,911 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:25:14,813 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:25:15,633 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:25:16,504 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:25:17,426 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:25:18,345 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:25:19,219 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:25:30,090 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:25:30
+2025-09-19 11:25:30,090 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:25:30,090 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:25:30,994 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:25:31,864 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:25:32,735 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:25:33,605 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:25:34,424 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:25:35,255 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:25:47,344 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:25:47
+2025-09-19 11:25:47,345 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:25:47,345 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:25:49,429 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:25:50,297 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:25:51,115 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:25:51,936 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:25:52,755 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:25:53,627 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:26:04,445 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:26:04
+2025-09-19 11:26:04,445 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:26:04,445 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:26:05,299 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:26:06,121 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:26:07,039 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:26:07,859 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:26:08,677 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:26:09,601 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:26:20,420 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:26:20
+2025-09-19 11:26:20,420 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:26:20,420 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:26:21,275 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:26:22,095 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:26:22,962 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:26:23,834 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:26:24,653 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:26:25,472 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:26:36,291 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:26:36
+2025-09-19 11:26:36,292 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:26:36,292 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:26:37,197 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:26:38,068 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:26:39,300 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:26:40,116 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:26:40,999 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:26:42,573 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:26:53,396 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:26:53
+2025-09-19 11:26:53,396 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:26:53,396 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:26:54,349 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:26:55,170 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:26:56,038 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:26:56,860 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:26:57,780 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:26:58,961 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:27:10,137 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:27:10
+2025-09-19 11:27:10,137 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:27:10,138 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:27:11,094 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:27:11,963 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:27:12,835 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:27:13,757 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:27:14,578 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:27:15,497 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:27:26,317 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:27:26
+2025-09-19 11:27:26,317 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:27:26,317 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:27:27,174 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:27:28,194 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:27:29,115 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:27:29,934 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:27:30,755 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:27:31,624 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:27:42,496 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:27:42
+2025-09-19 11:27:42,496 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:27:42,497 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:27:43,715 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:27:44,788 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:27:45,812 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:27:46,938 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:27:48,167 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:27:49,242 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:28:00,319 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:28:00
+2025-09-19 11:28:00,319 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:28:00,319 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:28:01,429 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:28:02,501 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:28:03,530 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:28:14,180 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:28:15,354 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:28:16,379 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:28:27,506 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:28:27
+2025-09-19 11:28:27,506 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:28:27,506 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:28:28,567 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:28:29,587 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:28:30,614 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:28:31,687 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:28:32,766 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:28:34,246 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:28:45,274 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:28:45
+2025-09-19 11:28:45,274 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:28:45,274 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:28:46,383 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:28:47,406 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:28:48,482 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:28:49,507 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:28:50,581 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:28:51,809 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:29:02,888 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:29:02
+2025-09-19 11:29:02,888 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:29:02,889 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:29:03,996 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:29:05,020 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:29:06,043 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:29:07,172 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:29:08,247 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:29:09,318 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:29:20,398 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:29:20
+2025-09-19 11:29:20,398 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:29:20,398 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:29:21,508 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:29:22,582 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:29:23,607 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:29:24,887 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:29:25,909 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:29:27,037 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:29:39,341 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:29:39
+2025-09-19 11:29:39,342 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:29:39,342 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:29:40,405 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:29:41,886 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:29:42,961 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:29:44,089 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:29:45,110 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:29:46,137 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:29:57,210 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:29:57
+2025-09-19 11:29:57,210 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:29:57,211 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:29:58,063 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:29:58,934 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:29:59,751 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:30:00,571 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:30:01,442 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:30:02,312 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:30:13,183 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:30:13
+2025-09-19 11:30:13,183 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:30:13,183 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:30:14,036 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:30:14,857 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:30:15,779 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:30:16,648 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:30:17,519 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:30:18,748 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:30:29,879 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:30:29
+2025-09-19 11:30:29,879 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:30:29,879 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:30:30,732 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:30:31,550 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:30:32,369 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:30:33,186 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:30:34,110 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:30:35,083 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:30:45,954 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:30:45
+2025-09-19 11:30:45,954 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:30:45,954 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:30:47,218 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:30:48,037 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:30:48,906 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:30:49,880 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:30:50,801 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:30:51,670 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:31:02,492 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:31:02
+2025-09-19 11:31:02,492 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:31:02,492 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:31:03,503 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:31:04,318 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:31:05,290 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:31:06,212 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:31:07,032 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:31:07,904 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:31:18,722 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:31:18
+2025-09-19 11:31:18,722 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:31:18,722 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:31:19,578 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:31:20,395 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:31:21,573 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:31:22,394 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:31:23,217 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:31:24,032 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:31:34,902 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:31:34
+2025-09-19 11:31:34,902 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:31:34,902 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:31:36,371 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:31:37,396 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:31:38,213 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:31:39,033 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:31:39,906 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:31:40,724 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:31:51,544 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:31:51
+2025-09-19 11:31:51,544 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:31:51,544 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:31:52,499 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:31:53,371 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:31:54,191 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:31:55,129 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:31:56,136 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:31:57,161 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:32:08,350 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:32:08
+2025-09-19 11:32:08,350 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:32:08,350 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:32:09,266 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:32:10,163 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:32:10,983 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:32:11,806 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:32:13,035 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:32:14,316 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:32:25,441 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:32:25
+2025-09-19 11:32:25,441 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:32:25,441 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:32:26,394 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:32:27,318 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:32:30,166 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:32:31,261 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:32:32,232 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:32:33,050 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:32:43,871 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:32:43
+2025-09-19 11:32:43,871 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:32:43,871 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:32:44,726 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:32:45,595 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:32:46,416 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:32:47,285 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:32:48,156 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:32:49,078 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:33:00,000 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:33:00
+2025-09-19 11:33:00,000 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:33:00,000 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:33:00,927 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:33:02,843 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:33:03,598 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:33:04,312 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:33:05,053 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:33:05,920 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:33:16,662 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:33:16
+2025-09-19 11:33:16,662 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:33:16,663 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:33:17,506 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 11:33:18,238 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 11:33:18,971 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 11:33:19,713 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 11:33:20,516 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 11:33:21,290 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 11:33:32,020 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 11:33:32
+2025-09-19 11:33:32,021 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 11:33:32,021 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 11:33:33,782 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 13:44:42,358 [INFO] Starting trading script...
+2025-09-19 13:44:42,358 [INFO] Authenticating with Fyers to use its API...
+2025-09-19 13:44:43,456 [INFO] Token valid, skipping login.
+2025-09-19 13:44:43,502 [INFO] Creating FyersModel instance with access token...
+2025-09-19 13:44:43,503 [INFO] Authenticated Fyers instance created.
+2025-09-19 13:44:43,503 [INFO] Loading filtered stocks from filtered_stocks.json...
+2025-09-19 13:44:43,513 [INFO] Loaded 7 stocks.
+2025-09-19 13:44:43,513 [INFO] Stocks to be traded: NSE:ATGL-EQ, NSE:ADANIENSOL-EQ, NSE:ADANIPORTS-EQ, NSE:ADANIPOWER-EQ, NSE:ADANIENT-EQ, NSE:ADANIGREEN-EQ, NSE:JSWENERGY-EQ
+2025-09-19 13:44:43,514 [INFO] Entering monitoring loop...
+2025-09-19 13:44:43,515 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 13:44:43
+2025-09-19 13:44:43,515 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 13:44:43,516 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 13:44:44,475 [INFO] Executing trade for NSE:ATGL-EQ: {'timestamp': '2025-09-19 09:25', 'action': 'SELL', 'entry_price': 663.35, 'stop_loss': 671.95, 'target': 637.55}
+2025-09-19 13:44:44,480 [INFO] Trade for NSE:ATGL-EQ at 2025-09-19 09:25 is outside the trading window. as current time is 13:44:44.480587 hence Skipping.
+2025-09-19 13:44:44,480 [INFO] Executing trade for NSE:ATGL-EQ: {'timestamp': '2025-09-19 09:30', 'action': 'SELL', 'entry_price': 662.55, 'stop_loss': 668.4, 'target': 644.9999999999999}
+2025-09-19 13:44:44,480 [INFO] Trade for NSE:ATGL-EQ at 2025-09-19 09:30 is outside the trading window. as current time is 13:44:44.480587 hence Skipping.
+2025-09-19 13:44:44,480 [INFO] Executing trade for NSE:ATGL-EQ: {'timestamp': '2025-09-19 09:35', 'action': 'SELL', 'entry_price': 659.85, 'stop_loss': 667.9, 'target': 635.7000000000002}
+2025-09-19 13:44:44,480 [INFO] Trade for NSE:ATGL-EQ at 2025-09-19 09:35 is outside the trading window. as current time is 13:44:44.480587 hence Skipping.
+2025-09-19 13:44:44,480 [INFO] Executing trade for NSE:ATGL-EQ: {'timestamp': '2025-09-19 09:45', 'action': 'SELL', 'entry_price': 660.15, 'stop_loss': 665.4, 'target': 644.4}
+2025-09-19 13:44:44,480 [INFO] Trade for NSE:ATGL-EQ at 2025-09-19 09:45 is outside the trading window. as current time is 13:44:44.480587 hence Skipping.
+2025-09-19 13:44:44,480 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 13:44:45,404 [INFO] Executing trade for NSE:ADANIENSOL-EQ: {'timestamp': '2025-09-19 09:25', 'action': 'SELL', 'entry_price': 868.25, 'stop_loss': 876.75, 'target': 842.75}
+2025-09-19 13:44:45,405 [INFO] Trade for NSE:ADANIENSOL-EQ at 2025-09-19 09:25 is outside the trading window. as current time is 13:44:45.405850 hence Skipping.
+2025-09-19 13:44:45,405 [INFO] Executing trade for NSE:ADANIENSOL-EQ: {'timestamp': '2025-09-19 09:30', 'action': 'SELL', 'entry_price': 867.6, 'stop_loss': 870.55, 'target': 858.7500000000002}
+2025-09-19 13:44:45,406 [INFO] Trade for NSE:ADANIENSOL-EQ at 2025-09-19 09:30 is outside the trading window. as current time is 13:44:45.406851 hence Skipping.
+2025-09-19 13:44:45,408 [INFO] Executing trade for NSE:ADANIENSOL-EQ: {'timestamp': '2025-09-19 12:50', 'action': 'SELL', 'entry_price': 879.3, 'stop_loss': 890, 'target': 847.1999999999998}
+2025-09-19 13:44:45,408 [INFO] Trade for NSE:ADANIENSOL-EQ at 2025-09-19 12:50 is outside the trading window. as current time is 13:44:45.408046 hence Skipping.
+2025-09-19 13:44:45,409 [INFO] Executing trade for NSE:ADANIENSOL-EQ: {'timestamp': '2025-09-19 13:15', 'action': 'SELL', 'entry_price': 886.65, 'stop_loss': 891.7, 'target': 871.4999999999998}
+2025-09-19 13:44:45,409 [INFO] Trade for NSE:ADANIENSOL-EQ at 2025-09-19 13:15 is outside the trading window. as current time is 13:44:45.409044 hence Skipping.
+2025-09-19 13:44:45,410 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 13:44:46,523 [INFO] Executing trade for NSE:ADANIPORTS-EQ: {'timestamp': '2025-09-19 09:25', 'action': 'SELL', 'entry_price': 1438.8, 'stop_loss': 1447.9, 'target': 1411.4999999999995}
+2025-09-19 13:44:46,523 [INFO] Trade for NSE:ADANIPORTS-EQ at 2025-09-19 09:25 is outside the trading window. as current time is 13:44:46.523946 hence Skipping.
+2025-09-19 13:44:46,523 [INFO] Executing trade for NSE:ADANIPORTS-EQ: {'timestamp': '2025-09-19 09:30', 'action': 'SELL', 'entry_price': 1437.3, 'stop_loss': 1445, 'target': 1414.1999999999998}
+2025-09-19 13:44:46,523 [INFO] Trade for NSE:ADANIPORTS-EQ at 2025-09-19 09:30 is outside the trading window. as current time is 13:44:46.523946 hence Skipping.
+2025-09-19 13:44:46,523 [INFO] Executing trade for NSE:ADANIPORTS-EQ: {'timestamp': '2025-09-19 10:00', 'action': 'SELL', 'entry_price': 1439.2, 'stop_loss': 1445.4, 'target': 1420.6}
+2025-09-19 13:44:46,523 [INFO] Trade for NSE:ADANIPORTS-EQ at 2025-09-19 10:00 is outside the trading window. as current time is 13:44:46.523946 hence Skipping.
+2025-09-19 13:44:46,523 [INFO] Executing trade for NSE:ADANIPORTS-EQ: {'timestamp': '2025-09-19 13:40', 'action': 'SELL', 'entry_price': 1453, 'stop_loss': 1460, 'target': 1432}
+2025-09-19 13:44:46,530 [INFO] Calculated order quantity for NSE:ADANIPORTS-EQ: 14 shares based on CAPITAL_PER_TRADE: 100 and stock price: 1453
+2025-09-19 13:44:46,530 [INFO] Final SL: 7.00, Final Target: 1432.00
+2025-09-19 13:44:46,530 [INFO] Checking if we can trade the NSE:ADANIPORTS-EQ
+2025-09-19 13:44:47,452 [INFO] Order placed successfully: {'code': 1101, 'message': 'Successfully placed order', 's': 'ok', 'id': '25091900242723-BO-1'}
+2025-09-19 13:44:47,453 [INFO] Trades taken today: 1
+2025-09-19 13:44:47,453 [INFO] Remaining trades for the day: 5
+2025-09-19 13:44:47,454 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 13:44:48,411 [INFO] Executing trade for NSE:ADANIPOWER-EQ: {'timestamp': '2025-09-19 09:20', 'action': 'SELL', 'entry_price': 670.05, 'stop_loss': 686.95, 'target': 619.3499999999997}
+2025-09-19 13:44:48,411 [INFO] Trade for NSE:ADANIPOWER-EQ at 2025-09-19 09:20 is outside the trading window. as current time is 13:44:48.411699 hence Skipping.
+2025-09-19 13:44:48,411 [INFO] Executing trade for NSE:ADANIPOWER-EQ: {'timestamp': '2025-09-19 09:30', 'action': 'SELL', 'entry_price': 673, 'stop_loss': 679.5, 'target': 653.5}
+2025-09-19 13:44:48,411 [INFO] Trade for NSE:ADANIPOWER-EQ at 2025-09-19 09:30 is outside the trading window. as current time is 13:44:48.411699 hence Skipping.
+2025-09-19 13:44:48,411 [INFO] Executing trade for NSE:ADANIPOWER-EQ: {'timestamp': '2025-09-19 09:35', 'action': 'SELL', 'entry_price': 669.25, 'stop_loss': 676.3, 'target': 648.1000000000001}
+2025-09-19 13:44:48,411 [INFO] Trade for NSE:ADANIPOWER-EQ at 2025-09-19 09:35 is outside the trading window. as current time is 13:44:48.411699 hence Skipping.
+2025-09-19 13:44:48,411 [INFO] Executing trade for NSE:ADANIPOWER-EQ: {'timestamp': '2025-09-19 09:45', 'action': 'SELL', 'entry_price': 670.15, 'stop_loss': 673.5, 'target': 660.0999999999999}
+2025-09-19 13:44:48,411 [INFO] Trade for NSE:ADANIPOWER-EQ at 2025-09-19 09:45 is outside the trading window. as current time is 13:44:48.411699 hence Skipping.
+2025-09-19 13:44:48,411 [INFO] Executing trade for NSE:ADANIPOWER-EQ: {'timestamp': '2025-09-19 12:45', 'action': 'SELL', 'entry_price': 705, 'stop_loss': 714.9, 'target': 675.3000000000001}
+2025-09-19 13:44:48,411 [INFO] Trade for NSE:ADANIPOWER-EQ at 2025-09-19 12:45 is outside the trading window. as current time is 13:44:48.411699 hence Skipping.
+2025-09-19 13:44:48,411 [INFO] Executing trade for NSE:ADANIPOWER-EQ: {'timestamp': '2025-09-19 13:15', 'action': 'SELL', 'entry_price': 711.8, 'stop_loss': 719, 'target': 690.1999999999998}
+2025-09-19 13:44:48,411 [INFO] Trade for NSE:ADANIPOWER-EQ at 2025-09-19 13:15 is outside the trading window. as current time is 13:44:48.411699 hence Skipping.
+2025-09-19 13:44:48,411 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 13:44:49,231 [INFO] Executing trade for NSE:ADANIENT-EQ: {'timestamp': '2025-09-19 09:25', 'action': 'SELL', 'entry_price': 2500, 'stop_loss': 2515, 'target': 2455}
+2025-09-19 13:44:49,231 [INFO] Trade for NSE:ADANIENT-EQ at 2025-09-19 09:25 is outside the trading window. as current time is 13:44:49.231513 hence Skipping.
+2025-09-19 13:44:49,232 [INFO] Executing trade for NSE:ADANIENT-EQ: {'timestamp': '2025-09-19 09:30', 'action': 'SELL', 'entry_price': 2495, 'stop_loss': 2508.2, 'target': 2455.4000000000005}
+2025-09-19 13:44:49,233 [INFO] Trade for NSE:ADANIENT-EQ at 2025-09-19 09:30 is outside the trading window. as current time is 13:44:49.232594 hence Skipping.
+2025-09-19 13:44:49,233 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 13:44:50,101 [INFO] Executing trade for NSE:ADANIGREEN-EQ: {'timestamp': '2025-09-19 09:25', 'action': 'SELL', 'entry_price': 1013.65, 'stop_loss': 1020.85, 'target': 992.0499999999998}
+2025-09-19 13:44:50,101 [INFO] Trade for NSE:ADANIGREEN-EQ at 2025-09-19 09:25 is outside the trading window. as current time is 13:44:50.101253 hence Skipping.
+2025-09-19 13:44:50,102 [INFO] Executing trade for NSE:ADANIGREEN-EQ: {'timestamp': '2025-09-19 13:15', 'action': 'SELL', 'entry_price': 1049, 'stop_loss': 1058.85, 'target': 1019.4500000000003}
+2025-09-19 13:44:50,102 [INFO] Trade for NSE:ADANIGREEN-EQ at 2025-09-19 13:15 is outside the trading window. as current time is 13:44:50.102256 hence Skipping.
+2025-09-19 13:44:50,102 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 13:44:50,972 [INFO] Executing trade for NSE:JSWENERGY-EQ: {'timestamp': '2025-09-19 09:20', 'action': 'SELL', 'entry_price': 545.1, 'stop_loss': 552, 'target': 524.4000000000001}
+2025-09-19 13:44:50,972 [INFO] Trade for NSE:JSWENERGY-EQ at 2025-09-19 09:20 is outside the trading window. as current time is 13:44:50.972007 hence Skipping.
+2025-09-19 13:44:50,973 [INFO] Executing trade for NSE:JSWENERGY-EQ: {'timestamp': '2025-09-19 09:30', 'action': 'SELL', 'entry_price': 546.1, 'stop_loss': 550.65, 'target': 532.4500000000002}
+2025-09-19 13:44:50,973 [INFO] Trade for NSE:JSWENERGY-EQ at 2025-09-19 09:30 is outside the trading window. as current time is 13:44:50.973386 hence Skipping.
+2025-09-19 13:44:50,973 [INFO] Executing trade for NSE:JSWENERGY-EQ: {'timestamp': '2025-09-19 10:30', 'action': 'SELL', 'entry_price': 546, 'stop_loss': 547, 'target': 543}
+2025-09-19 13:44:50,974 [INFO] Trade for NSE:JSWENERGY-EQ at 2025-09-19 10:30 is outside the trading window. as current time is 13:44:50.974676 hence Skipping.
+2025-09-19 13:44:50,974 [INFO] Executing trade for NSE:JSWENERGY-EQ: {'timestamp': '2025-09-19 10:55', 'action': 'SELL', 'entry_price': 546.65, 'stop_loss': 547.3, 'target': 544.7}
+2025-09-19 13:44:50,974 [INFO] Trade for NSE:JSWENERGY-EQ at 2025-09-19 10:55 is outside the trading window. as current time is 13:44:50.974676 hence Skipping.
+2025-09-19 13:45:00,976 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 13:45:00
+2025-09-19 13:45:00,976 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 13:45:00,976 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 13:45:01,944 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 13:45:03,011 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 13:45:03,937 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 13:45:04,808 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 13:45:05,885 [INFO] Executing trade for NSE:ADANIENT-EQ: {'timestamp': '2025-09-19 13:45', 'action': 'SELL', 'entry_price': 2565, 'stop_loss': 2572.1, 'target': 2543.7000000000003}
+2025-09-19 13:45:05,885 [INFO] Calculated order quantity for NSE:ADANIENT-EQ: 14 shares based on CAPITAL_PER_TRADE: 100 and stock price: 2565
+2025-09-19 13:45:05,885 [INFO] Final SL: 7.10, Final Target: 2543.70
+2025-09-19 13:45:05,887 [INFO] Checking if we can trade the NSE:ADANIENT-EQ
+2025-09-19 13:45:06,837 [INFO] Order placed successfully: {'code': 1101, 'message': 'Successfully placed order', 's': 'ok', 'id': '25091900242900-BO-1'}
+2025-09-19 13:45:06,837 [INFO] Trades taken today: 2
+2025-09-19 13:45:06,837 [INFO] Remaining trades for the day: 4
+2025-09-19 13:45:06,837 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 13:45:07,714 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 13:45:18,687 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 13:45:18
+2025-09-19 13:45:18,687 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 13:45:18,687 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 13:45:19,666 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 13:45:20,630 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 13:45:21,446 [INFO] Executing trade for NSE:ADANIPORTS-EQ: {'timestamp': '2025-09-19 13:45', 'action': 'SELL', 'entry_price': 1452.1, 'stop_loss': 1455.9, 'target': 1440.6999999999994}
+2025-09-19 13:45:21,446 [INFO] Calculated order quantity for NSE:ADANIPORTS-EQ: 26 shares based on CAPITAL_PER_TRADE: 100 and stock price: 1452.1
+2025-09-19 13:45:21,446 [INFO] Final SL: 3.80, Final Target: 1440.70
+2025-09-19 13:45:21,446 [INFO] Checking if we can trade the NSE:ADANIPORTS-EQ
+2025-09-19 13:45:21,466 [INFO] Cannot trade NSE:ADANIPORTS-EQ as it has already been traded twice today.
+2025-09-19 13:45:21,466 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 13:45:22,367 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 13:45:23,276 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 13:45:24,216 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 13:45:35,136 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 13:45:35
+2025-09-19 13:45:35,137 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 13:45:35,137 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 13:45:36,142 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 13:45:37,011 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 13:45:37,825 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 13:45:38,857 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 13:45:39,875 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 13:45:40,862 [INFO] Executing trade for NSE:ADANIGREEN-EQ: {'timestamp': '2025-09-19 13:45', 'action': 'SELL', 'entry_price': 1063.1, 'stop_loss': 1067.8, 'target': 1048.9999999999998}
+2025-09-19 13:45:40,862 [INFO] Calculated order quantity for NSE:ADANIGREEN-EQ: 21 shares based on CAPITAL_PER_TRADE: 100 and stock price: 1063.1
+2025-09-19 13:45:40,863 [INFO] Final SL: 4.70, Final Target: 1049.00
+2025-09-19 13:45:40,863 [INFO] Checking if we can trade the NSE:ADANIGREEN-EQ
+2025-09-19 13:45:41,732 [INFO] Failed to place order: {'code': -99, 'message': 'RED:Margin Shortfall:INR 1,537.70 Available:INR 14,779.50 for C-XR04750 [FYERS_RISK_CUG]', 's': 'error', 'id': '25091900243279-BO-1'}
+2025-09-19 13:45:41,733 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 13:45:52,739 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 13:45:52
+2025-09-19 13:45:52,739 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 13:45:52,739 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 13:45:53,655 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 13:45:54,616 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 13:45:55,546 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 13:45:56,472 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 13:45:57,278 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 13:45:58,087 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 13:46:09,226 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 13:46:09
+2025-09-19 13:46:09,226 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 13:46:09,226 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 13:46:10,337 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 13:46:11,461 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 13:46:12,550 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 13:46:13,662 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 13:46:14,739 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 13:46:15,955 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 13:46:27,161 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 13:46:27
+2025-09-19 13:46:27,161 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 13:46:27,161 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 13:46:28,220 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 13:46:29,894 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 13:46:30,972 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 13:46:32,045 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 13:46:33,070 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 13:46:34,260 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 13:46:45,413 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 13:46:45
+2025-09-19 13:46:45,413 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 13:46:45,413 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 13:46:46,915 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 13:46:48,019 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 13:46:49,111 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 13:46:50,275 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 13:46:51,401 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 13:46:52,782 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 13:47:03,931 [INFO] Heartbeat: Checking for trade setups at 2025-09-19 13:47:03
+2025-09-19 13:47:03,931 [INFO] Applying trade logic to 7 stocks.
+2025-09-19 13:47:03,931 [INFO] [Trade Candidate: NSE:ATGL-EQ]
+2025-09-19 13:47:05,083 [INFO] [Trade Candidate: NSE:ADANIENSOL-EQ]
+2025-09-19 13:47:06,210 [INFO] [Trade Candidate: NSE:ADANIPORTS-EQ]
+2025-09-19 13:47:07,275 [INFO] [Trade Candidate: NSE:ADANIPOWER-EQ]
+2025-09-19 13:47:08,351 [INFO] [Trade Candidate: NSE:ADANIENT-EQ]
+2025-09-19 13:47:09,475 [INFO] [Trade Candidate: NSE:ADANIGREEN-EQ]
+2025-09-19 13:47:10,511 [INFO] [Trade Candidate: NSE:JSWENERGY-EQ]
+2025-09-19 20:06:31,003 [INFO] Trades taken today: 1
+2025-09-19 20:06:31,003 [INFO] Remaining trades for the day: 5
+2025-09-19 20:06:36,206 [INFO] Trades taken today: 2
+2025-09-19 20:06:36,206 [INFO] Remaining trades for the day: 4
+2025-09-19 20:06:37,827 [INFO] Trades taken today: 3
+2025-09-19 20:06:37,827 [INFO] Remaining trades for the day: 3
+2025-09-19 20:06:39,096 [INFO] Trades taken today: 4
+2025-09-19 20:06:39,096 [INFO] Remaining trades for the day: 2
+2025-09-19 20:06:41,200 [INFO] Trades taken today: 5
+2025-09-19 20:06:41,200 [INFO] Remaining trades for the day: 1
+2025-09-19 20:06:42,554 [INFO] Trades taken today: 6
+2025-09-19 20:06:42,554 [INFO] Remaining trades for the day: 0
+2025-09-19 20:06:44,188 [INFO] Trades taken today: 7
+2025-09-19 20:06:44,188 [INFO] Remaining trades for the day: -1
+2025-09-19 20:07:17,578 [INFO] Trades taken today: 1
+2025-09-19 20:07:17,578 [INFO] Remaining trades for the day: 5
+2025-09-19 20:07:22,753 [INFO] Trades taken today: 2
+2025-09-19 20:07:22,753 [INFO] Remaining trades for the day: 4
+2025-09-19 20:07:43,119 [INFO] Trades taken today: 3
+2025-09-19 20:07:43,119 [INFO] Remaining trades for the day: 3
+2025-09-19 20:14:54,663 [INFO] Trades taken today: 4
+2025-09-19 20:14:54,663 [INFO] Remaining trades for the day: 2
+2025-09-19 20:15:28,579 [INFO] Trades taken today: 5
+2025-09-19 20:15:28,579 [INFO] Remaining trades for the day: 1
+2025-09-19 20:16:31,816 [INFO] Trades taken today: 6
+2025-09-19 20:16:31,816 [INFO] Remaining trades for the day: 0
+2025-09-19 20:16:38,103 [INFO] Trades taken today: 7
+2025-09-19 20:16:38,103 [INFO] Remaining trades for the day: -1
+2025-09-19 20:17:03,666 [INFO] Trades taken today: 8
+2025-09-19 20:17:03,666 [INFO] Remaining trades for the day: -2
+2025-09-19 20:22:13,319 [INFO] Error deleting file filtered_stocks.csv: '>=' not supported between instances of 'datetime.datetime' and 'datetime.time'
+2025-09-19 20:22:13,319 [INFO] Error deleting file filtered_stocks.json: '>=' not supported between instances of 'datetime.datetime' and 'datetime.time'
+2025-09-19 20:22:13,319 [INFO] Error deleting file gapup_data.csv: '>=' not supported between instances of 'datetime.datetime' and 'datetime.time'
+2025-09-19 20:22:13,319 [INFO] Error deleting file gapup_data.json: '>=' not supported between instances of 'datetime.datetime' and 'datetime.time'
+2025-09-19 20:22:13,321 [INFO] Error deleting file trades.txt: '>=' not supported between instances of 'datetime.datetime' and 'datetime.time'
+2025-09-19 20:22:49,057 [INFO] file filtered_stocks.csv deleted successfully
+2025-09-19 20:22:49,059 [INFO] file filtered_stocks.json deleted successfully
+2025-09-19 20:22:49,061 [INFO] file gapup_data.csv deleted successfully
+2025-09-19 20:22:49,061 [INFO] file gapup_data.json deleted successfully
+2025-09-19 20:22:49,061 [INFO] file trades.txt deleted successfully

@@ -13,7 +13,7 @@ from src.tradingsetup.login.auth import get_fyers_instance
 from src.tradingsetup.login.auth_manager import AuthManager 
 from src.tradingsetup.rate_limiter.counter import RateLimiter
 from src.tradingsetup.config.settings import MAX_TRADES
-from src.tradingsetup.utlis.trade_logger import TradeManager
+from src.tradingsetup.utlis.trade_logger import TradeManager, clean_up
 
 # Importing Datafiles
 FILTERED_FILE = "filtered_stocks.json"
@@ -21,7 +21,8 @@ MARKET_START = dtime(9, 15)
 MARKET_END = dtime(15, 00)
 
 # Initialize TradeManager
-trade_manager = TradeManager(int(MAX_TRADES))
+TRADE_FILE = 'trades.txt'
+trade_manager = TradeManager(int(MAX_TRADES), trade_file=TRADE_FILE)
 
 # Checking for market condition
 def is_market_open():
@@ -92,6 +93,7 @@ def main():
     counter = 0
     while True:
         if not is_market_open():
+            clean_up()
             log("Market closed. Sleeping for 60 seconds.")
             time.sleep(60)
             counter += 1
