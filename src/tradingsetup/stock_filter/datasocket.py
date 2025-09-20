@@ -18,7 +18,7 @@ GAPUP_THRESHOLD = 2.0  # % gap-up required
 DURATION = 10  # seconds to collect data
 
 def get_index_symbols():
-    path = os.path.join(os.getcwd(),'src','tradingsetup','data','index_stocks.xlsx')
+    path = os.path.join(os.getcwd(),'index_stocks.xlsx')
     data = pd.read_excel(path)
     log("Loaded symbols from Stock_list.xlsx.")
     return data['STOCK_FINAL'].to_list()

@@ -1,6 +1,11 @@
 import streamlit as st
 import os
+import pandas as pd
 
-base_folder = path = os.path.join(os.getcwd(),'src','tradingsetup','data','index_stocks.xlsx')
+base_folder = path = os.path.join(os.getcwd(),'index_stocks.xlsx')
 
-print(base_folder)
+# read the file
+file = pd.read_excel(path)
+
+
+print(file)
