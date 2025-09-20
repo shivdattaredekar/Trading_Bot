@@ -10,6 +10,9 @@ AUTHOR_USER_NAME = "shivdatta"
 SRC_REPO = "tradingsetup"
 AUTHOR_EMAIL = "shivdattaredekar@gmail.com"
 
+with open("requirements.txt", "r") as f:
+    requirements = f.read().splitlines()
+
 setuptools.setup(
     name=SRC_REPO,
     version=__version__,
@@ -25,15 +28,8 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     install_requires=[
-        'langchain_groq',
-        'langchain_community',
-        'fyers-apiv3',
-        'schedule',
-        'flask',
-        'pandas',
-        'openpyxl',
-        'python-dotenv',
-        'ipykernel',
+        *requirements,
+        'setuptools',
     ],
     python_requires=">=3.9",
 )
