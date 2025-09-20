@@ -43,7 +43,6 @@ setuptools.setup(
         'pyotp',
         'streamlit',
         'streamlit_autorefresh',
-        '-e .',
         'setuptools',
     ],
     python_requires=">=3.9",
