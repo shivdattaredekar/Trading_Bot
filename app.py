@@ -55,9 +55,11 @@ FYERS_ID = st.sidebar.text_input(
 
 # --- Config ---
 st.set_page_config(page_title="Fyers Trading Bot", layout="wide")
-folder_logs = r"D:\Datascience\trading_setup\logs"
+folder_logs = os.path.join(os.getcwd(), "logs")
+#folder_logs = r"D:\Datascience\trading_setup\logs"
 log_file = os.path.join(folder_logs, f"run_{datetime.today().date()}.log")
-base_folder = r"D:\Datascience\trading_setup"
+base_folder = os.path.join(os.getcwd())
+#base_folder = r"D:\Datascience\trading_setup"
 allowed_ext = [".pdf", ".txt", ".csv", ".json"]
 
 # --- Session State ---
