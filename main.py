@@ -23,7 +23,8 @@ MARKET_END = dtime(15, 00)
 # Checking for market condition
 def is_market_open():
     now = datetime.now().time()
-    return MARKET_START <= now <= MARKET_END
+    today = datetime.strftime(datetime.now(), '%A')
+    return MARKET_START <= now <= MARKET_END and today != "Saturday" and today != "Sunday"
 
 def main():
     log("Starting trading script...")

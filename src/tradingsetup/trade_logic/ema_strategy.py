@@ -7,8 +7,6 @@ from tradingsetup.config.settings import (
     CAPITAL_PER_TRADE,
     SIMULATE,
     MAX_TRADES,
-    DATE_FROM,
-    DATE_TO,
     RR,
     CAPITAL
 )
@@ -20,6 +18,16 @@ from tradingsetup.utlis.trade_logger import (
     order_quantity_calculator,
     TradeManager
 )
+
+def get_last_trading_day():
+    d = datetime.now() - timedelta(days=1)
+    while d.weekday() >= 5:  # 5 = Sat, 6 = Sun
+        d -= timedelta(days=1)
+    return d.date()
+
+DATE_FROM = get_last_trading_day()
+DATE_TO   = datetime.now().date()
+
 
 def get_5min_candles(fyers, symbol):
     try:
@@ -79,6 +87,10 @@ def calculate_ema_series(prices_dict, period):
     try:
         timestamps = list(prices_dict.keys())
         prices = list(prices_dict.values())
+        
+        if len(prices) < period:  # 👈 Prevent IndexError
+            log(f"Not enough data to calculate EMA. Needed {period}, got {len(prices)}.")
+            return {}
         
         ema_values = {}
         multiplier = 2 / (period + 1)
