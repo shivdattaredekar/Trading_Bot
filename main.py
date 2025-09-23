@@ -34,7 +34,6 @@ def main():
     try:
         if not is_access_token_valid():
             auto_login()
-            log("Authentication successful.")
         log("Authentication is already done as access token is valid.")
     except Exception as e:
         log(f"Auth failed: {e}")

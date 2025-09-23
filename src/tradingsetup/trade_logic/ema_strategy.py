@@ -213,8 +213,8 @@ def place_trade(fyers, symbol, price, sl, target, timestamp):
             "validity": "DAY",
             "disclosedQty": 0,
             "offlineOrder": False,
-            "stopLoss": St_L,
-            "takeProfit": abs(price - target)
+            "stopLoss": round(St_L,0),
+            "takeProfit": round(abs(price - target),0)
         }
                 
         #log(f"Checking if we can trade the {symbol}")

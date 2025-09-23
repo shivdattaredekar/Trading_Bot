@@ -55,7 +55,7 @@ def verify_client_id(client_id):
         }
 
         result_string = requests.post(url=URL_VERIFY_CLIENT_ID, json=payload)
-        # print("result_string : ", result_string.text)
+        # log("result_string : ", result_string.text)
         if result_string.status_code != 200:
             return [ERROR, result_string.text]
 
@@ -185,37 +185,37 @@ def auto_login():
         # Step 1 - Retrieve request_key from verify_client_id Function
         verify_client_id_result = verify_client_id(client_id=CLIENT_ID)
         if verify_client_id_result[0] != SUCCESS:
-            print(f"verify_client_id failure - {verify_client_id_result[1]}")
+            log(f"verify_client_id failure - {verify_client_id_result[1]}")
             sys.exit()
         else:
-            print("verify_client_id success")
+            log("verify_client_id success")
 
         # Step 2 - Generate totp
         generate_totp_result = generate_totp(secret=TOTP_SECRET_KEY)
         if generate_totp_result[0] != SUCCESS:
-            print(f"generate_totp failure - {generate_totp_result[1]}")
+            log(f"generate_totp failure - {generate_totp_result[1]}")
             sys.exit()
         else:
-            print("generate_totp success")
+            log("generate_totp success")
 
         # Step 3 - Verify totp and get request key from verify_totp Function.
         request_key = verify_client_id_result[1]
         totp = generate_totp_result[1]
         verify_totp_result = verify_totp(request_key=request_key, totp=totp)
         if verify_totp_result[0] != SUCCESS:
-            print(f"verify_totp_result failure - {verify_totp_result[1]}")
+            log(f"verify_totp_result failure - {verify_totp_result[1]}")
             sys.exit()
         else:
-            print("verify_totp_result success")
+            log("verify_totp_result success")
         
         # Step 4 - Verify pin and send back access token
         request_key_2 = verify_totp_result[1]
         verify_pin_result = verify_PIN(request_key=request_key_2, pin=PIN)
         if verify_pin_result[0] != SUCCESS:
-            print(f"verify_pin_result failure - {verify_pin_result[1]}")
+            log(f"verify_pin_result failure - {verify_pin_result[1]}")
             sys.exit()
         else:
-            print("verify_pin_result success")
+            log("verify_pin_result success")
         
         # Step 5 - Get auth code for API V3 App from trade access token
         token_result = token(
@@ -223,19 +223,19 @@ def auto_login():
             access_token=verify_pin_result[1]
         )
         if token_result[0] != SUCCESS:
-            print(f"token_result failure - {token_result[1]}")
+            log(f"token_result failure - {token_result[1]}")
             sys.exit()
         else:
-            print("token_result success")
+            log("token_result success")
 
         # Step 6 - Get API V3 access token from validating auth code
         auth_code = token_result[1]
         validate_authcode_result = validate_authcode(auth_code=auth_code)
         if token_result[0] != SUCCESS:
-            print(f"validate_authcode failure - {validate_authcode_result[1]}")
+            log(f"validate_authcode failure - {validate_authcode_result[1]}")
             sys.exit()
         else:
-            print("validate_authcode success")
+            log("validate_authcode success")
         
         access_token = APP_ID + "-" + APP_TYPE + ":" + validate_authcode_result[1]
 

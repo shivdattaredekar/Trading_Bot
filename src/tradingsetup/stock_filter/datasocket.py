@@ -27,16 +27,16 @@ def onmessage(message):
     if isinstance(message, dict) and message.get("type") == "sf":
         symbol = message.get("symbol")
         tick_data[symbol] = message
-    print("Response:", message)
+    log("Response:", message)
 
 def onerror(message):
-    print("Error:", message)
+    log("Error:", message)
 
 def onclose(message):
-    print("Connection closed:", message)
+    log("Connection closed:", message)
 
 def export_gapup_data():
-    print("Evaluating for gap-up stocks...")
+    log("Evaluating for gap-up stocks...")
     gapup_stocks = []
 
     for symbol, data in tick_data.items():
@@ -64,11 +64,9 @@ def export_gapup_data():
             f.write(json.dumps([stock['symbol'] for stock in gapup_stocks]))
         
         log(f"Gap-up stocks saved to gapup_data.csv with {len(gapup_stocks)} entries.")
-        print("Gap-up stocks saved to gapup_data.csv")
-        print(f"Total gap-up stocks found: {len(gapup_stocks)}")
-        print("Gap-up stocks saved to GapUp_stocks.json")
+        log(f"Total gap-up stocks found: {len(gapup_stocks)}")
     else:
-        print("No gap-up stocks found.")
+        log("No gap-up stocks found.")
 
 def run_gapup_websocket(duration=DURATION):
     global fyers
