@@ -2226,3 +2226,5 @@
 2025-09-28 13:10:07,864 [INFO] Filtered stocks saved to filtered_stocks.json.
 2025-09-28 13:10:07,868 [INFO] Entering monitoring loop...
 2025-09-28 13:10:07,873 [INFO] Market closed. Sleeping for 60 seconds.
+2025-09-28 13:11:07,876 [INFO] Market closed. Sleeping for 60 seconds.
+2025-09-28 13:12:07,877 [INFO] Market closed. Sleeping for 60 seconds.
