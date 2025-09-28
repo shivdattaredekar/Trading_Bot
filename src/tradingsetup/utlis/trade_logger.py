@@ -95,15 +95,43 @@ class TradeManager:
         return self.trades_taken
 
 
+# If trades for any symbol are equal to two or if its recently traded like 10 mins ago then don't trade again on that symbol 
+def can_trade(symbol, file_path=TRADE_LOG_FILE, stock_count=None):
 
-
-# If trades for any symbol are equal to two then don't trade again on that symbol 
-def can_trade(symbol, file_path=TRADE_LOG_FILE):
-            
     trades = check_trades(symbol, file_path)
-    if len(trades) >= 2:
+
+    if stock_count <3:
+        if len(trades) >= 3:
+            return False
+
+    # Rule 1: Block if already 2 or more trades
+    if stock_count>=3:
+        if len(trades) >= 2:
+            return False
+
+    # Rule 2: Find the most recent trade for this symbol
+    latest_trade_time = None
+    with open(file_path, mode="r") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            if row["symbol"] == symbol and row["status"] == "success":
+                # Parse timestamp with flexible format
+                try:
+                    timestamp = datetime.strptime(row['timestamp'], '%d-%m-%Y %H:%M')
+                except ValueError:
+                    timestamp = datetime.strptime(row['timestamp'], '%Y-%m-%d %H:%M:%S')
+
+                if latest_trade_time is None or timestamp > latest_trade_time:
+                    latest_trade_time = timestamp
+
+    # Rule 3: If a trade exists and it's within 10 minutes, block
+    if latest_trade_time and (datetime.now() - latest_trade_time).total_seconds() < 600:
         return False
-    return True 
+
+    # Otherwise, allow trade
+    return True
+                
+
 
 # To clean the files daily
 def clean_up():

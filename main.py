@@ -14,6 +14,7 @@ from src.tradingsetup.login.authentication import auto_login
 from src.tradingsetup.rate_limiter.counter import RateLimiter
 from src.tradingsetup.config.settings import MAX_TRADES
 from src.tradingsetup.utlis.trade_logger import  clean_up
+from dotenv import load_dotenv
 
 # Importing Datafiles
 FILTERED_FILE = "filtered_stocks.json"
@@ -34,7 +35,10 @@ def main():
     try:
         if not is_access_token_valid():
             auto_login()
+            load_dotenv(override=True)
         log("Authentication is already done as access token is valid.")
+        log("Sleeping for 10 sec to make sure ACCESS_TOKEN is properly fetched and picked up for WebSocket")
+        time.sleep(10)
     except Exception as e:
         log(f"Auth failed: {e}")
         exit(1)
@@ -56,7 +60,7 @@ def main():
 
             # Stage 1: GAP-UP based filtering
             log("Starting WebSocket to fetch gap-up stocks...")
-            run_gapup_websocket(duration=50)
+            run_gapup_websocket(duration=30)
             
             if not os.path.exists("GapUp_stocks.json"):
                 log("No GapUp_stocks.json file  stocks found.")

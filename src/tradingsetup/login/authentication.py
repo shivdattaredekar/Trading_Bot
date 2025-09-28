@@ -1,6 +1,6 @@
 import json
-import requests
-import pyotp
+import requests #type:ignore
+import pyotp #type:ignore
 import hashlib
 from urllib import parse
 import sys
@@ -13,7 +13,7 @@ from src.tradingsetup.config.settings import (
                                             TOTP_SECRET_KEY,
                                             REDIRECT_URI                                                
                                                 )
-from dotenv import set_key 
+from dotenv import set_key #type:ignore 
 
 
 

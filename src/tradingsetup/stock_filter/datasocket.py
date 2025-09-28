@@ -1,11 +1,11 @@
 import json
 import time
 import os
-import pandas as pd
+import pandas as pd #type:ignore
+from dotenv import load_dotenv #type:ignore
+from fyers_apiv3.FyersWebsocket import data_ws #type:ignore
 
-from fyers_apiv3.FyersWebsocket import data_ws
-
-from tradingsetup.config.settings import CLIENT_ID, FYERS_ACCESS_TOKEN
+from tradingsetup.config.settings import CLIENT_ID
 from tradingsetup.utlis.logger import log
 
 from threading import Event
@@ -20,20 +20,20 @@ DURATION = 10  # seconds to collect data
 def get_index_symbols():
     path = os.path.join(os.getcwd(),'index_stocks.xlsx')
     data = pd.read_excel(path)
-    log("Loaded symbols from Stock_list.xlsx.")
+    log(f"Loaded {len(data['STOCK_FINAL'])} symbols from Stock_list.xlsx.")
     return data['STOCK_FINAL'].to_list()
 
 def onmessage(message):
     if isinstance(message, dict) and message.get("type") == "sf":
         symbol = message.get("symbol")
         tick_data[symbol] = message
-    log("Response:", message)
+    log(f"Response: {message}")
 
 def onerror(message):
-    log("Error:", message)
+    log(f"Error: {message}")
 
 def onclose(message):
-    log("Connection closed:", message)
+    log(f"Connection closed: {message}")
 
 def export_gapup_data():
     log("Evaluating for gap-up stocks...")
@@ -74,8 +74,10 @@ def run_gapup_websocket(duration=DURATION):
 
     DURATION = duration
     SUBSCRIBE_SYMBOLS = get_index_symbols()
-    APP_ID = CLIENT_ID.split("-")[0]
-    ACCESS_TOKEN = FYERS_ACCESS_TOKEN
+    
+    # 🔑 Reload env to make sure latest refreshed access token is picked
+    load_dotenv()
+    ACCESS_TOKEN = os.getenv("FYERS_ACCESS_TOKEN")
 
     def onopen():
         log("WebSocket connection opened. Subscribing to data...")

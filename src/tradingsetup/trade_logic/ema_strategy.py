@@ -140,7 +140,6 @@ def evaluate_trade_signal(candles, ema, symbol):
                 })
 
         #log(f"Generated {signals} trade signals for {symbol}.")
-            #place_trade(symbol, signals[-1]["entry_price"], signals[-1]["stop_loss"], signals[-1]["target"])
         return signals
     
     except Exception as e:
@@ -152,7 +151,7 @@ TRADE_FILE = 'trades.txt'
 trade_manager = TradeManager(int(MAX_TRADES), trade_file=TRADE_FILE)
 
 
-def place_trade(fyers, symbol, price, sl, target, timestamp):
+def place_trade(fyers, symbol, price, sl, target, timestamp, stock_count):
     
     """
     Places a trade using the Fyers API.
@@ -218,7 +217,8 @@ def place_trade(fyers, symbol, price, sl, target, timestamp):
         }
                 
         #log(f"Checking if we can trade the {symbol}")
-        if can_trade(symbol=symbol, file_path=TRADE_LOG_FILE):        
+
+        if can_trade(symbol=symbol, file_path=TRADE_LOG_FILE, stock_count=stock_count):        
             # Update trade counts
             if trade_manager.get_trades() >= int(MAX_TRADES):
                 log(f"Maximum trades reached for today. Cannot place more trades.")
