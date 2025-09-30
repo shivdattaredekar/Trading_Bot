@@ -242,7 +242,7 @@ def place_trade(fyers, symbol, price, sl, target, timestamp):
                     log(f"Failed to place order: {response}")
                     
         else:
-            log(f"Cannot trade {symbol} as it has already been traded twice today.")
+            log(f"Cannot trade {symbol} as it has already been traded twice today or it has been recently traded 10 mins ago.")
     
             
     except Exception as e:
