@@ -14,7 +14,7 @@ from src.tradingsetup.login.authentication import auto_login
 from src.tradingsetup.rate_limiter.counter import RateLimiter
 from src.tradingsetup.config.settings import MAX_TRADES
 from src.tradingsetup.utlis.trade_logger import  clean_up
-from dotenv import load_dotenv
+from dotenv import load_dotenv #type: ignore
 
 # Importing Datafiles
 FILTERED_FILE = "filtered_stocks.json"
@@ -29,6 +29,10 @@ def is_market_open():
 
 def main():
     log("Starting trading script...")
+
+    # Step 0: Clean up
+    log("Cleaning up old trades...")
+    clean_up(end_of_day=False)
     
     # Step 1: Authentication
     log("Authenticating with Fyers to use its API...")
@@ -98,7 +102,7 @@ def main():
             time.sleep(60)
             counter += 1
             if counter == 3:
-                clean_up()
+                clean_up(end_of_day=True)
                 log("Market closed, Exiting......")
                 break
             continue

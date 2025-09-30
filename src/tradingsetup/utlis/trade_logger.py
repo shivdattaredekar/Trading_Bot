@@ -95,52 +95,44 @@ class TradeManager:
         return self.trades_taken
 
 
-# If trades for any symbol are equal to two or if its recently traded like 10 mins ago then don't trade again on that symbol 
-def can_trade(symbol, file_path=TRADE_LOG_FILE, stock_count=None):
 
+# If trades for any symbol are equal to two then don't trade again on that symbol 
+
+def can_trade(symbol, file_path=TRADE_LOG_FILE):
+            
     trades = check_trades(symbol, file_path)
-
-    if stock_count <3:
-        if len(trades) >= 3:
-            return False
-
-    # Rule 1: Block if already 2 or more trades
-    if stock_count>=3:
-        if len(trades) >= 2:
-            return False
-
-    # Rule 2: Find the most recent trade for this symbol
-    latest_trade_time = None
-    with open(file_path, mode="r") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            if row["symbol"] == symbol and row["status"] == "success":
-                # Parse timestamp with flexible format
-                try:
-                    timestamp = datetime.strptime(row['timestamp'], '%d-%m-%Y %H:%M')
-                except ValueError:
-                    timestamp = datetime.strptime(row['timestamp'], '%Y-%m-%d %H:%M:%S')
-
-                if latest_trade_time is None or timestamp > latest_trade_time:
-                    latest_trade_time = timestamp
-
-    # Rule 3: If a trade exists and it's within 10 minutes, block
-    if latest_trade_time and (datetime.now() - latest_trade_time).total_seconds() < 600:
+    if len(trades) >= 2:
         return False
-
-    # Otherwise, allow trade
-    return True
-                
+    return True 
 
 
 # To clean the files daily
-def clean_up():
-    filename = ['filtered_stocks.csv','filtered_stocks.json','gapup_data.csv','gapup_data.json','trades.txt','GapUp_stocks.json']
-    for file in filename:
+def clean_up(end_of_day=False):
+    filenames = [
+        'filtered_stocks.csv',
+        'filtered_stocks.json',
+        'gapup_data.csv',
+        'gapup_data.json',
+        'trades.txt',
+        'GapUp_stocks.json'
+    ]
+    
+    for file in filenames:
         try:
             if os.path.exists(file):
-                os.remove(file)
-            log(f"file {file} deleted successfully")
-
+                # if file is empty → delete it (start of day scenario)
+                if os.path.getsize(file) == 0:
+                    log(f"file {file} is empty → deleting")
+                    os.remove(file)
+                
+                # if end of day cleanup is forced → delete anyway
+                elif end_of_day:
+                    os.remove(file)
+                    log(f"file {file} deleted successfully")
+                    
+            else:
+                log(f"file {file} does not exist")
+        
         except Exception as e:
             log(f"Error deleting file {file}: {e}")
+

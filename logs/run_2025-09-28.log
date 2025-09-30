@@ -2228,3 +2228,10 @@
 2025-09-28 13:10:07,873 [INFO] Market closed. Sleeping for 60 seconds.
 2025-09-28 13:11:07,876 [INFO] Market closed. Sleeping for 60 seconds.
 2025-09-28 13:12:07,877 [INFO] Market closed. Sleeping for 60 seconds.
+2025-09-28 13:13:07,880 [INFO] file filtered_stocks.csv deleted successfully
+2025-09-28 13:13:07,880 [INFO] file filtered_stocks.json deleted successfully
+2025-09-28 13:13:07,884 [INFO] file gapup_data.csv deleted successfully
+2025-09-28 13:13:07,884 [INFO] file gapup_data.json deleted successfully
+2025-09-28 13:13:07,887 [INFO] file trades.txt deleted successfully
+2025-09-28 13:13:07,889 [INFO] file GapUp_stocks.json deleted successfully
+2025-09-28 13:13:07,889 [INFO] Market closed, Exiting......

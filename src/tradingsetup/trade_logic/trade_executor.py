@@ -42,7 +42,7 @@ def apply_trade_logic(fyers,filtered_stocks, already_traded):
 
                 log(f"Executing trade for {symbol}: {signal}")
                 # Place the trade
-                place_trade(fyers,symbol, signal["entry_price"], signal["stop_loss"], signal["target"], signal['timestamp'], stock_count=int(len(filtered_stocks)))
+                place_trade(fyers,symbol, signal["entry_price"], signal["stop_loss"], signal["target"], signal['timestamp'])
                 already_traded.add(unique_key)
 
         except Exception as e:

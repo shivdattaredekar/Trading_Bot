@@ -151,7 +151,7 @@ TRADE_FILE = 'trades.txt'
 trade_manager = TradeManager(int(MAX_TRADES), trade_file=TRADE_FILE)
 
 
-def place_trade(fyers, symbol, price, sl, target, timestamp, stock_count):
+def place_trade(fyers, symbol, price, sl, target, timestamp):
     
     """
     Places a trade using the Fyers API.
@@ -218,7 +218,7 @@ def place_trade(fyers, symbol, price, sl, target, timestamp, stock_count):
                 
         #log(f"Checking if we can trade the {symbol}")
 
-        if can_trade(symbol=symbol, file_path=TRADE_LOG_FILE, stock_count=stock_count):        
+        if can_trade(symbol=symbol, file_path=TRADE_LOG_FILE):        
             # Update trade counts
             if trade_manager.get_trades() >= int(MAX_TRADES):
                 log(f"Maximum trades reached for today. Cannot place more trades.")
