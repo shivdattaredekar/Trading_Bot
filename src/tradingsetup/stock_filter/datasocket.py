@@ -23,12 +23,20 @@ def get_index_symbols():
     log(f"Loaded {len(data['STOCK_FINAL'])} symbols from Stock_list.xlsx.")
     return data['STOCK_FINAL'].to_list()
 
+def msg_logger(message):        
+    if list(message.keys())[0]=='ltp':
+        pass
+    else:
+        log(f"Response: {message}")
+
+
 def onmessage(message):
     if isinstance(message, dict) and message.get("type") == "sf":
         symbol = message.get("symbol")
         tick_data[symbol] = message
-    log(f"Response: {message}")
+    msg_logger(message)
 
+    
 def onerror(message):
     log(f"Error: {message}")
 

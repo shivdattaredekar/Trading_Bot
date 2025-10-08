@@ -47,8 +47,7 @@ def check_trades(symbol, file_path=TRADE_LOG_FILE):
 def order_quantity_calculator(CAPITAL_PER_TRADE, STOCK_PRICE, STOP_LOSS):
     try:
         capital_per_trade = float(CAPITAL_PER_TRADE)
-        final_sl = STOP_LOSS - STOCK_PRICE        
-        ORDER_QUANTITY = int(capital_per_trade / max(final_sl, 0.51))
+        ORDER_QUANTITY = int(capital_per_trade / max(STOP_LOSS, 0.51))
         return max(ORDER_QUANTITY, 1)
 
     except Exception as e:

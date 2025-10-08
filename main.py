@@ -11,7 +11,7 @@ from src.tradingsetup.trade_logic.trade_executor import apply_trade_logic
 from src.tradingsetup.utlis.logger import log
 from src.tradingsetup.login.auth import get_fyers_instance, is_access_token_valid
 from src.tradingsetup.login.authentication import auto_login
-from src.tradingsetup.rate_limiter.counter import RateLimiter
+#from src.tradingsetup.rate_limiter.counter import RateLimiter
 from src.tradingsetup.config.settings import MAX_TRADES
 from src.tradingsetup.utlis.trade_logger import  clean_up
 from dotenv import load_dotenv #type: ignore
@@ -41,8 +41,8 @@ def main():
             auto_login()
             load_dotenv(override=True)
         log("Authentication is already done as access token is valid.")
-        log("Sleeping for 10 sec to make sure ACCESS_TOKEN is properly fetched and picked up for WebSocket")
-        time.sleep(10)
+        log("Sleeping for 3 sec to make sure ACCESS_TOKEN is properly fetched and picked up for WebSocket")
+        time.sleep(3)
     except Exception as e:
         log(f"Auth failed: {e}")
         exit(1)
@@ -60,8 +60,6 @@ def main():
     else:
         log("Fetching index symbols and running filtering stages...")
         try:
-            rate_limiter = RateLimiter()
-
             # Stage 1: GAP-UP based filtering
             log("Starting WebSocket to fetch gap-up stocks...")
             run_gapup_websocket(duration=30)
@@ -77,9 +75,8 @@ def main():
             log(f"Gap-up stocks loaded: {len(gapup_stocks)}")
 
             # Stage 2: Volume filtering only on shortlisted
-            filtered_stocks = asyncio.run(
-                final_filter_with_volume(fyers, gapup_stocks, rate_limiter)
-            )
+            filtered_stocks = final_filter_with_volume(fyers, gapup_stocks)
+            
             log(f"Final filtered stocks after volume check: {len(filtered_stocks)}")
             log("Stocks to be traded: " + ", ".join(filtered_stocks) if filtered_stocks else "None")
 

@@ -25,7 +25,10 @@ def get_last_trading_day():
         d -= timedelta(days=1)
     return d.date()
 
+
+
 DATE_FROM = get_last_trading_day()
+#DATE_FROM = datetime(2025, 10, 1).date()
 DATE_TO   = datetime.now().date()
 
 
@@ -181,9 +184,6 @@ def place_trade(fyers, symbol, price, sl, target, timestamp):
         # Place the trade using Fyers API
         #log(f"Placing trade for {symbol} at price {price:.2f} with SL {sl:2f} and Target {target:.2f}.")
 
-        # Calculate order quantity based on CAPITAL_PER_TRADE and current price
-        ORDER_QUANTITY = order_quantity_calculator(CAPITAL_PER_TRADE, STOCK_PRICE=price, STOP_LOSS=sl)
-        log(f"Calculated order quantity for {symbol}: {ORDER_QUANTITY} shares based on CAPITAL_PER_TRADE: {CAPITAL_PER_TRADE} and stock price: {price}")
 
         # Calculating SL
         St_L = abs(price - sl)
@@ -199,6 +199,11 @@ def place_trade(fyers, symbol, price, sl, target, timestamp):
             St_L = St_L
             target = target
         log(f"Final SL: {St_L:.2f}, Final Target: {target:.2f}")
+
+        # Calculate order quantity based on CAPITAL_PER_TRADE and current price
+        ORDER_QUANTITY = order_quantity_calculator(CAPITAL_PER_TRADE, STOCK_PRICE=price, STOP_LOSS=St_L)
+        log(f"Calculated order quantity for {symbol}: {ORDER_QUANTITY} shares based on CAPITAL_PER_TRADE: {CAPITAL_PER_TRADE} and stock price: {price}")
+
 
         # Prepare order data
         order_data = {
