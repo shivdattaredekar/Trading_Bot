@@ -7,6 +7,8 @@ from tradingsetup.trade_logic.ema_strategy import (
     evaluate_trade_signal,
     place_trade
 )
+
+from tradingsetup.trade_logic.single_stock_stratergy import SingleStockStrategy
 from tradingsetup.utlis.logger import log
 
 def apply_trade_logic(fyers,filtered_stocks, already_traded):
@@ -45,7 +47,33 @@ def apply_trade_logic(fyers,filtered_stocks, already_traded):
                 place_trade(fyers,symbol, signal["entry_price"], signal["stop_loss"], signal["target"], signal['timestamp'])
                 already_traded.add(unique_key)
 
+            
         except Exception as e:
             log(f"Error evaluating trade for {symbol}: {e}")
             continue
 
+
+def apply_tamo_trade_logic(fyers):
+    try:
+        # Evaluate TAMO trade
+        signal = SingleStockStrategy("NSE:TATAMOTORS-EQ", 3, fyers).evaluate_trade_signal()
+        if signal:
+            place_trade(
+                fyers,
+                "NSE:TATAMOTORS-EQ",
+                signal["entry_price"],
+                signal["stop_loss"],
+                signal["target"],
+                signal["timestamp"]
+            )
+            log(f"TAMO trade executed successfully at {signal['timestamp']}")
+
+            # ✅ Write today's date to file to prevent re-trading
+            with open("tradingsetup/tamo.txt", "w") as f:
+                f.write(datetime.now().strftime("%Y-%m-%d"))
+
+        else:
+            log("No valid signal found for TATAMOTORS at this time.")
+
+    except Exception as e:
+        log(f"Reason for not placing the TAMO trade: {e}")

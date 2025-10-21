@@ -130,32 +130,56 @@ def can_trade(symbol, file_path=TRADE_LOG_FILE):
 
 
 # To clean the files daily
-def clean_up(end_of_day=False):
+# def clean_up(end_of_day=False):
+#     filenames = [
+#         'filtered_stocks.csv',
+#         'filtered_stocks.json',
+#         'gapup_data.csv',
+#         'gapup_data.json',
+#         'trades.txt',
+#         'GapUp_stocks.json'
+#     ]
+    
+#     for file in filenames:
+#         try:
+#             if os.path.exists(file):
+#                 # if file is empty → delete it (start of day scenario)
+#                 if os.path.getsize(file) == 0:
+#                     log(f"file {file} is empty → deleting")
+#                     os.remove(file)
+                
+#                 # if end of day cleanup is forced → delete anyway
+#                 elif end_of_day:
+#                     os.remove(file)
+#                     log(f"file {file} deleted successfully")
+                    
+#             else:
+#                 log(f"file {file} does not exist")
+        
+#         except Exception as e:
+#             log(f"Error deleting file {file}: {e}")
+
+
+def clean_up():
     filenames = [
         'filtered_stocks.csv',
         'filtered_stocks.json',
         'gapup_data.csv',
         'gapup_data.json',
         'trades.txt',
-        'GapUp_stocks.json'
+        'GapUp_stocks.json',
+        'tamo.txt'
     ]
     
     for file in filenames:
         try:
             if os.path.exists(file):
                 # if file is empty → delete it (start of day scenario)
-                if os.path.getsize(file) == 0:
-                    log(f"file {file} is empty → deleting")
-                    os.remove(file)
-                
-                # if end of day cleanup is forced → delete anyway
-                elif end_of_day:
-                    os.remove(file)
-                    log(f"file {file} deleted successfully")
+                os.remove(file)
+                log(f"file {file} deleted successfully")
                     
             else:
                 log(f"file {file} does not exist")
         
         except Exception as e:
             log(f"Error deleting file {file}: {e}")
-

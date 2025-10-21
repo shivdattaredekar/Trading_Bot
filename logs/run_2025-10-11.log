@@ -1,0 +1,159 @@
+2025-10-11 10:51:32,660 [INFO] Creating FyersModel instance with access token...
+2025-10-11 10:51:32,664 [INFO] Authenticated Fyers instance created.
+2025-10-11 10:55:27,931 [INFO] verify_client_id success
+2025-10-11 10:55:27,931 [INFO] generate_totp success
+2025-10-11 10:55:28,704 [INFO] verify_totp_result success
+2025-10-11 10:55:30,267 [INFO] verify_pin_result success
+2025-10-11 10:55:30,922 [INFO] token_result success
+2025-10-11 10:55:31,709 [INFO] validate_authcode success
+2025-10-11 10:55:31,722 [INFO] Authentication successful
+2025-10-11 10:55:44,811 [INFO] verify_client_id success
+2025-10-11 10:55:44,811 [INFO] generate_totp success
+2025-10-11 10:55:45,605 [INFO] verify_totp_result success
+2025-10-11 10:55:47,064 [INFO] verify_pin_result success
+2025-10-11 10:55:47,874 [INFO] token_result success
+2025-10-11 10:55:48,694 [INFO] validate_authcode success
+2025-10-11 10:55:48,712 [INFO] Authentication successful
+2025-10-11 10:55:50,859 [INFO] Creating FyersModel instance with access token...
+2025-10-11 10:55:50,862 [INFO] Authenticated Fyers instance created.
+2025-10-11 10:55:54,107 [INFO] Creating FyersModel instance with access token...
+2025-10-11 10:55:54,113 [INFO] Authenticated Fyers instance created.
+2025-10-11 10:56:00,212 [INFO] Creating FyersModel instance with access token...
+2025-10-11 10:56:00,223 [INFO] Authenticated Fyers instance created.
+2025-10-11 10:56:22,416 [INFO] verify_client_id success
+2025-10-11 10:56:22,430 [INFO] generate_totp success
+2025-10-11 10:56:23,290 [INFO] verify_totp_result success
+2025-10-11 10:56:24,947 [INFO] verify_pin_result success
+2025-10-11 10:56:25,748 [INFO] token_result success
+2025-10-11 10:56:26,466 [INFO] validate_authcode success
+2025-10-11 10:56:26,477 [INFO] Authentication successful
+2025-10-11 10:56:26,516 [INFO] Creating FyersModel instance with access token...
+2025-10-11 10:56:26,520 [INFO] Authenticated Fyers instance created.
+2025-10-11 10:56:53,566 [INFO] Starting trading script...
+2025-10-11 10:56:53,566 [INFO] Cleaning up old trades...
+2025-10-11 10:56:53,566 [INFO] file filtered_stocks.csv does not exist
+2025-10-11 10:56:53,566 [INFO] file filtered_stocks.json does not exist
+2025-10-11 10:56:53,566 [INFO] file gapup_data.csv does not exist
+2025-10-11 10:56:53,568 [INFO] file gapup_data.json does not exist
+2025-10-11 10:56:53,568 [INFO] file trades.txt deleted successfully
+2025-10-11 10:56:53,568 [INFO] file GapUp_stocks.json does not exist
+2025-10-11 10:56:53,568 [INFO] Authenticating with Fyers to use its API...
+2025-10-11 10:56:54,119 [INFO] Access token is valid.
+2025-10-11 10:56:54,119 [INFO] Authentication is already done as access token is valid.
+2025-10-11 10:56:54,119 [INFO] Sleeping for 3 sec to make sure ACCESS_TOKEN is properly fetched and picked up for WebSocket
+2025-10-11 10:56:57,121 [INFO] Creating FyersModel instance with access token...
+2025-10-11 10:56:57,123 [INFO] Authenticated Fyers instance created.
+2025-10-11 10:56:57,123 [INFO] Fetching index symbols and running filtering stages...
+2025-10-11 10:56:57,123 [INFO] Starting WebSocket to fetch gap-up stocks...
+2025-10-11 10:56:57,985 [INFO] Loaded 499 symbols from Stock_list.xlsx.
+2025-10-11 10:56:58,538 [INFO] Websocket connected
+2025-10-11 10:56:58,674 [INFO] Response: {'type': 'cn', 'code': 200, 'message': 'Authentication done', 's': 'ok'}
+2025-10-11 10:57:00,024 [INFO] WebSocket connection opened. Subscribing to data...
+2025-10-11 10:57:00,080 [INFO] Response: {'type': 'ful', 'code': 200, 'message': 'Full Mode On', 's': 'ok'}
+2025-10-11 10:57:01,397 [INFO] Response: {'type': 'sub', 'code': 200, 'message': 'Subscribed', 's': 'ok'}
+2025-10-11 10:57:16,744 [INFO] Connection closed: {'code': 200, 'message': 'Connection Closed', 's': 'ok'}
+2025-10-11 10:57:18,543 [INFO] Evaluating for gap-up stocks...
+2025-10-11 10:57:18,556 [INFO] Gap-up stocks saved to gapup_data.csv with 5 entries.
+2025-10-11 10:57:18,556 [INFO] Total gap-up stocks found: 5
+2025-10-11 10:57:18,589 [INFO] Gap-up stocks loaded: 5
+2025-10-11 10:57:24,580 [INFO] Symbol              Gap Up %    Avg Volume  Status
+2025-10-11 10:57:24,580 [INFO] Included NSE:NATCOPHARM-EQ | Volume: 444575
+2025-10-11 10:57:24,580 [INFO] Included NSE:BLUESTARCO-EQ | Volume: 445424
+2025-10-11 10:57:24,580 [INFO] Included NSE:SCI-EQ | Volume: 3108746
+2025-10-11 10:57:24,584 [INFO] Included NSE:APTUS-EQ | Volume: 2593914
+2025-10-11 10:57:24,584 [INFO] Included NSE:TATAPOWER-EQ | Volume: 3878459
+2025-10-11 10:57:24,589 [INFO] Final filtered stocks after volume check: 5
+2025-10-11 10:57:24,589 [INFO] Stocks to be traded: NSE:NATCOPHARM-EQ, NSE:BLUESTARCO-EQ, NSE:SCI-EQ, NSE:APTUS-EQ, NSE:TATAPOWER-EQ
+2025-10-11 10:57:24,597 [INFO] Filtered stocks saved to filtered_stocks.json.
+2025-10-11 10:57:24,597 [INFO] Entering monitoring loop...
+2025-10-11 10:57:24,597 [INFO] Market closed. Sleeping for 60 seconds.
+2025-10-11 10:58:24,601 [INFO] Market closed. Sleeping for 60 seconds.
+2025-10-11 10:59:24,602 [INFO] Market closed. Sleeping for 60 seconds.
+2025-10-11 10:59:47,203 [INFO] Starting trading script...
+2025-10-11 10:59:47,207 [INFO] Authenticating with Fyers to use its API...
+2025-10-11 10:59:48,191 [INFO] Access token is not valid.
+2025-10-11 10:59:48,816 [INFO] verify_client_id success
+2025-10-11 10:59:48,817 [INFO] generate_totp success
+2025-10-11 10:59:49,637 [INFO] verify_totp_result success
+2025-10-11 10:59:51,121 [INFO] verify_pin_result success
+2025-10-11 10:59:51,725 [INFO] token_result success
+2025-10-11 10:59:52,523 [INFO] validate_authcode success
+2025-10-11 10:59:52,532 [INFO] Authentication successful
+2025-10-11 10:59:52,578 [INFO] Authentication is already done as access token is valid.
+2025-10-11 10:59:52,578 [INFO] Sleeping for 3 sec to make sure ACCESS_TOKEN is properly fetched and picked up for WebSocket
+2025-10-11 10:59:52,584 [INFO] Auth failed: name 'time' is not defined
+2025-10-11 10:59:52,584 [INFO] Creating FyersModel instance with access token...
+2025-10-11 10:59:52,591 [INFO] Authenticated Fyers instance created.
+2025-10-11 11:00:21,328 [INFO] Starting trading script...
+2025-10-11 11:00:21,331 [INFO] Authenticating with Fyers to use its API...
+2025-10-11 11:00:22,762 [INFO] Access token is not valid.
+2025-10-11 11:00:23,428 [INFO] verify_client_id success
+2025-10-11 11:00:23,430 [INFO] generate_totp success
+2025-10-11 11:00:24,604 [INFO] file filtered_stocks.csv deleted successfully
+2025-10-11 11:00:24,608 [INFO] file filtered_stocks.json deleted successfully
+2025-10-11 11:00:24,608 [INFO] file gapup_data.csv deleted successfully
+2025-10-11 11:00:24,608 [INFO] file gapup_data.json does not exist
+2025-10-11 11:00:24,608 [INFO] file trades.txt does not exist
+2025-10-11 11:00:24,612 [INFO] file GapUp_stocks.json deleted successfully
+2025-10-11 11:00:24,614 [INFO] Market closed, Exiting......
+2025-10-11 11:00:24,663 [INFO] verify_totp_result success
+2025-10-11 11:00:26,809 [INFO] verify_pin_result success
+2025-10-11 11:00:27,799 [INFO] token_result success
+2025-10-11 11:00:29,062 [INFO] validate_authcode success
+2025-10-11 11:00:29,074 [INFO] Authentication successful
+2025-10-11 11:00:29,118 [INFO] Authentication is already done as access token is valid.
+2025-10-11 11:00:29,122 [INFO] Sleeping for 3 sec to make sure ACCESS_TOKEN is properly fetched and picked up for WebSocket
+2025-10-11 11:00:29,122 [INFO] Auth failed: name 'time' is not defined
+2025-10-11 11:00:29,128 [INFO] Creating FyersModel instance with access token...
+2025-10-11 11:00:29,128 [INFO] Authenticated Fyers instance created.
+2025-10-11 14:11:44,358 [INFO] Error extracting prices: string indices must be integers, not 'str'
+2025-10-11 14:11:44,364 [INFO] Error extracting prices: string indices must be integers, not 'str'
+2025-10-12 17:29:35,739 [INFO] Starting trading script...
+2025-10-12 17:29:35,741 [INFO] Authenticating with Fyers to use its API...
+2025-10-12 17:29:39,085 [INFO] Access token is not valid.
+2025-10-12 17:29:41,026 [INFO] verify_client_id success
+2025-10-12 17:29:41,030 [INFO] generate_totp success
+2025-10-12 17:29:41,635 [INFO] verify_totp_result success
+2025-10-12 17:29:42,937 [INFO] verify_pin_result success
+2025-10-12 17:29:43,554 [INFO] token_result success
+2025-10-12 17:29:44,148 [INFO] validate_authcode success
+2025-10-12 17:29:44,157 [INFO] Authentication successful
+2025-10-12 17:29:44,185 [INFO] Authentication is already done as access token is valid.
+2025-10-12 17:29:44,185 [INFO] Sleeping for 3 sec to make sure ACCESS_TOKEN is properly fetched and picked up for WebSocket
+2025-10-12 17:29:44,185 [INFO] Auth failed: type object 'datetime.time' has no attribute 'sleep'
+2025-10-12 17:29:44,185 [INFO] Creating FyersModel instance with access token...
+2025-10-12 17:29:44,185 [INFO] Authenticated Fyers instance created.
+2025-10-12 17:31:32,927 [INFO] Error extracting prices: string indices must be integers, not 'str'
+2025-10-12 17:31:32,930 [INFO] Error extracting prices: string indices must be integers, not 'str'
+2025-10-12 17:32:25,612 [INFO] Error extracting prices: string indices must be integers, not 'str'
+2025-10-12 17:32:25,616 [INFO] Error extracting prices: string indices must be integers, not 'str'
+2025-10-12 17:32:32,099 [INFO] Error extracting prices: string indices must be integers, not 'str'
+2025-10-12 17:32:32,100 [INFO] Error extracting prices: string indices must be integers, not 'str'
+2025-10-12 17:36:05,781 [INFO] Error extracting prices: list indices must be integers or slices, not str
+2025-10-12 17:36:05,783 [INFO] Error extracting prices: list indices must be integers or slices, not str
+2025-10-12 19:31:48,926 [INFO] Trade signal evaluated as invalid.
+2025-10-12 20:09:47,195 [INFO] Trade signal evaluated as Buy.
+2025-10-12 20:09:47,200 [INFO] Buy Triggered for NSE:TATAMOTORS-EQ SETUP at 10:05
+2025-10-12 20:13:26,783 [INFO] Trade signal evaluated as Buy.
+2025-10-12 20:13:26,787 [INFO] Buy Triggered for NSE:TATAMOTORS-EQ SETUP at 10:05
+2025-10-13 20:29:55,110 [INFO] No 10.00 AM trigger candle found.
+2025-10-13 20:30:50,103 [INFO] No 10.00 AM trigger candle found.
+2025-10-13 20:32:13,806 [INFO] Trade signal evaluated as Buy.
+2025-10-13 20:32:13,808 [INFO] Buy Triggered for NSE:TATAMOTORS-EQ SETUP at 10:05
+2025-10-13 20:42:41,835 [INFO] Fetching candles for NSE:TATAMOTORS-EQ...
+2025-10-13 20:42:42,605 [INFO] Trade signal evaluated as Buy.
+2025-10-13 20:42:42,607 [INFO] Buy Triggered for NSE:TATAMOTORS-EQ SETUP at 10:05
+2025-10-13 20:44:26,547 [INFO] Fetching candles for NSE:TATAMOTORS-EQ...
+2025-10-13 20:44:27,251 [INFO] Trade signal evaluated as Buy.
+2025-10-13 20:44:27,255 [INFO] Buy Triggered for NSE:TATAMOTORS-EQ SETUP at 10:05
+2025-10-13 20:46:15,822 [INFO] Error placing trade for NSE:TATAMOTORS-EQ: time data '10:05' does not match format '%Y-%m-%d %H:%M'
+2025-10-13 20:47:16,914 [INFO] Fetching candles for NSE:TATAMOTORS-EQ...
+2025-10-13 20:47:17,759 [INFO] No 10.00 AM trigger candle found.
+2025-10-13 20:55:14,828 [INFO] Fetching candles for NSE:TATAMOTORS-EQ...
+2025-10-13 20:55:15,672 [INFO] Trade signal evaluated as Buy.
+2025-10-13 20:55:15,672 [INFO] Buy Triggered for NSE:TATAMOTORS-EQ SETUP at 2025-10-13 10:05:00
+2025-10-13 20:55:47,325 [INFO] Error placing trade for NSE:TATAMOTORS-EQ: strptime() argument 1 must be str, not datetime.datetime
+2025-10-13 20:56:57,410 [INFO] Fetching candles for NSE:TATAMOTORS-EQ...
+2025-10-13 20:56:58,391 [INFO] Trade signal evaluated as Buy.
+2025-10-13 20:56:58,393 [INFO] Buy Triggered for NSE:TATAMOTORS-EQ SETUP at 2025-10-13 10:05
+2025-10-13 20:56:59,526 [INFO] Trade for NSE:TATAMOTORS-EQ at 2025-10-13 10:05 is outside the trading window. as current time is 20:56:59.526426 hence Skipping.

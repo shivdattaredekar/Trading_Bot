@@ -1,13 +1,12 @@
 import os
 import json
 import time
-import asyncio 
 from datetime import datetime, time as dtime
 import traceback
 
 from src.tradingsetup.stock_filter.filter_logic import final_filter_with_volume
 from src.tradingsetup.stock_filter.datasocket import run_gapup_websocket
-from src.tradingsetup.trade_logic.trade_executor import apply_trade_logic
+from src.tradingsetup.trade_logic.trade_executor import apply_trade_logic, apply_tamo_trade_logic
 from src.tradingsetup.utlis.logger import log
 from src.tradingsetup.login.auth import get_fyers_instance, is_access_token_valid
 from src.tradingsetup.login.authentication import auto_login
@@ -32,7 +31,7 @@ def main():
 
     # Step 0: Clean up
     log("Cleaning up old trades...")
-    clean_up(end_of_day=False)
+    clean_up()
     
     # Step 1: Authentication
     log("Authenticating with Fyers to use its API...")
@@ -62,7 +61,7 @@ def main():
         try:
             # Stage 1: GAP-UP based filtering
             log("Starting WebSocket to fetch gap-up stocks...")
-            run_gapup_websocket(duration=30)
+            run_gapup_websocket(duration=15)
             
             if not os.path.exists("GapUp_stocks.json"):
                 log("No GapUp_stocks.json file  stocks found.")
@@ -75,11 +74,26 @@ def main():
             log(f"Gap-up stocks loaded: {len(gapup_stocks)}")
 
             # Stage 2: Volume filtering only on shortlisted
-            filtered_stocks = final_filter_with_volume(fyers, gapup_stocks)
-            
-            log(f"Final filtered stocks after volume check: {len(filtered_stocks)}")
-            log("Stocks to be traded: " + ", ".join(filtered_stocks) if filtered_stocks else "None")
+            # If stocks did not filtered out due to API issue it will retry
+            filtered_stocks = []
+            retry = 2
+            while retry > 0:
+                try:
+                    filtered_stocks = final_filter_with_volume(fyers, gapup_stocks)
+                    if len(filtered_stocks) > 0:
+                        log(f"Final filtered stocks after volume check: {len(filtered_stocks)}")
+                        log("Stocks to be traded: " + ", ".join(filtered_stocks) if filtered_stocks else "None")
+                        break                
+                    else:
+                        log(f"No stocks passed the volume filter. Retrying {retry-1}...")
+                except Exception as e:
+                    log(f"Error in volume filter attempt: {e}")
+                retry -= 1
+                time.sleep(3)
 
+            if len(filtered_stocks) == 0:
+                log("No stocks passed the volume filter even after retries. Exiting filtering stage.")
+            
             with open(FILTERED_FILE, "w") as f:
                 json.dump(filtered_stocks, f)
             log(f"Filtered stocks saved to {FILTERED_FILE}.")
@@ -99,14 +113,33 @@ def main():
             time.sleep(60)
             counter += 1
             if counter == 3:
-                clean_up(end_of_day=True)
+                clean_up()
                 log("Market closed, Exiting......")
                 break
             continue
 
         log(f"Heartbeat: Checking for trade setups at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         try:
+            # Step 4: Trade logic
+            
+            # 5 EMA logic
             apply_trade_logic(fyers, filtered_stocks, already_traded)
+            
+            # Step 5: TAMO logic
+            tamo_file = "tradingsetup/tamo.txt"
+            os.makedirs(os.path.dirname(tamo_file), exist_ok=True)
+
+            # ✅ Handle missing file safely
+            if not os.path.exists(tamo_file):
+                tamo = ""
+            else:
+                with open(tamo_file, "r") as f:
+                    tamo = f.read().strip()
+
+            # ✅ Execute only after 9:58 AM and only once per day
+            if datetime.now().strftime("%H:%M") >= "09:58" and not tamo:
+                apply_tamo_trade_logic(fyers)
+        
         except Exception :
             log(f"Error in trade logic: \n {traceback.format_exc()}")
 
