@@ -1,0 +1,76 @@
+2025-11-16 20:47:42,117 [INFO] Creating FyersModel instance with access token...
+2025-11-16 20:47:42,121 [INFO] Authenticated Fyers instance created.
+2025-11-16 20:47:42,972 [INFO] Creating FyersModel instance with access token...
+2025-11-16 20:47:42,977 [INFO] Authenticated Fyers instance created.
+2025-11-16 20:48:46,867 [INFO] 🔹 Starting trading script...
+2025-11-16 20:48:46,867 [INFO] file filtered_stocks.csv deleted successfully
+2025-11-16 20:48:46,867 [INFO] file filtered_stocks.json does not exist
+2025-11-16 20:48:46,877 [INFO] file gapup_data.csv deleted successfully
+2025-11-16 20:48:46,877 [INFO] file gapup_data.json does not exist
+2025-11-16 20:48:46,879 [INFO] file trades.txt does not exist
+2025-11-16 20:48:46,879 [INFO] file GapUp_stocks.json deleted successfully
+2025-11-16 20:48:46,884 [INFO] file tamo.txt does not exist
+2025-11-16 20:48:46,885 [INFO] Authenticating with Fyers API...
+2025-11-16 20:48:47,414 [INFO] Access token is not valid.
+2025-11-16 20:48:48,164 [INFO] verify_client_id success
+2025-11-16 20:48:48,166 [INFO] generate_totp success
+2025-11-16 20:48:48,779 [INFO] verify_totp_result success
+2025-11-16 20:48:50,137 [INFO] verify_pin_result success
+2025-11-16 20:48:50,948 [INFO] token_result success
+2025-11-16 20:48:51,897 [INFO] validate_authcode success
+2025-11-16 20:48:51,950 [INFO] Authentication successful
+2025-11-16 20:48:51,959 [INFO] Authentication successful.
+2025-11-16 20:48:54,960 [INFO] Creating FyersModel instance with access token...
+2025-11-16 20:48:54,960 [INFO] Authenticated Fyers instance created.
+2025-11-16 20:48:54,960 [INFO] Fetching new gap-up stocks using WebSocket...
+2025-11-16 20:48:55,700 [INFO] Loaded 209 symbols from Stock_list.xlsx.
+2025-11-16 20:48:56,569 [INFO] Websocket connected
+2025-11-16 20:48:56,661 [INFO] Response: {'type': 'cn', 'code': 200, 'message': 'Authentication done', 's': 'ok'}
+2025-11-16 20:48:56,955 [INFO] Response: {'type': 'ful', 'code': 200, 'message': 'Full Mode On', 's': 'ok'}
+2025-11-16 20:48:57,744 [INFO] WebSocket connection opened. Subscribing to data...
+2025-11-16 20:48:58,816 [INFO] Response: {'type': 'sub', 'code': 200, 'message': 'Subscribed', 's': 'ok'}
+2025-11-16 20:49:13,850 [INFO] Connection closed: {'code': 200, 'message': 'Connection Closed', 's': 'ok'}
+2025-11-16 20:49:16,574 [INFO] Evaluating for gap-up stocks...
+2025-11-16 20:49:16,581 [INFO] Gap-up stocks saved to gapup_data.csv with 4 entries.
+2025-11-16 20:49:16,591 [INFO] Total gap-up stocks found: 4
+2025-11-16 20:49:16,617 [INFO] Gap-up stocks found: 4
+2025-11-16 20:49:19,522 [INFO] Symbol              Gap Up %    Avg Volume  Status
+2025-11-16 20:49:19,522 [INFO] ------------------------------------------------------------
+2025-11-16 20:49:19,522 [INFO] Excluded NSE:BDL-EQ | Volume: -1
+2025-11-16 20:49:19,522 [INFO] Excluded NSE:JUBLFOOD-EQ | Volume: -1
+2025-11-16 20:49:19,524 [INFO] Excluded NSE:GMRAIRPORT-EQ | Volume: -1
+2025-11-16 20:49:19,524 [INFO] Excluded NSE:MUTHOOTFIN-EQ | Volume: -1
+2025-11-16 20:49:19,524 [INFO] No stocks passed volume filter. Retrying (1)...
+2025-11-16 20:49:24,937 [INFO] Symbol              Gap Up %    Avg Volume  Status
+2025-11-16 20:49:24,940 [INFO] ------------------------------------------------------------
+2025-11-16 20:49:24,940 [INFO] Excluded NSE:BDL-EQ | Volume: -1
+2025-11-16 20:49:24,940 [INFO] Excluded NSE:JUBLFOOD-EQ | Volume: -1
+2025-11-16 20:49:24,940 [INFO] Excluded NSE:GMRAIRPORT-EQ | Volume: -1
+2025-11-16 20:49:24,940 [INFO] Excluded NSE:MUTHOOTFIN-EQ | Volume: -1
+2025-11-16 20:49:24,945 [INFO] No stocks passed volume filter. Retrying (0)...
+2025-11-16 20:49:27,946 [INFO] No stocks passed after retries. Exiting.
+2025-11-16 20:49:40,069 [INFO] Creating FyersModel instance with access token...
+2025-11-16 20:49:40,074 [INFO] Authenticated Fyers instance created.
+2025-11-16 20:49:58,091 [INFO] Creating FyersModel instance with access token...
+2025-11-16 20:49:58,095 [INFO] Authenticated Fyers instance created.
+2025-11-16 20:52:33,595 [INFO] Trade for NSE:TMPV-EQ is outside trading window. Skipping.
+2025-11-16 20:52:51,477 [INFO] Error placing trade for NSE:TMPV-EQ: time data '2025-16-05 20:50' does not match format '%Y-%m-%d %H:%M'
+2025-11-16 20:53:05,401 [INFO] Order Tracker: ['25110400115651-BO-1']
+2025-11-16 20:53:05,404 [INFO] Active Trades: {'25110400115651-BO-1': {'symbol': 'NSE:TMPV-EQ', 'qty': 100, 'entry_price': 411.1, 'stop_price': 405.1, 'sl': 1.0, 'side': -1, 'achieved_rr': 6, 'targets': {'tg_1_1': 410.1, 'tg_1_2': 409.1, 'tg_1_3': 408.1, 'tg_1_4': 407.1, 'tg_1_5': 406.1, 'tg_1_6': 405.1, 'tg_1_7': 404.1, 'tg_1_8': 403.1, 'tg_1_9': 402.1, 'tg_1_10': 401.1}, 'status': 'OPEN'}}
+2025-11-16 20:53:05,407 [INFO] Loaded the logger object
+2025-11-16 20:53:05,408 [INFO] ⚠️ Trade ID 25110400115651-BO-1 already exists in tracker, skipping duplicate.
+2025-11-16 20:53:05,412 [INFO] Error placing trade for NSE:TMPV-EQ: Expecting value: line 1 column 1 (char 0)
+2025-11-16 20:53:31,150 [INFO] Order Tracker: []
+2025-11-16 20:53:31,154 [INFO] Active Trades: {}
+2025-11-16 20:53:31,158 [INFO] Loaded the logger object
+2025-11-16 20:53:31,162 [INFO] Error placing trade for NSE:TMPV-EQ: Expecting value: line 1 column 1 (char 0)
+2025-11-16 20:54:48,325 [INFO] Order Tracker: []
+2025-11-16 20:54:48,330 [INFO] Active Trades: {}
+2025-11-16 20:54:48,334 [INFO] Loaded the logger object
+2025-11-16 20:54:48,337 [INFO] Error placing trade for NSE:TMPV-EQ: Expecting value: line 1 column 1 (char 0)
+2025-11-16 20:55:57,209 [INFO] Trade for NSE:TMPV-EQ is outside trading window. Skipping.
+2025-11-16 20:56:04,220 [INFO] after SL after filtering the final SL:0.51, final_target:410.07, qty:196
+2025-11-16 20:56:04,223 [INFO] Order Tracker: []
+2025-11-16 20:56:04,225 [INFO] Active Trades: {}
+2025-11-16 20:56:04,227 [INFO] Loaded the logger object
+2025-11-16 20:56:04,231 [INFO] Error placing trade for NSE:TMPV-EQ: Expecting value: line 1 column 1 (char 0)

@@ -1,0 +1,55 @@
+2025-11-15 16:12:12,684 [INFO] 🔹 Starting trading script...
+2025-11-15 16:12:12,684 [INFO] file filtered_stocks.csv does not exist
+2025-11-15 16:12:12,684 [INFO] file filtered_stocks.json does not exist
+2025-11-15 16:12:12,684 [INFO] file gapup_data.csv does not exist
+2025-11-15 16:12:12,684 [INFO] file gapup_data.json does not exist
+2025-11-15 16:12:12,688 [INFO] file trades.txt does not exist
+2025-11-15 16:12:12,688 [INFO] file GapUp_stocks.json does not exist
+2025-11-15 16:12:12,688 [INFO] file tamo.txt does not exist
+2025-11-15 16:12:12,688 [INFO] Authenticating with Fyers API...
+2025-11-15 16:12:14,854 [INFO] Access token is not valid.
+2025-11-15 16:12:17,218 [INFO] verify_client_id success
+2025-11-15 16:12:17,220 [INFO] generate_totp success
+2025-11-15 16:12:18,285 [INFO] verify_totp_result success
+2025-11-15 16:12:20,102 [INFO] verify_pin_result success
+2025-11-15 16:12:22,147 [INFO] token_result success
+2025-11-15 16:12:23,766 [INFO] validate_authcode success
+2025-11-15 16:12:23,804 [INFO] Authentication successful
+2025-11-15 16:12:23,816 [INFO] Authentication successful.
+2025-11-15 16:12:26,819 [INFO] Creating FyersModel instance with access token...
+2025-11-15 16:12:26,819 [INFO] Authenticated Fyers instance created.
+2025-11-15 16:12:26,819 [INFO] Fetching new gap-up stocks using WebSocket...
+2025-11-15 16:12:27,443 [INFO] Loaded 209 symbols from Stock_list.xlsx.
+2025-11-15 16:12:28,462 [INFO] Websocket connected
+2025-11-15 16:12:28,493 [INFO] Response: {'type': 'cn', 'code': 200, 'message': 'Authentication done', 's': 'ok'}
+2025-11-15 16:12:28,579 [INFO] Response: {'type': 'ful', 'code': 200, 'message': 'Full Mode On', 's': 'ok'}
+2025-11-15 16:12:29,470 [INFO] WebSocket connection opened. Subscribing to data...
+2025-11-15 16:12:31,278 [INFO] Response: {'type': 'sub', 'code': 200, 'message': 'Subscribed', 's': 'ok'}
+2025-11-15 16:12:46,277 [INFO] Connection closed: {'code': 200, 'message': 'Connection Closed', 's': 'ok'}
+2025-11-15 16:12:48,471 [INFO] Evaluating for gap-up stocks...
+2025-11-15 16:12:48,482 [INFO] Gap-up stocks saved to gapup_data.csv with 4 entries.
+2025-11-15 16:12:48,483 [INFO] Total gap-up stocks found: 4
+2025-11-15 16:12:48,505 [INFO] Gap-up stocks found: 4
+2025-11-15 16:12:52,547 [INFO] Symbol              Gap Up %    Avg Volume  Status
+2025-11-15 16:12:52,550 [INFO] ------------------------------------------------------------
+2025-11-15 16:12:52,550 [INFO] Excluded NSE:BDL-EQ | Volume: -1
+2025-11-15 16:12:52,550 [INFO] Excluded NSE:JUBLFOOD-EQ | Volume: -1
+2025-11-15 16:12:52,550 [INFO] Excluded NSE:GMRAIRPORT-EQ | Volume: -1
+2025-11-15 16:12:52,552 [INFO] Excluded NSE:MUTHOOTFIN-EQ | Volume: -1
+2025-11-15 16:12:52,552 [INFO] No stocks passed volume filter. Retrying (1)...
+2025-11-15 16:12:59,069 [INFO] Symbol              Gap Up %    Avg Volume  Status
+2025-11-15 16:12:59,069 [INFO] ------------------------------------------------------------
+2025-11-15 16:12:59,069 [INFO] Excluded NSE:BDL-EQ | Volume: -1
+2025-11-15 16:12:59,069 [INFO] Excluded NSE:JUBLFOOD-EQ | Volume: -1
+2025-11-15 16:12:59,069 [INFO] Excluded NSE:GMRAIRPORT-EQ | Volume: -1
+2025-11-15 16:12:59,069 [INFO] Excluded NSE:MUTHOOTFIN-EQ | Volume: -1
+2025-11-15 16:12:59,075 [INFO] No stocks passed volume filter. Retrying (0)...
+2025-11-15 16:13:02,077 [INFO] No stocks passed after retries. Exiting.
+2025-11-15 16:37:36,884 [DEBUG] {'Status Code': 200, 'API': '/history'}
+2025-11-15 16:37:37,017 [INFO] Error extracting prices: string indices must be integers, not 'str'
+2025-11-15 16:37:37,017 [INFO] Not enough data to calculate EMA. Needed 5, got 0.
+2025-11-15 16:37:37,017 [INFO] Error evaluating trade signals for NSE:BPCL-EQ: 1
+2025-11-15 16:37:50,717 [DEBUG] {'Status Code': 200, 'API': '/history'}
+2025-11-15 16:37:50,854 [INFO] Error extracting prices: string indices must be integers, not 'str'
+2025-11-15 16:37:50,854 [INFO] Not enough data to calculate EMA. Needed 5, got 0.
+2025-11-15 16:37:50,854 [INFO] Error evaluating trade signals for NSE:BPCL-EQ: 1

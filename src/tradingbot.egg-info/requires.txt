@@ -1,0 +1,10 @@
+fyers-apiv3
+schedule
+pandas
+openpyxl
+python-dotenv
+ipykernel
+fastapi
+uvicorn
+pyotp
+setuptools
