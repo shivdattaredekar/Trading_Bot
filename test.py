@@ -1,167 +1,87 @@
-from src.tradingbot.login.auth import get_fyers_instance
 from src.tradingbot.utils.logger import log
+from src.tradingbot.login.auth import get_fyers_instance, is_access_token_valid
+from fyers_apiv3 import fyersModel
+
+#fyers = get_fyers_instance()
 
 
-fyers = get_fyers_instance()
+filtered_stocks = ["NSE:NIFTY50-INDEX", "NSE:RELIANCE-EQ", "NSE:TCS-EQ"]
 
-#print(fyers.positions()['netPositions'][0]) # this can be sued to get the information about money for each trade
-
-print(fyers.tradebook()) # this can be used to get the information about trade details for each trade
-
-trade_tag={}
-trade_attributes = {}
-for trade in fyers.tradebook()['tradeBook']:
-    # append the symbol from each trade along with its order_tag
-    trade_tag[trade['symbol']] = {"orderTag":trade['orderTag'],
-                                "orderNumber":trade['orderNumber'],
-                                "tradeNumber":trade['tradeNumber']
-                                    }
-# a sample SL-M order :
-order_data = { "symbol": "NSE:BHEL-EQ", "qty": 1, "type": 3, "side": 1, "productType": "INTRADAY", "limitPrice": 0, "stopPrice": 252, "validity": "DAY", "stopLoss": 0, "takeProfit": 0, "offlineOrder": False, "disclosedQty": 0,"orderTag":"2:Untagged" }
-
-
-import os
-import json
-
-
-ORDER_TRACKER = "order_tracker.json"
-ACTIVE_TRADES = "active_trades.json"
-
-def load_state():
-    if os.path.exists(ORDER_TRACKER):
-        with open(ORDER_TRACKER, "r") as f:
-            order_tracker = json.load(f)
-    else:
-        order_tracker = {}
+def handle_FnO_symbols(filtered_stocks):
     
-    if os.path.exists(ACTIVE_TRADES):
-        with open(ACTIVE_TRADES, "r") as f:
-            active_trades = json.load(f)
-    else:
-        active_trades = {}
-    return order_tracker, active_trades
-
-def save_state(order_tracker, active_trades):
-    with open(ORDER_TRACKER, "w") as f:
-        json.dump(order_tracker, f, indent=4)
-    with open(ACTIVE_TRADES, "w") as f:
-        json.dump(active_trades, f, indent=4)
-        log("State saved successfully.")
-
-
-
-
-# -------------------------------
-# Trade Tracking Logic
-# -------------------------------
-
-def initialize_trade_data(trades:list[dict], order_tracker:list,
-                    active_trades:dict, order_data:dict)-> dict:
-
-    # Creating the trades dictionary
-    for trade in trades:
-        for order_id in order_tracker:
-            if trade['orderNumber'] == order_id: 
-                risk = abs(trade['tradePrice'] - order_data["stopPrice"])   
-                active_trades.setdefault(order_tracker[order_id], {}).update({
-                    "symbol": trade['symbol'],
-                    "qty": trade['tradedQty'],
-                    "entry_price": trade['tradePrice'],
-                    "stop_price": order_data["stopPrice"],
-                    "sl": round(risk, 0),
-                    "side": trade["side"],
-                    "achieved_rr":0,
-                    "targets":{
-                        f"tg_1_{i}":round(trade['tradePrice']-i*(abs(trade['tradePrice']-order_data["stopPrice"])), 0) for i in range(1,11)
-                        },
-                    "status":"OPEN"
-                    })
-                
-    return active_trades
-
-# -------------------------------
-# Trade Tracker Class
-# -------------------------------
-class TradeTracker:
-    def __init__(self, fyers, order_tracker, active_trades, symbol):
-        self.fyers = fyers
-        self.order_tracker = order_tracker
-        self.active_trades = active_trades
-        self.symbol = symbol
-    
-    def update_after_trade(self, trades:dict, trade_response:dict, order_data:dict):
-        if not trade_response  or trade_response['code'] != 1101:
-            log(f"❌ Trade error: {trade_response['message']}")
-            return
-
-        self.order_tracker[trade_response['id']] = trade_response['id']
-        self.active_trades = initialize_trade_data(
-                            trades,
-                            self.order_tracker,
-                            self.active_trades,
-                            order_data)
-        save_state(self.order_tracker, self.active_trades)
-        log(f"✅ Trade successfully tracked and saved with id: {trade_response['id']}")
-        return self.active_trades
-    
-    def update_trailing_stops(self, LTP):
-        # Monitor the active trades
-        for order_id, trade in list(self.active_trades.items()):
-            if trade["status"] == "CLOSED":
-                continue
-
-            if not LTP:
-                log(f"❌ Error fetching LTP for {self.symbol}")
-
-            side = trade["side"]
-            rr = trade["achieved_rr"]
-            entry = trade["entry_price"]
-
-            # For short trades
-            if side == 1:
-                if trade["stop_price"] > entry:
-                    if LTP >= trade["stop_price"]:
-                        trade["status"] = "CLOSED"
-                        log(f"❌ Trade closed due to stop loss hit for {self.symbol} for order id :{order_id}")
-                        continue
-
-                if trade["stop_price"] < entry:
-                    if LTP >= trade["stop_price"]:
-                        trade["status"] = "CLOSED"
-                        log(f"❌ Trade closed due to stop loss hit for {self.symbol} for order id :{order_id}")
-                        continue
-                        
-                curr_target_key = f"tg_1_{rr+1}"
-                if curr_target_key in trade["targets"]:
-                    curr_target = trade["targets"][curr_target_key]
-
-                    # check if the target hit
-                    if LTP > curr_target:
-                        continue
-
-                    trade["achieved_rr"] += 1
-                    trade["stop_price"] = trade["targets"][f"tg_1_{rr+1}"]
-                
-                    new_sp = trade["stop_price"]
-                    new_target = trade["targets"][f"tg_1_{rr+2}"]
-                    self.modify_sl(order_id, new_sp) 
-                    log(f"🔁 Trailed SL for {self.symbol} → {new_sp} after achieving {rr+1} now targeting {rr+2} -> {new_target})")
-
-            save_state(self.order_tracker, self.active_trades)
-            
-    def modify_sl(self, order_id, new_sl):
-        log(f"⚙️ Modifying StopPrice for {self.symbol} with order id {order_id}")
-        # Modify the trade
-        data = {
-            "id":order_id,
-            "type":3,
-            "limitPrice":0,
-            "stopPrice":new_sl
-            }
+    try:
+        # The the NSE index symbol and calculate ts todays opening price
+        if not filtered_stocks:
+            log("No filtered stocks provided.")
+            return None
         
-        #response = self.fyers.modify_order(data)
-        response = "order was placed"
-        log(f"✅ SL modified for {self.symbol} with order id {order_id}  → {new_sl}")
-        log(f"Response: {response}")
+        symbol = [symbl for symbl in filtered_stocks if "INDEX" in symbl][0]
+        response = fyers.quotes({"symbols": symbol})
+        
+        if response.get('s') != 'ok':
+            log(f"Failed to fetch quotes for {symbol}: {response}")
+            return None
+        
+        Open_price = response['d'][0]['open_price']
+        log(f"Opening price for {symbol} is {Open_price}")
+
+        # Round off the price to the nearest 100
+        rounded_price = round(Open_price / 100) * 100
+        log(f"Rounded opening price for {symbol} is {rounded_price}")
+
+        # Select the proper strike prices based on the opening price as per the expiry
+        
+    except Exception as e:
+        log(f"Error in handling FnO symbols: {e}")
+        return None
 
 
+    return symbol
+
+#print(handle_FnO_symbols(filtered_stocks))
+
+import pandas as pd
+
+from datetime import datetime
+
+def extract_expiry_from_symbol(symbol_str):
+    parts = symbol_str.split()
+
+    day = parts[1]
+    month = parts[2]
+    year = parts[3]  # YY
+    if year != 26:
+        pass
+
+    expiry_str = f"{day} {month} 20{year}"
+    return datetime.strptime(expiry_str, "%d %b %Y").date()
+
+def get_expiries(symbol="NIFTY"):
+    df = pd.read_csv(
+        "https://public.fyers.in/sym_details/NSE_FO.csv",
+        header=None
+    )
+
+    nifty_opts = df[
+        (
+        (df[1].str.split().str[0] == "NIFTY") &
+        (df[1].str.endswith(("CE","PE")))
+    )
+    ]
+    
+    # expiries = []
+    # for opt in nifty_opts[1]:
+    #     expiries.append(extract_expiry_from_symbol(opt))
+
+    return nifty_opts[1].unique() #sorted(expiries)
+
+expiries = get_expiries()
+
+def get_expiry_dates(expiries):
+    for exp in expiries:
+        s = exp.split()
+    return s
+
+print(get_expiries())
+
+#print(get_expiry_dates(expiries))

@@ -13,7 +13,7 @@ class TradeManager:
     """
 
     def __init__(self, MAX_TRADES:int, trade_file:str):
-        self.max_trades = MAX_TRADES
+        self.max_trades = int(MAX_TRADES)
         self.trade_file = trade_file
         
         # Initialize file if not exists

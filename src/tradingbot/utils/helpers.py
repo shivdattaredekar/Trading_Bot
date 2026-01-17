@@ -4,7 +4,9 @@ import time
 from typing import Tuple
 from tradingbot.utils.logger import log
 from datetime import datetime, timedelta
+from tradingbot.signals.signal import TradeSignal
 import traceback
+from typing import Optional
 from tradingbot.config import (
     EMA_PERIOD,
     CAPITAL_PER_TRADE,
@@ -74,9 +76,8 @@ def get_last_trading_day(today=None):
         d -= timedelta(days=1)
     return d
 
-DATE_FROM = get_last_trading_day()
+DATE_FROM = get_last_trading_day()  
 DATE_TO   = datetime.now().date()
-
 
 def get_5min_candles(fyers, symbol):
     try:
@@ -179,14 +180,19 @@ def evaluate_trade_signal(candles, ema, symbol):
             current_ema = ema[ts]
 
             # Check if both candles are above EMA and current candle broke previous low
+
             if prev_low > current_ema and current_low < prev_low and current_close > current_ema:
-                signals.append({
-                    "timestamp": ts,
-                    "action": "SELL",
-                    "entry_price": prev_low,
-                    "stop_loss": prev["high"],
-                    "target": prev_low - int(RR) * (prev["high"] - prev_low)
-                })
+                signals.append(
+                TradeSignal(
+                    signal_symbol=symbol,   # INDEX only
+                    timestamp=ts,
+                    direction=-1,
+                    entry_price=prev_low,
+                    stop_loss=prev["high"],
+                    target=prev_low - RR * (prev["high"] - prev_low),
+                    strategy="EMA"
+                )
+            )
 
         #log(f"Generated {signals} trade signals for {symbol}.")
         return signals
@@ -201,16 +207,18 @@ def validate_trade_time(timestamp: str, window_minutes=5) -> bool:
     return abs(datetime.now() - trade_time) <= timedelta(minutes=window_minutes)
 
 def calculate_sl_target(price: float, sl: float, target: float) -> Tuple[float, float]:
-    St_L = abs(price - sl)
+    # St_L = abs(price - sl)
 
-    if St_L >= abs(0.01 * price):
-        St_L = abs(0.01 * price)
-        target = abs(price - 3 * St_L)
-    elif St_L <= 0.5:
-        St_L = 0.51
-        target = abs(price - 3 * St_L)
+    # if St_L >= abs(0.01 * price):
+    #     St_L = abs(0.01 * price)
+    #     target = abs(price - 3 * St_L)
+    # elif St_L <= 0.5:
+    #     St_L = 0.51
+    #     target = abs(price - 3 * St_L)
     
-    return round(St_L, 2), round(target, 2)
+    St_L = round(sl, 2)
+    target = round(target, 2)
+    return St_L, target
 
 def check_trades(symbol, file_path=TRADE_LOG_FILE):
     if not os.path.exists(file_path):
@@ -233,7 +241,7 @@ def check_trades(symbol, file_path=TRADE_LOG_FILE):
 def order_quantity_calculator(CAPITAL_PER_TRADE, STOCK_PRICE, STOP_LOSS):
     try:
         capital_per_trade = float(CAPITAL_PER_TRADE)
-        ORDER_QUANTITY = int(capital_per_trade / max(STOP_LOSS, 0.51))
+        ORDER_QUANTITY = int(capital_per_trade / STOP_LOSS)
         return max(ORDER_QUANTITY, 1)
 
     except Exception as e:
@@ -241,6 +249,44 @@ def order_quantity_calculator(CAPITAL_PER_TRADE, STOCK_PRICE, STOP_LOSS):
         return 1
 
 
+def get_ltp(fyers, symbol: str):
+    """
+    Minimal LTP fetcher.
+    - No retries
+    - Only checks classic 'd' field
+    - Logs rate limit (429)
+    """
+    #log(f"📡 Fetching LTP for {symbol}")
+
+    try:
+        resp = fyers.quotes({"symbols": symbol})
+        log(f"📥 quotes() response: message = {resp['message']}, code = {resp['code']}")
+
+        # --- Handle rate limit ---
+        if resp.get("code") == 429:
+            log("⚠️ rate limit exceeded (429)")
+            return None
+
+        # --- Classic structure check ---
+        d = resp.get("d")
+        if not d or not isinstance(d, list):
+            log("⚠️ no d found in response")
+            return None
+
+        v = d[0].get("v", {})
+        ltp = v.get("lp")
+
+        if ltp is None:
+            log("⚠️ lp not found inside d[0].v")
+            return None
+
+        ltp_float = float(ltp)
+        #log(f"✅ LTP for {symbol}: {ltp_float}")
+        return ltp_float
+
+    except Exception as e:
+        log(f"❌ Exception in get_ltp: {e}")
+        return None
 
 
 # If trades for any symbol are equal to two then don't trade again on that symbol 
@@ -276,6 +322,8 @@ def can_trade(symbol, file_path=TRADE_LOG_FILE):
     return True
 
 
+from datetime import datetime, time
+import os, shutil
 
 def clean_up():
     filenames = [
@@ -285,49 +333,36 @@ def clean_up():
         'gapup_data.json',
         'trades.txt',
         'GapUp_stocks.json',
-        'tamo.txt'
+        'tamo.txt',
+        "active_trades.json",
+        "order_tracker.json",
     ]
-    
-    for file in filenames:
-        try:
+
+    curr_time = datetime.now().time()
+    market_start = time(9, 20)
+    market_end = time(15, 00)
+
+    try:
+        if market_start <= curr_time <= market_end:
+            log("🕒 Market hours detected — no cleanup or backup.")
+            return
+
+        log("🧹 Market closed — performing cleanup with backup.")
+
+        today = datetime.now().strftime("%Y-%m-%d")
+        backup_dir = os.path.join("backup", today)
+        os.makedirs(backup_dir, exist_ok=True)
+
+        for file in filenames:
             if os.path.exists(file):
-                # if file is empty → delete it (start of day scenario)
-                os.remove(file)
-                log(f"file {file} deleted successfully")
-                    
+                shutil.move(file, os.path.join(backup_dir, file))
+                log(f"📦 Backed up & removed: {file}")
             else:
-                log(f"file {file} does not exist")
-        
-        except Exception as e:
-            log(f"Error deleting file {file}: {e}")
+                log(f"⚠️ File not found: {file}")
+
+    except Exception as e:
+        log(f"❌ Error during cleanup: {e}")
 
 
 
-def load_state():
-    if os.path.exists(ORDER_TRACKER):
-        with open(ORDER_TRACKER, "r") as f:
-            order_tracker = json.load(f)
-    else:
-        order_tracker = []
-    
-    if os.path.exists(ACTIVE_TRADES):
-        with open(ACTIVE_TRADES, "r") as f:
-            active_trades = json.load(f)
-    else:
-        active_trades = {}
-    return order_tracker, active_trades
 
-def save_state(order_tracker, active_trades):
-    with open(ORDER_TRACKER, "w") as f:
-        json.dump(order_tracker, f, indent=4)
-    with open(ACTIVE_TRADES, "w") as f:
-        json.dump(active_trades, f, indent=4)
-        log("State saved successfully.")
-
-
-def get_LTP(symbol, fyers):
-    candle = get_5min_candles(fyers, symbol)
-    price_dict = get_prices(candle)
-    LTP_time = list(price_dict.keys())[-1]
-    LTP = price_dict[LTP_time]
-    return LTP

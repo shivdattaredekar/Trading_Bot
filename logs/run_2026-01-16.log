@@ -1,0 +1,118 @@
+2026-01-16 18:10:30,111 [INFO] Creating FyersModel instance with access token...
+2026-01-16 18:10:30,115 [INFO] Authenticated Fyers instance created.
+2026-01-16 18:11:24,628 [INFO] Creating FyersModel instance with access token...
+2026-01-16 18:11:24,631 [INFO] Authenticated Fyers instance created.
+2026-01-16 18:17:22,582 [INFO] Creating FyersModel instance with access token...
+2026-01-16 18:17:22,584 [INFO] Authenticated Fyers instance created.
+2026-01-16 18:17:22,584 [INFO] Creating FyersModel instance with access token...
+2026-01-16 18:17:22,586 [INFO] Authenticated Fyers instance created.
+2026-01-16 18:17:24,746 [INFO] Creating FyersModel instance with access token...
+2026-01-16 18:17:24,748 [INFO] Authenticated Fyers instance created.
+2026-01-16 18:17:24,749 [INFO] 🚀 Starting Trading Bot...
+2026-01-16 18:17:24,750 [INFO] 🧹 Market closed — performing cleanup with backup.
+2026-01-16 18:17:24,750 [INFO] ⚠️ File not found: filtered_stocks.csv
+2026-01-16 18:17:24,751 [INFO] ⚠️ File not found: filtered_stocks.json
+2026-01-16 18:17:24,751 [INFO] ⚠️ File not found: gapup_data.csv
+2026-01-16 18:17:24,752 [INFO] ⚠️ File not found: gapup_data.json
+2026-01-16 18:17:24,754 [INFO] 📦 Backed up & removed: trades.txt
+2026-01-16 18:17:24,756 [INFO] ⚠️ File not found: GapUp_stocks.json
+2026-01-16 18:17:24,757 [INFO] ⚠️ File not found: tamo.txt
+2026-01-16 18:17:24,759 [INFO] 📦 Backed up & removed: active_trades.json
+2026-01-16 18:17:24,762 [INFO] 📦 Backed up & removed: order_tracker.json
+2026-01-16 18:17:24,763 [INFO] 🔑 Authenticating with Fyers...
+2026-01-16 18:17:26,086 [INFO] Access token is not valid.
+2026-01-16 18:17:27,532 [INFO] verify_client_id success
+2026-01-16 18:17:27,533 [INFO] generate_totp success
+2026-01-16 18:17:29,547 [INFO] verify_totp_result success
+2026-01-16 18:17:30,876 [INFO] verify_pin_result success
+2026-01-16 18:17:32,835 [INFO] token_result success
+2026-01-16 18:17:34,912 [INFO] validate_authcode success
+2026-01-16 18:17:34,949 [INFO] Authentication successful
+2026-01-16 18:17:34,958 [INFO] 🔓 Authentication Successful
+2026-01-16 18:17:37,959 [INFO] Creating FyersModel instance with access token...
+2026-01-16 18:17:37,961 [INFO] Authenticated Fyers instance created.
+2026-01-16 18:17:37,961 [INFO] 📌 Using static stocks for EMA strategy (no gap-up websocket).
+2026-01-16 18:17:37,961 [INFO] ⚡ EMA stocks locked: ['NSE:BPCL-EQ', 'NSE:TMPV-EQ']
+2026-01-16 18:17:37,997 [INFO] 🛠 TradeExecutor initialized
+2026-01-16 18:17:37,997 [INFO] ▶️ [start_trailing_runner] Start request received.
+2026-01-16 18:17:37,998 [INFO] ➡️ [start_trailing_runner] Creating new TrailingSLRunner instance.
+2026-01-16 18:17:37,998 [INFO] 📥 [Runner.__init__] Initializing TrailingSLRunner...
+2026-01-16 18:17:37,998 [INFO] 📥 Loading order_tracker & active_trades from JSON...
+2026-01-16 18:17:37,999 [INFO] ⚠️ ORDER_TRACKER not found. Using empty list.
+2026-01-16 18:17:38,000 [INFO] ⚠️ ACTIVE_TRADES not found. Using empty dict.
+2026-01-16 18:17:38,000 [INFO] 📌 Loaded order_tracker=[]
+2026-01-16 18:17:38,000 [INFO] 📌 Loaded active_trades count=0
+2026-01-16 18:17:38,001 [INFO] 📚 [Runner.__init__] Loaded: 0 order_ids, 0 active trades
+2026-01-16 18:17:38,001 [INFO] 🔧 TradeTracker initialized.
+2026-01-16 18:17:38,002 [INFO] ▶️ [Runner.start] Starting TrailingSLRunner...
+2026-01-16 18:17:38,004 [INFO] 🟢 [Runner] TrailingSLRunner started.
+2026-01-16 18:17:38,004 [INFO] ✅ [Runner.start] Runner thread started.
+2026-01-16 18:17:38,005 [INFO] 📥 Loading order_tracker & active_trades from JSON...
+2026-01-16 18:17:38,006 [INFO] 🎯 Entering main loop...
+2026-01-16 18:17:38,008 [INFO] ⏳ Market closed. Sleeping 60s... (3 iterations left before exit)
+2026-01-16 18:17:38,008 [INFO] ⚠️ ORDER_TRACKER not found. Using empty list.
+2026-01-16 18:17:38,009 [INFO] ⚠️ ACTIVE_TRADES not found. Using empty dict.
+2026-01-16 18:17:38,009 [INFO] 📌 Loaded order_tracker=[]
+2026-01-16 18:17:38,010 [INFO] 📌 Loaded active_trades count=0
+2026-01-16 18:17:38,010 [INFO] 🔁 [Runner] Reloaded state → 0 active trades
+2026-01-16 18:17:39,011 [INFO] 📥 Loading order_tracker & active_trades from JSON...
+2026-01-16 18:17:39,012 [INFO] ⚠️ ORDER_TRACKER not found. Using empty list.
+2026-01-16 18:17:39,012 [INFO] ⚠️ ACTIVE_TRADES not found. Using empty dict.
+2026-01-16 18:17:39,012 [INFO] 📌 Loaded order_tracker=[]
+2026-01-16 18:17:39,013 [INFO] 📌 Loaded active_trades count=0
+2026-01-16 18:17:39,013 [INFO] 🔁 [Runner] Reloaded state → 0 active trades
+2026-01-16 18:17:40,014 [INFO] 📥 Loading order_tracker & active_trades from JSON...
+2026-01-16 18:17:40,015 [INFO] ⚠️ ORDER_TRACKER not found. Using empty list.
+2026-01-16 18:17:40,015 [INFO] ⚠️ ACTIVE_TRADES not found. Using empty dict.
+2026-01-16 18:17:40,015 [INFO] 📌 Loaded order_tracker=[]
+2026-01-16 18:17:40,016 [INFO] 📌 Loaded active_trades count=0
+2026-01-16 18:17:40,017 [INFO] 🔁 [Runner] Reloaded state → 0 active trades
+2026-01-16 18:17:40,459 [INFO] 🔻 Shutting down: stopping trailing runner and saving state.
+2026-01-16 18:17:40,460 [INFO] 🛑 [stop_trailing_runner] Stop request received.
+2026-01-16 18:17:40,460 [INFO] 🛑 [Runner.stop] Stopping TrailingSLRunner...
+2026-01-16 18:17:41,017 [INFO] ⚠️ Skip saving: empty state detected (safety).
+2026-01-16 18:17:41,018 [INFO] 💾 [Runner] Final state saved on exit
+2026-01-16 18:17:41,018 [INFO] 🔴 [Runner] TrailingSLRunner stopped.
+2026-01-16 18:17:41,019 [INFO] 🟢 [Runner.stop] Runner stopped successfully.
+2026-01-16 18:17:41,020 [INFO] 🟢 [stop_trailing_runner] Runner stopped & cleared.
+2026-01-16 18:17:41,020 [INFO] 🧹 Market closed — performing cleanup with backup.
+2026-01-16 18:17:41,022 [INFO] ⚠️ File not found: filtered_stocks.csv
+2026-01-16 18:17:41,022 [INFO] ⚠️ File not found: filtered_stocks.json
+2026-01-16 18:17:41,023 [INFO] ⚠️ File not found: gapup_data.csv
+2026-01-16 18:17:41,024 [INFO] ⚠️ File not found: gapup_data.json
+2026-01-16 18:17:41,030 [INFO] 📦 Backed up & removed: trades.txt
+2026-01-16 18:17:41,042 [INFO] ⚠️ File not found: GapUp_stocks.json
+2026-01-16 18:17:41,043 [INFO] ⚠️ File not found: tamo.txt
+2026-01-16 18:17:41,045 [INFO] ⚠️ File not found: active_trades.json
+2026-01-16 18:17:41,046 [INFO] ⚠️ File not found: order_tracker.json
+2026-01-16 18:17:41,047 [INFO] 📊 Running end-of-day PnL export...
+2026-01-16 18:17:41,049 [INFO] ❌ active_trades.json not found at active_trades.json
+2026-01-16 18:17:42,762 [INFO] ❌ Failed to fetch tradebook: {'code': -16, 'message': 'Could not authenticate the user', 's': 'error'}
+2026-01-16 18:17:42,872 [INFO] 📤 Appended 0 trades to pnl_tracker.xlsx
+2026-01-16 18:17:42,873 [INFO] ✅ End-of-day PnL export complete. Trades exported: 0
+2026-01-16 18:17:51,022 [INFO] Creating FyersModel instance with access token...
+2026-01-16 18:17:51,023 [INFO] Authenticated Fyers instance created.
+2026-01-16 18:18:26,916 [INFO] Creating FyersModel instance with access token...
+2026-01-16 18:18:26,917 [INFO] Authenticated Fyers instance created.
+2026-01-16 18:21:08,537 [INFO] Creating FyersModel instance with access token...
+2026-01-16 18:21:08,538 [INFO] Authenticated Fyers instance created.
+2026-01-16 19:54:34,210 [INFO] Creating FyersModel instance with access token...
+2026-01-16 19:54:34,214 [INFO] Authenticated Fyers instance created.
+2026-01-16 20:42:56,974 [INFO] Creating FyersModel instance with access token...
+2026-01-16 20:42:56,979 [INFO] Authenticated Fyers instance created.
+2026-01-16 20:42:57,646 [INFO] Error in handling FnO symbols: 'open_price'
+2026-01-16 20:46:09,488 [INFO] Creating FyersModel instance with access token...
+2026-01-16 20:46:09,493 [INFO] Authenticated Fyers instance created.
+2026-01-16 20:46:10,415 [INFO] Opening price for NSE:NIFTY50-INDEX is 25696.05
+2026-01-16 20:46:10,418 [INFO] Rounded opening price for NSE:NIFTY50-INDEX is 25700
+2026-01-16 20:56:44,777 [INFO] Creating FyersModel instance with access token...
+2026-01-16 20:56:44,782 [INFO] Authenticated Fyers instance created.
+2026-01-16 20:56:45,197 [INFO] Opening price for NSE:NIFTY50-INDEX is 25696.05
+2026-01-16 20:56:45,199 [INFO] Rounded opening price for NSE:NIFTY50-INDEX is 25700
+2026-01-16 20:56:45,200 [INFO] Error in handling FnO symbols: FnOStockHandler.get_SP_dates() takes 1 positional argument but 2 were given
+2026-01-16 20:57:22,660 [INFO] Creating FyersModel instance with access token...
+2026-01-16 20:57:22,664 [INFO] Authenticated Fyers instance created.
+2026-01-16 20:57:23,281 [INFO] Opening price for NSE:NIFTY50-INDEX is 25696.05
+2026-01-16 20:57:23,282 [INFO] Rounded opening price for NSE:NIFTY50-INDEX is 25700
+2026-01-16 20:59:37,935 [INFO] Opening price for NSE:NIFTY50-INDEX is 25696.05
+2026-01-16 20:59:37,936 [INFO] Rounded opening price for NSE:NIFTY50-INDEX is 25700

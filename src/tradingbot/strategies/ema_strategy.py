@@ -11,10 +11,11 @@ from tradingbot.config import EMA_PERIOD
 
 
 class EMAStrategy(BaseStrategy):
-    def __init__(self, fyers, executor, filtered_stocks, already_traded):
+    def __init__(self, fyers, executor, filtered_stocks, already_traded, router):
         super().__init__(fyers, executor)
         self.filtered_stocks = filtered_stocks
         self.already_traded = already_traded
+        self.router = router
 
     def evaluate_and_trade(self):
         log(f"Applying EMA strategy to {len(self.filtered_stocks)} stocks.")
@@ -29,18 +30,25 @@ class EMAStrategy(BaseStrategy):
                     if datetime.strptime(signal['timestamp'], '%Y-%m-%d %H:%M').date() < datetime.now().date():
                         continue
 
-                    unique_key = (symbol, signal['timestamp'])
+                    unique_key = (signal.signal_symbol, signal.timestamp)
                     if unique_key in self.already_traded:
                         continue
+                    
+                    trade_symbol = self.router.route(signal)
+                    if trade_symbol is None:
+                        continue
+            
+                    log(f"Routing {signal.signal_symbol} → {trade_symbol}")
 
                     log(f"Executing trade for {symbol}: {signal}")
                     self.executor.place_trade(
-                        symbol,
-                        signal["entry_price"],
-                        signal["stop_loss"],
-                        signal["target"],
-                        signal["timestamp"],
-                        -1
+                        trade_symbol,
+                        signal.entry_price,
+                        signal.stop_loss,
+                        signal.target,
+                        signal.timestamp,
+                        signal.direction,
+                        signal.strategy
                     )
                     self.already_traded.add(unique_key)
 

@@ -1,0 +1,4 @@
+symbol,open_price,prev_close,gap_up_percent,vol_traded_today,ltp
+NSE:HINDZINC-EQ,500.1,485.2,3.07,675140,499.0
+NSE:HINDCOPPER-EQ,335.5,327.0,2.6,453524,332.05
+NSE:SWSOLAR-EQ,233.0,225.96,3.12,216309,231.08

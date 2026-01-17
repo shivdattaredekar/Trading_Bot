@@ -4,6 +4,7 @@ from dotenv import load_dotenv # type:ignore
 load_dotenv()
 from datetime import datetime, timedelta
 
+
 # Fyers API credentials
 CLIENT_ID = os.getenv("CLIENT_ID")
 SECRET_KEY = os.getenv("SECRET_KEY")
