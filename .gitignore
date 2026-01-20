@@ -8,5 +8,7 @@ fyersApi
 fyersRequest
 index_stocks.xlsx
 changes
-
+/artifacts
+/logs
+/backtesting
 

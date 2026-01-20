@@ -120,8 +120,8 @@ def main():
     log("📌 Using static stocks for EMA strategy (no gap-up websocket).")
 
     filtered_stocks = [
-        "NSE:BPCL-EQ",
-        "NSE:TMPV-EQ",
+        # "NSE:BPCL-EQ",
+        # "NSE:TMPV-EQ",
         "NSE:NIFTY50-INDEX",
     ]
 
