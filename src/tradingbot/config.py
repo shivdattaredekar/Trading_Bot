@@ -30,6 +30,8 @@ MIN_VOLUME = os.getenv("MIN_VOLUME")
 RR = os.getenv('RR')
 CAPITAL = os.getenv("CAPITAL")  # Total capital for trading for the day
 CAPITAL_PER_TRADE = os.getenv("CAPITAL_PER_TRADE")  # Capital allocated per trade
+FNO_ATM_MODE = os.getenv("FNO_ATM_MODE")
+LOTS = os.getenv("LOTS")
 
 # Trading control
 MAX_TRADES = os.getenv("MAX_TRADES")

@@ -9,3 +9,5 @@ class TradeSignal:
     stop_loss: float
     target: float
     strategy: str          # EMA, TAMO, etc.
+
+

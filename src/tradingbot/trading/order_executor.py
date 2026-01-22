@@ -72,6 +72,7 @@ class TradeExecutor:
         self.max_trades = int(max_trades)
         self.trade_manager = trade_manager
         self.trade_log_file = trade_log_file
+        self.trade_key = "NIFTY_TRADE"
 
 
     # ------------------------------------------------
@@ -280,7 +281,7 @@ class TradeExecutor:
             if mode.upper() != "TAMO":
                 log("⚙ EMA mode trade rules apply.")
 
-                if not can_trade(symbol, self.trade_log_file):
+                if not can_trade(self.trade_key, self.trade_log_file):
                     log("⛔ can_trade() = False → Skipping.")
                     return
 
@@ -338,7 +339,7 @@ class TradeExecutor:
 
         if response.get("code") == 1101:
             log(f"✔ Trade SUCCESS for {symbol}")
-            log_trade_result(symbol, datetime.now().strftime("%Y-%m-%d %H:%M"), price, sl, target, "success")
+            log_trade_result(self.trade_key or symbol, datetime.now().strftime("%Y-%m-%d %H:%M:%S"), price, sl, target, "success")
 
             if self.trade_manager:
                 try:
@@ -348,4 +349,4 @@ class TradeExecutor:
                     log(f"⚠ trade_manager exception: {e}")
         else:
             log(f"❌ Trade FAILED for {symbol}")
-            log_trade_result(symbol, datetime.now().strftime("%Y-%m-%d %H:%M"), price, sl, target, "failed")
+            log_trade_result(self.trade_key or symbol, datetime.now().strftime("%Y-%m-%d %H:%M:%S"), price, sl, target, "failed")

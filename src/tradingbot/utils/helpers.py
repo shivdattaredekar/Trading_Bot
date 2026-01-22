@@ -164,13 +164,11 @@ def calculate_ema_series(prices_dict, period):
 
 def evaluate_trade_signal(candles, ema, symbol):
     try:
-        signals = []
         for i in range(1, len(candles)):
             current = candles[i]
             prev = candles[i - 1]
             ts = current["day_time"]
             
-            # Only evaluate if EMA is available
             if ts not in ema:
                 continue
             
@@ -179,27 +177,17 @@ def evaluate_trade_signal(candles, ema, symbol):
             current_close = current["close"]
             current_ema = ema[ts]
 
-            # Check if both candles are above EMA and current candle broke previous low
-
-            if prev_low > current_ema and current_low < prev_low and current_close > current_ema:
-                signals.append(
-                TradeSignal(
-                    signal_symbol=symbol,   # INDEX only
-                    timestamp=ts,
-                    direction=-1,
-                    entry_price=prev_low,
-                    stop_loss=prev["high"],
-                    target=prev_low - RR * (prev["high"] - prev_low),
-                    strategy="EMA"
-                )
-            )
-
-        #log(f"Generated {signals} trade signals for {symbol}.")
-        return signals
-    
+            if (
+                prev_low > current_ema and
+                current_low < prev_low and
+                current_close > current_ema
+            ):
+                return True
+        return False
     except Exception as e:
         log(f"Error evaluating trade signals for {symbol}: {e}")
-        return []
+        return False
+
 
 
 def validate_trade_time(timestamp: str, window_minutes=5) -> bool:
@@ -207,36 +195,9 @@ def validate_trade_time(timestamp: str, window_minutes=5) -> bool:
     return abs(datetime.now() - trade_time) <= timedelta(minutes=window_minutes)
 
 def calculate_sl_target(price: float, sl: float, target: float) -> Tuple[float, float]:
-    # St_L = abs(price - sl)
-
-    # if St_L >= abs(0.01 * price):
-    #     St_L = abs(0.01 * price)
-    #     target = abs(price - 3 * St_L)
-    # elif St_L <= 0.5:
-    #     St_L = 0.51
-    #     target = abs(price - 3 * St_L)
-    
     St_L = round(sl, 2)
     target = round(target, 2)
     return St_L, target
-
-def check_trades(symbol, file_path=TRADE_LOG_FILE):
-    if not os.path.exists(file_path):
-        return []
-
-    # Read trades for the given symbol from the CSV file
-    trades = []
-    with open(file_path, mode="r") as file:
-        reader = csv.DictReader(file)
-        today = datetime.now().strftime("%Y-%m-%d")
-        for row in reader:
-            # Check for trade date 
-            trade_date = datetime.strptime(row['timestamp'],'%Y-%m-%d %H:%M:%S').strftime("%Y-%m-%d")
-
-            # Check for the symbol and if it is traded today and the status is successful
-            if row["symbol"] == symbol and trade_date == today and row['status'] == 'success':
-                trades.append(row)
-    return trades
 
 def order_quantity_calculator(CAPITAL_PER_TRADE, STOCK_PRICE, STOP_LOSS):
     try:
@@ -289,37 +250,48 @@ def get_ltp(fyers, symbol: str):
         return None
 
 
-# If trades for any symbol are equal to two then don't trade again on that symbol 
+def check_trades(trade_key, file_path=TRADE_LOG_FILE):
+    if not os.path.exists(file_path):
+        return []
 
-def can_trade(symbol, file_path=TRADE_LOG_FILE):
-    trades = check_trades(symbol, file_path)
+    trades = []
+    today = datetime.now().date()
 
-    # Rule 1: Block if already 2 or more trades
-    if len(trades) >= 2:
-        return False
-
-    # Rule 2: Find the most recent trade for this symbol
-    latest_trade_time = None
     with open(file_path, mode="r") as file:
         reader = csv.DictReader(file)
         for row in reader:
-            if row["symbol"] == symbol and row["status"] == "success":
-                # Parse timestamp with flexible format
-                try:
-                    timestamp = datetime.strptime(row['timestamp'], '%d-%m-%Y %H:%M')
-                except ValueError:
-                    timestamp = datetime.strptime(row['timestamp'], '%Y-%m-%d %H:%M:%S')
+            try:
+                trade_time = datetime.strptime(
+                    row['timestamp'], '%Y-%m-%d %H:%M:%S'
+                )
+            except ValueError:
+                continue
 
-                if latest_trade_time is None or timestamp > latest_trade_time:
-                    latest_trade_time = timestamp
+            if (
+                row["symbol"] == trade_key and
+                trade_time.date() == today and
+                row["status"] == "success"
+            ):
+                trades.append(trade_time)
 
-    # Rule 3: If a trade exists and it's within 10 minutes, block
-    if latest_trade_time and (datetime.now() - latest_trade_time).total_seconds() < 600:
-        log(f"Cannot trade {symbol} as it has already been traded within 10 minutes.")
+    return trades
+def can_trade(trade_key, file_path=TRADE_LOG_FILE):
+    trades = check_trades(trade_key, file_path)
+
+    # Rule 1: Max 2 trades per day
+    if len(trades) >= 2:
+        log(f"⛔ Max daily trades reached for {trade_key}")
         return False
 
-    # Otherwise, allow trade
+    # Rule 2: Cooldown — 10 minutes from last trade
+    if trades:
+        last_trade_time = max(trades)
+        if (datetime.now() - last_trade_time).total_seconds() < 600:
+            log(f"⏳ Cooldown active for {trade_key}")
+            return False
+
     return True
+
 
 
 from datetime import datetime, time
