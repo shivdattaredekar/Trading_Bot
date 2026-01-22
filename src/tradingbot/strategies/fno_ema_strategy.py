@@ -75,7 +75,7 @@ class FnOStockHandler:
             # Select the proper strike prices based on the opening price as per the expiry
             option = self.get_SP_dates(rounded_price)
 
-            return option
+            return option[0]
             
         except Exception as e:
             log(f"Error in handling FnO symbols: {e}")
