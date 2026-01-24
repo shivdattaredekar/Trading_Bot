@@ -30,85 +30,118 @@ class EMAStrategy(BaseStrategy):
         self.fno_handler = fno_handler
         self.option_ctx = OptionContext()
 
-
     def _update_option_context(self):
         try:
+            log("🔄 Updating option context...")
+
             option = self.fno_handler.handle_FnO_symbols()
+            log(f"🧭 FnO handler output: {option}")
+
             if not option:
+                log("⚠️ No option returned by FnO handler")
                 return
 
             option_symbol = option[0]
+            log(f"🎯 Selected option symbol: {option_symbol}")
+
             candles = get_5min_candles(self.fyers, option_symbol)
+            log(f"📊 Option candles fetched: {len(candles)}")
 
             if len(candles) < 2:
+                log("⚠️ Not enough option candles (<2), cannot build context")
                 return
-        
+
             current = candles[-1]
             prev = candles[-2]
+
+            log(
+                f"🕯 Option candles → "
+                f"prev(H={prev['high']}, L={prev['low']}), "
+                f"current(L={current['low']})"
+            )
+
             ts = current["day_time"]
-            
-            prev_high = prev["high"] 
-            prev_low = prev["low"]
-            current_low = current["low"]
 
             self.option_ctx.symbol = option_symbol
-            self.option_ctx.ltp = current_low
+            self.option_ctx.ltp = current["low"]
             self.option_ctx.timestamp = ts
             self.option_ctx.time = datetime.now()
-            self.option_ctx.SL = prev_high 
-            self.option_ctx.TG =  prev_low - int(RR) * (prev_high - prev_low)
+            self.option_ctx.SL = prev["high"]
+            self.option_ctx.TG = prev["low"] - int(RR) * (prev["high"] - prev["low"])
+
+            log(
+                f"✅ Option context updated → "
+                f"symbol={self.option_ctx.symbol}, "
+                f"ltp={self.option_ctx.ltp}, "
+                f"SL={self.option_ctx.SL}, "
+                f"TG={self.option_ctx.TG}, "
+                f"time={self.option_ctx.time.strftime('%H:%M:%S')}"
+            )
 
         except Exception as e:
-            log(f"Error updating option context: {e}")
+            log(f"❌ Error updating option context: {e}")
 
-    def evaluate_and_trade(self):
-        log(f"Applying EMA strategy to {len(self.filtered_stocks)} stocks.")
 
-        # 1️⃣ Always refresh option context
-        self._update_option_context()
+def evaluate_and_trade(self):
+    log(f"📐 Applying EMA strategy to {len(self.filtered_stocks)} stocks.")
 
-        for symbol in self.filtered_stocks:
-            try:
-                # 2️⃣ Fetch index candles + EMA
-                candles = get_5min_candles(self.fyers, symbol)
-                price = get_prices(candles)
-                ema = calculate_ema_series(price, int(EMA_PERIOD))
+    # 1️⃣ Always refresh option context
+    self._update_option_context()
 
-                # 3️⃣ Pure index signal
-                signal_triggered = evaluate_trade_signal(candles, ema, symbol)
+    for symbol in self.filtered_stocks:
+        try:
+            log(f"🔍 Evaluating index symbol: {symbol}")
 
-                if not signal_triggered:
-                    continue
+            candles = get_5min_candles(self.fyers, symbol)
+            log(f"📊 Index candles fetched: {len(candles)}")
 
-                # 4️⃣ Option context sanity checks
-                if not self.option_ctx.symbol or not self.option_ctx.ltp:
-                    log("Option context not ready, skipping trade")
-                    continue
+            price = get_prices(candles)
+            ema = calculate_ema_series(price, int(EMA_PERIOD))
 
-                if (datetime.now() - self.option_ctx.time).seconds > 3:
-                    log("Option price stale, skipping trade")
-                    continue
+            signal_triggered = evaluate_trade_signal(candles, ema, symbol)
+            log(f"🚦 Index EMA signal triggered: {signal_triggered}")
 
-                unique_key = (symbol, datetime.now().strftime("%Y-%m-%d %H:%M"))
-                if unique_key in self.already_traded:
-                    continue
+            if not signal_triggered:
+                continue
 
-                # 5️⃣ Execute FnO trade (OPTION prices only)
-                log(f"Executing FnO trade → {self.option_ctx.symbol}")
+            # 🔎 Log option context snapshot BEFORE checks
+            log(
+                f"🧠 Option context snapshot → "
+                f"symbol={self.option_ctx.symbol}, "
+                f"ltp={self.option_ctx.ltp}, "
+                f"time={self.option_ctx.time}"
+            )
 
-                self.executor.place_trade(
-                    symbol=self.option_ctx.symbol,
-                    price=self.option_ctx.ltp,
-                    sl=self.option_ctx.SL,     
-                    target=self.option_ctx.TG, 
-                    timestamp=self.option_ctx.timestamp,
-                    direction=-1,
-                    strategy="EMA",
-                    fno_lots=int(LOTS)
-                )
+            if not self.option_ctx.symbol or not self.option_ctx.ltp:
+                log("⛔ Option context NOT READY → skipping trade")
+                continue
 
-                self.already_traded.add(unique_key)
+            age = (datetime.now() - self.option_ctx.time).seconds
+            log(f"⏱ Option context age: {age}s")
 
-            except Exception as e:
-                log(f"Error evaluating {symbol}: {e}")
+            if age > 3:
+                log("⛔ Option price STALE → skipping trade")
+                continue
 
+            unique_key = (symbol, datetime.now().strftime("%Y-%m-%d %H:%M"))
+            if unique_key in self.already_traded:
+                log("🔁 Trade already taken for this minute → skipping")
+                continue
+
+            log(f"🚀 Executing FnO trade → {self.option_ctx.symbol}")
+
+            self.executor.place_trade(
+                symbol=self.option_ctx.symbol,
+                price=self.option_ctx.ltp,
+                sl=self.option_ctx.SL,
+                target=self.option_ctx.TG,
+                timestamp=self.option_ctx.timestamp,
+                direction=-1,
+                strategy="EMA",
+                fno_lots=int(LOTS)
+            )
+
+            self.already_traded.add(unique_key)
+
+        except Exception as e:
+            log(f"❌ Error evaluating {symbol}: {e}")
