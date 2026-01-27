@@ -82,66 +82,66 @@ class EMAStrategy(BaseStrategy):
             log(f"❌ Error updating option context: {e}")
 
 
-def evaluate_and_trade(self):
-    log(f"📐 Applying EMA strategy to {len(self.filtered_stocks)} stocks.")
+    def evaluate_and_trade(self):
+        log(f"📐 Applying EMA strategy to {len(self.filtered_stocks)} stocks.")
 
-    # 1️⃣ Always refresh option context
-    self._update_option_context()
+        # 1️⃣ Always refresh option context
+        self._update_option_context()
 
-    for symbol in self.filtered_stocks:
-        try:
-            log(f"🔍 Evaluating index symbol: {symbol}")
+        for symbol in self.filtered_stocks:
+            try:
+                log(f"🔍 Evaluating index symbol: {symbol}")
 
-            candles = get_5min_candles(self.fyers, symbol)
-            log(f"📊 Index candles fetched: {len(candles)}")
+                candles = get_5min_candles(self.fyers, symbol)
+                log(f"📊 Index candles fetched: {len(candles)}")
 
-            price = get_prices(candles)
-            ema = calculate_ema_series(price, int(EMA_PERIOD))
+                price = get_prices(candles)
+                ema = calculate_ema_series(price, int(EMA_PERIOD))
 
-            signal_triggered = evaluate_trade_signal(candles, ema, symbol)
-            log(f"🚦 Index EMA signal triggered: {signal_triggered}")
+                signal_triggered = evaluate_trade_signal(candles, ema, symbol)
+                log(f"🚦 Index EMA signal triggered: {signal_triggered}")
 
-            if not signal_triggered:
-                continue
+                if not signal_triggered:
+                    continue
 
-            # 🔎 Log option context snapshot BEFORE checks
-            log(
-                f"🧠 Option context snapshot → "
-                f"symbol={self.option_ctx.symbol}, "
-                f"ltp={self.option_ctx.ltp}, "
-                f"time={self.option_ctx.time}"
-            )
+                # 🔎 Log option context snapshot BEFORE checks
+                log(
+                    f"🧠 Option context snapshot → "
+                    f"symbol={self.option_ctx.symbol}, "
+                    f"ltp={self.option_ctx.ltp}, "
+                    f"time={self.option_ctx.time}"
+                )
 
-            if not self.option_ctx.symbol or not self.option_ctx.ltp:
-                log("⛔ Option context NOT READY → skipping trade")
-                continue
+                if not self.option_ctx.symbol or not self.option_ctx.ltp:
+                    log("⛔ Option context NOT READY → skipping trade")
+                    continue
 
-            age = (datetime.now() - self.option_ctx.time).seconds
-            log(f"⏱ Option context age: {age}s")
+                age = (datetime.now() - self.option_ctx.time).seconds
+                log(f"⏱ Option context age: {age}s")
 
-            if age > 3:
-                log("⛔ Option price STALE → skipping trade")
-                continue
+                if age > 3:
+                    log("⛔ Option price STALE → skipping trade")
+                    continue
 
-            unique_key = (symbol, datetime.now().strftime("%Y-%m-%d %H:%M"))
-            if unique_key in self.already_traded:
-                log("🔁 Trade already taken for this minute → skipping")
-                continue
+                unique_key = (symbol, datetime.now().strftime("%Y-%m-%d %H:%M"))
+                if unique_key in self.already_traded:
+                    log("🔁 Trade already taken for this minute → skipping")
+                    continue
 
-            log(f"🚀 Executing FnO trade → {self.option_ctx.symbol}")
+                log(f"🚀 Executing FnO trade → {self.option_ctx.symbol}")
 
-            self.executor.place_trade(
-                symbol=self.option_ctx.symbol,
-                price=self.option_ctx.ltp,
-                sl=self.option_ctx.SL,
-                target=self.option_ctx.TG,
-                timestamp=self.option_ctx.timestamp,
-                direction=-1,
-                strategy="EMA",
-                fno_lots=int(LOTS)
-            )
+                self.executor.place_trade(
+                    symbol=self.option_ctx.symbol,
+                    price=self.option_ctx.ltp,
+                    sl=self.option_ctx.SL,
+                    target=self.option_ctx.TG,
+                    timestamp=self.option_ctx.timestamp,
+                    direction=-1,
+                    strategy="EMA",
+                    fno_lots=int(LOTS)
+                )
 
-            self.already_traded.add(unique_key)
+                self.already_traded.add(unique_key)
 
-        except Exception as e:
-            log(f"❌ Error evaluating {symbol}: {e}")
+            except Exception as e:
+                log(f"❌ Error evaluating {symbol}: {e}")
