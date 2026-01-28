@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime
 from typing import List
 from tradingbot.config import FNO_ATM_MODE
-
+import calendar
 
 class FnOStockHandler:
     def __init__(self, fyers, filtered_stocks, symbol="NIFTY", side="PE"):
@@ -50,7 +50,6 @@ class FnOStockHandler:
         df = self._load_fo_csv()
 
         today = datetime.today().date()
-        cur_month = today.strftime("%b")
         cur_year = today.strftime("%y")
         cur_day = today.day
 
@@ -59,6 +58,10 @@ class FnOStockHandler:
             (df[1].str.endswith(self.side))
         ][1]
 
+        months = set(month.split()[2] for month in opts)
+        month_order = {month: idx for idx, month in enumerate(calendar.month_abbr) if month}
+        cur_months = sorted(months, key=lambda x: month_order[x])[:3]
+
         valid = []
         for sym in opts:
             parts = sym.split()
@@ -66,18 +69,18 @@ class FnOStockHandler:
 
             if (
                 year == cur_year and
-                month == cur_month and
-                strike == rounded_price and
-                abs(day - cur_day) <= 7
+                month in cur_months and
+                strike == rounded_price 
             ):
                 valid.append((day, sym))
 
         if not valid:
             return None
+        
+        option = valid[0][1]
+        option_value = df[9][df[1] == option]
 
-        # nearest expiry
-        valid.sort(key=lambda x: x[0])
-        return valid[0][1]
+        return option_value.iloc[0]
 
     # ---------------------------
     # PUBLIC API
@@ -96,14 +99,20 @@ class FnOStockHandler:
 
         # -------- FETCH INDEX PRICE --------
         index_price = self._get_index_price(FNO_ATM_MODE)
+        log(f"Index price :{index_price}")
+
         if index_price is None:
             log("FnO: index price fetch failed")
             return None
 
         rounded_price = round(index_price / 100) * 100
+        log(f"rounded price :{rounded_price}")
 
         # -------- RESOLVE OPTION --------
         option = self._resolve_option(rounded_price)
+        
+        log(f"option price :{option}")
+
         if not option:
             log(f"FnO: no option found for strike {rounded_price}")
             return None
@@ -114,4 +123,4 @@ class FnOStockHandler:
             self.cached_date = today
 
         log(f"FnO [{FNO_ATM_MODE}] resolved: {option}")
-        return [option]
+        return option

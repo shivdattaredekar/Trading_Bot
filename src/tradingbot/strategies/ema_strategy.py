@@ -41,7 +41,7 @@ class EMAStrategy(BaseStrategy):
                 log("⚠️ No option returned by FnO handler")
                 return
 
-            option_symbol = option[0]
+            option_symbol = option
             log(f"🎯 Selected option symbol: {option_symbol}")
 
             candles = get_5min_candles(self.fyers, option_symbol)
