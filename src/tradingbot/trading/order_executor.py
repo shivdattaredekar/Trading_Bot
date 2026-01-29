@@ -245,7 +245,7 @@ class TradeExecutor:
     #               MAIN PLACE TRADE FUNCTION
     # ------------------------------------------------
     def place_trade(self, symbol: str, price: float, sl: float, target: float, timestamp: str,
-                side: int = -1, mode: str = "EMA", fno_lots: Optional[int] = None):
+                side: int = 1, mode: str = "EMA", fno_lots: Optional[int] = None):
 
 
         log("\n==============================")

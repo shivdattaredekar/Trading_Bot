@@ -66,8 +66,8 @@ class EMAStrategy(BaseStrategy):
             self.option_ctx.ltp = current["low"]
             self.option_ctx.timestamp = ts
             self.option_ctx.time = datetime.now()
-            self.option_ctx.SL = prev["high"]
-            self.option_ctx.TG = prev["low"] - int(RR) * (prev["high"] - prev["low"])
+            self.option_ctx.SL = prev["low"]
+            self.option_ctx.TG = prev["high"] + int(RR) * (prev["high"] - prev["low"])
 
             log(
                 f"✅ Option context updated → "
@@ -136,12 +136,12 @@ class EMAStrategy(BaseStrategy):
                     sl=self.option_ctx.SL,
                     target=self.option_ctx.TG,
                     timestamp=self.option_ctx.timestamp,
-                    direction=-1,
-                    strategy="EMA",
+                    side= 1,
+                    mode="EMA",
                     fno_lots=int(LOTS)
                 )
 
                 self.already_traded.add(unique_key)
 
             except Exception as e:
-                log(f"❌ Error evaluating {symbol}: {e}")
+                log(f"❌ Error evaluating {self.option_ctx.symbol}: {e}")
