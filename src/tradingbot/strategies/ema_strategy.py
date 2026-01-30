@@ -99,10 +99,15 @@ class EMAStrategy(BaseStrategy):
                 ema = calculate_ema_series(price, int(EMA_PERIOD))
 
                 signal_triggered = evaluate_trade_signal(candles, ema, symbol)
-                log(f"🚦 Index EMA signal triggered: {signal_triggered}")
+                log(f"🚦 Index EMA signal triggered for Time: {signal_triggered["time"]}")
 
-                if not signal_triggered:
+                if signal_triggered["time"] == "no signal":
                     continue
+
+                if datetime.strptime(signal_triggered["time"], "%Y-%m-%d %H:%M").date() < datetime.now().date():
+                    log(f"Skipping the signal from yesterday's setup which was at {signal_triggered["time"]}")
+                    continue
+
 
                 # 🔎 Log option context snapshot BEFORE checks
                 log(

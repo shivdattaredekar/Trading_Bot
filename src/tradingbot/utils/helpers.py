@@ -182,11 +182,11 @@ def evaluate_trade_signal(candles, ema, symbol):
                 current_low < prev_low and
                 current_close > current_ema
             ):
-                return True
-        return False
+                return {"time": ts}
+        return {"time": "no signal"}
     except Exception as e:
         log(f"Error evaluating trade signals for {symbol}: {e}")
-        return False
+        return {"time": "no signal"}
 
 
 
@@ -275,6 +275,7 @@ def check_trades(trade_key, file_path=TRADE_LOG_FILE):
                 trades.append(trade_time)
 
     return trades
+
 def can_trade(trade_key, file_path=TRADE_LOG_FILE):
     trades = check_trades(trade_key, file_path)
 
