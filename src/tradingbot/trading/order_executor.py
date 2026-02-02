@@ -143,7 +143,7 @@ class TradeExecutor:
         payload = {
             "symbol": symbol,
             "qty": qty,
-            "type": 3,                   # SL-M
+            "type": 4,                   # SL-L
             "side": sl_side,
             "productType": "INTRADAY",
             "limitPrice": 0,

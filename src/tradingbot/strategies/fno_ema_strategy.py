@@ -95,7 +95,7 @@ class FnOStockHandler:
             self.cached_option and
             self.cached_date == today
         ):
-            return [self.cached_option]
+            return self.cached_option
 
         # -------- FETCH INDEX PRICE --------
         index_price = self._get_index_price(FNO_ATM_MODE)

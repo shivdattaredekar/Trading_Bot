@@ -41,7 +41,11 @@ class EMAStrategy(BaseStrategy):
                 log("⚠️ No option returned by FnO handler")
                 return
 
-            option_symbol = option
+            if isinstance(option, list):
+                option_symbol = option[0]
+            else:
+                option_symbol = option
+
             log(f"🎯 Selected option symbol: {option_symbol}")
 
             candles = get_5min_candles(self.fyers, option_symbol)
@@ -99,13 +103,13 @@ class EMAStrategy(BaseStrategy):
                 ema = calculate_ema_series(price, int(EMA_PERIOD))
 
                 signal_triggered = evaluate_trade_signal(candles, ema, symbol)
-                log(f"🚦 Index EMA signal triggered for Time: {signal_triggered["time"]}")
+                #log(f"🚦 Index EMA signal triggered for Time: {signal_triggered['time']}")
 
-                if signal_triggered["time"] == "no signal":
+                if signal_triggered['time'] == "no signal":
                     continue
 
-                if datetime.strptime(signal_triggered["time"], "%Y-%m-%d %H:%M").date() < datetime.now().date():
-                    log(f"Skipping the signal from yesterday's setup which was at {signal_triggered["time"]}")
+                if datetime.strptime(signal_triggered['time'], "%Y-%m-%d %H:%M").date() < datetime.now().date():
+                    #log(f"Skipping the signal from yesterday's setup which was at {signal_triggered['time']}")
                     continue
 
 
