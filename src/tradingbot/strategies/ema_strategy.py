@@ -102,14 +102,17 @@ class EMAStrategy(BaseStrategy):
                 price = get_prices(candles)
                 ema = calculate_ema_series(price, int(EMA_PERIOD))
 
+                log(f"Finding the signal at EMA price = {list(ema.items())[-1][1]},time = {candles[-1]['day_time']},and index price = {list(price.items())[-1][1]}")
+
                 signal_triggered = evaluate_trade_signal(candles, ema, symbol)
-                #log(f"🚦 Index EMA signal triggered for Time: {signal_triggered['time']}")
+                log(f"🚦 Index EMA signal triggered for Time: {signal_triggered['time']}")
 
                 if signal_triggered['time'] == "no signal":
+                    log(f"🚦 No signal as of now")
                     continue
 
                 if datetime.strptime(signal_triggered['time'], "%Y-%m-%d %H:%M").date() < datetime.now().date():
-                    #log(f"Skipping the signal from yesterday's setup which was at {signal_triggered['time']}")
+                    log(f"Skipping the signal from yesterday's setup which was at {signal_triggered['time']}")
                     continue
 
 

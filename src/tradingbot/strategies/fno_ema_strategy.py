@@ -37,6 +37,7 @@ class FnOStockHandler:
         resp = self.fyers.quotes({"symbols": index_symbol})
 
         if resp.get("s") != "ok":
+            log(f"Error fetching the index_price for Strike price selection:{resp}")
             return None
 
         v = resp["d"][0]["v"]
