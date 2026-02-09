@@ -164,6 +164,7 @@ def calculate_ema_series(prices_dict, period):
 
 def evaluate_trade_signal(candles, ema, symbol):
     try:
+        signals = []
         for i in range(1, len(candles)):
             current = candles[i]
             prev = candles[i - 1]
@@ -182,11 +183,15 @@ def evaluate_trade_signal(candles, ema, symbol):
                 current_low < prev_low and
                 current_close > current_ema
             ):
-                return {"time": ts}
-        return {"time": "no signal"}
+                signals.append({"time": ts})
+            
+        return signals
+            
+            # else:
+            #     return signals.append({"time":"no signal"})
     except Exception as e:
         log(f"Error evaluating trade signals for {symbol}: {e}")
-        return {"time": "no signal"}
+        return [{"time": "no signal"}]
 
 
 

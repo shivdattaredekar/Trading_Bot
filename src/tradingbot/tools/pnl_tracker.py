@@ -5,8 +5,8 @@ from typing import Dict, List
 
 from openpyxl import Workbook, load_workbook
 from openpyxl.utils import get_column_letter
+from src.tradingbot.login.fyers_session import FyersSession
 
-from tradingbot.login.auth import get_fyers_instance
 from tradingbot.utils.logger import log
 
 # --------------------------------------------------
@@ -19,7 +19,6 @@ SHEET_NAME = "pnl_tracker"
 FYERS_TIME_FORMAT = "%d-%b-%Y %H:%M:%S"
 OUTPUT_TIME_FORMAT = "%Y-%m-%d %H.%M.%S"
 
-fyers = get_fyers_instance()
 
 
 # --------------------------------------------------
@@ -43,6 +42,8 @@ def load_active_trades(path: str = ACTIVE_TRADES_FILE) -> Dict[str, dict]:
 # FETCH TRADEBOOK FROM FYERS
 # --------------------------------------------------
 def fetch_tradebook() -> List[dict]:
+    fyers = FyersSession.get()
+
     resp = fyers.tradebook()
     if resp.get("code") != 200:
         log(f"❌ Failed to fetch tradebook: {resp}")

@@ -15,12 +15,10 @@ from tradingbot.utils.helpers import (
     calculate_sl_target,
 )
 from src.tradingbot.trading.trailing_sl import TradeTracker, load_state, save_state
-from src.tradingbot.login.auth import get_fyers_instance
 
 # env flags
 TRAILING_SIMULATE = "true"
 
-fyers = get_fyers_instance()
 
 
 # ----------------------------------------------------
@@ -67,7 +65,7 @@ def get_symbol_tick_size(fyers_client, symbol: str, fallback: float = 0.05) -> f
 class TradeExecutor:
     def __init__(self, fyers_client=None, capital_per_trade=100, max_trades=6, trade_manager=None, trade_log_file="trades.txt"):
         log("🛠 TradeExecutor initialized")
-        self.fyers = fyers_client or fyers
+        self.fyers = fyers_client
         self.capital = capital_per_trade
         self.max_trades = int(max_trades)
         self.trade_manager = trade_manager

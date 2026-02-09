@@ -10,6 +10,8 @@ from dotenv import load_dotenv
 # --- AUTH / API ---
 from src.tradingbot.login.auth import get_fyers_instance, is_access_token_valid
 from src.tradingbot.login.authentication import auto_login
+from src.tradingbot.login.fyers_session import FyersSession
+
 
 # --- UTILS ---
 from src.tradingbot.utils.logger import log
@@ -74,13 +76,16 @@ def main():
         if not is_access_token_valid():
             auto_login()
             load_dotenv(override=True)
+            
+        fyers = get_fyers_instance()    
+        FyersSession.set(fyers)
         log("🔓 Authentication Successful")
         time.sleep(3)
     except Exception as e:
         log(f"❌ Authentication failed: {e}")
         return
 
-    fyers = get_fyers_instance()
+    
 
     # Step 2 — Stock Selection (STATIC for EMA only)
     log("📌 Using static stocks for EMA strategy (no gap-up websocket).")

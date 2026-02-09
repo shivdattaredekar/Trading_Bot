@@ -7,11 +7,8 @@ from datetime import datetime
 from typing import List, Dict, Optional
 
 from src.tradingbot.utils.logger import log
-from src.tradingbot.login.auth import get_fyers_instance
-from dotenv import load_dotenv
-load_dotenv()
+from src.tradingbot.login.fyers_session import FyersSession
 
-fyers = get_fyers_instance()
 
 ORDER_TRACKER = "order_tracker.json"
 ACTIVE_TRADES = "active_trades.json"
@@ -80,6 +77,7 @@ def tick_round(price: float, tick: float) -> float:
 def get_symbol_tick_size(symbol: str) -> float:
     log(f"🔍 Fetching tick size for {symbol}...")
     try:
+        fyers = FyersSession.get()
         resp = fyers.quotes({"symbols": symbol})
         d = resp.get("d") or resp.get("data") or []
         if isinstance(d, list) and len(d) > 0:
