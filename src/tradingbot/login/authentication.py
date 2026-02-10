@@ -238,6 +238,8 @@ def auto_login():
         final_access_token = access_token.split(':')[1]
         set_key('.env', 'FYERS_ACCESS_TOKEN', final_access_token)
         log(f"Authentication successful")
+
+        return final_access_token
     
     except Exception as e:
         log(f"Authentication failed - {e}")

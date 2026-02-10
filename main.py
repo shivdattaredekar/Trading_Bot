@@ -8,8 +8,7 @@ from datetime import datetime, time as dtime
 from dotenv import load_dotenv
 
 # --- AUTH / API ---
-from src.tradingbot.login.auth import get_fyers_instance, is_access_token_valid
-from src.tradingbot.login.authentication import auto_login
+from src.tradingbot.login.auth import login_and_create_fyers
 from src.tradingbot.login.fyers_session import FyersSession
 
 
@@ -72,12 +71,8 @@ def main():
 
     # Step 1 — Authentication
     log("🔑 Authenticating with Fyers...")
-    try:
-        if not is_access_token_valid():
-            auto_login()
-            load_dotenv(override=True)
-            
-        fyers = get_fyers_instance()    
+    try:    
+        fyers = login_and_create_fyers()    
         FyersSession.set(fyers)
         log("🔓 Authentication Successful")
         time.sleep(3)
