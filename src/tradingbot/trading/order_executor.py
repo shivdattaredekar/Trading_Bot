@@ -134,18 +134,20 @@ class TradeExecutor:
         log(f"📦 Entry order payload: {payload}")
         return payload
 
-    def prepare_sl_order(self, symbol: str, qty: int, stop_price: float, entry_side: int, tick_size: float) -> dict:
+    def prepare_sl_order(self, symbol: str, qty: int, stop_price: float, entry_side: int, tick_size: float) -> dict: 
         log(f"📦 prepare_sl_order() → symbol={symbol}, qty={qty}, raw stop={stop_price}, tick={tick_size}")
         sl_side = -1 if entry_side == 1 else 1
         sp = tick_round(stop_price, tick_size)
+        sp_final = sp - 1 
+        lp = sp_final - 1
         payload = {
             "symbol": symbol,
             "qty": qty,
             "type": 4,                   # SL-L
             "side": sl_side,
             "productType": "INTRADAY",
-            "limitPrice": 0,
-            "stopPrice": float(sp),
+            "limitPrice": float(lp),
+            "stopPrice": float(sp_final),
             "validity": "DAY",
             "offlineOrder": False,
             "disclosedQty": 0,
