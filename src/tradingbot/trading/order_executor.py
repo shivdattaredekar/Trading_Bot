@@ -5,7 +5,7 @@ import json
 import time
 from datetime import datetime
 from typing import Optional
-
+import uuid
 from tradingbot.utils.logger import log
 from tradingbot.trading.trade_logger import log_trade_result
 from tradingbot.utils.helpers import (
@@ -70,7 +70,7 @@ class TradeExecutor:
         self.max_trades = int(max_trades)
         self.trade_manager = trade_manager
         self.trade_log_file = trade_log_file
-        self.trade_key = "NIFTY_TRADE"
+        self.trade_key = f"NIFTY_TRADE_{uuid.uuid4().hex}"
 
 
     # ------------------------------------------------

@@ -323,7 +323,8 @@ class TradeTracker:
                 save_state(self.order_tracker, self.active_trades)
 
                 if sl_order_id:
-                    self._cancel_order_safe(sl_order_id)
+                    log("Bhaai SL hit hua hai dekh order place hua kya fyers pai")
+                    #self._cancel_order_safe(sl_order_id)
                     time.sleep(0.15)
 
                 traded_qty = 0
