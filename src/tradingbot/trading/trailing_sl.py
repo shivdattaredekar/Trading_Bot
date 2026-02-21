@@ -14,7 +14,7 @@ ORDER_TRACKER = "order_tracker.json"
 ACTIVE_TRADES = "active_trades.json"
 
 # Trailing parameters (user configurable)
-TRAILING_START_RR = int(os.getenv("TRAILING_START_RR", 3))
+TRAILING_RR = 3
 TARGET_COUNT = int(os.getenv("TARGET_COUNT", 30))
 TICK_FALLBACK = 0.05
 
@@ -132,6 +132,7 @@ def initialize_trade_data(trades, order_tracker, active_trades, order_data):
             "status": "OPEN",           # OPEN -> EXITING -> CLOSED
             "created_at": datetime.now().isoformat(),
             "sl_order_id": order_data.get("sl_order_id"),
+            "tg_order_id": order_data.get("tg_order_id"),
         }
 
         log(f"✅ Initialized trade {order_id}: side={side}, entry={entry}, SL={stop_price}")
@@ -157,16 +158,16 @@ class TradeTracker:
         save_state(self.order_tracker, self.active_trades)
         return self.active_trades
 
-    def modify_sl(self, sl_order_id: str, new_sl: float, symbol: str):
+    def modify_sl(self, sl_order_id: str, new_sl: float, symbol: str, qty:int):
         tick = get_symbol_tick_size(symbol)
         new_sl = tick_round(new_sl, tick)
 
         payload = {
             "id": sl_order_id,
-            "type": 3,                 # SL-M modify
+            "type": 4,                 # SL-L modify
             "stopPrice": float(new_sl),
-            "limitPrice": 0,
-            # ❌ qty REMOVED
+            "limitPrice": float(new_sl + 1),
+            "qty": qty
         }
 
         try:
@@ -300,7 +301,10 @@ class TradeTracker:
             stop = float(trade["stop_price"])
             entry = float(trade["entry_price"])
             qty = int(trade.get("qty", 0))
+
             sl_order_id = trade.get("sl_order_id")
+            tg_order_id = trade.get("tg_order_id")
+
 
             risk = abs(entry - stop)
             if risk <= 0:
@@ -323,9 +327,7 @@ class TradeTracker:
                 save_state(self.order_tracker, self.active_trades)
 
                 if sl_order_id:
-                    log("Bhaai SL hit hua hai dekh order place hua kya fyers pai")
-                    #self._cancel_order_safe(sl_order_id)
-                    time.sleep(0.15)
+                    log("Bhaai SL hit hua hai")
 
                 traded_qty = 0
                 try:
@@ -363,7 +365,8 @@ class TradeTracker:
             # 2️⃣ LAGGING RR TRAILING LOGIC (NEW)
             # -------------------------------------------------
             current_rr = abs(ltp - entry) / risk
-            if current_rr < TRAILING_START_RR:
+
+            if current_rr < TRAILING_RR:
                 log(f"⏸️ RR={current_rr:.2f} < TRAILING_START_RR — no trailing")
                 continue
 
@@ -391,13 +394,18 @@ class TradeTracker:
             # -------------------------------------------------
             log(
                 f"🔁 RR={current_rr:.2f} → "
-                f"SL moved to {trail_rr:.2f}R (price={new_sl})"
+                f"SL moved to {trail_rr:.2f}R (price={new_sl}) and at (qty={qty})"
             )
 
-            trade["stop_price"] = new_sl
+            #trade["stop_price"] = new_sl
             trade["achieved_rr"] = int(current_rr)
 
+            TRAILING_RR+=1
+            
             if sl_order_id:
-                self.modify_sl(sl_order_id, new_sl, symbol)
-
+                if qty == 65:
+                    new_var = qty
+                    self.modify_sl(sl_order_id, new_sl, symbol, new_var)
+                self.modify_sl(sl_order_id, new_sl, symbol, 65)
+                log(f"✅ Trailing SL applied to {new_sl}")
             save_state(self.order_tracker, self.active_trades)
