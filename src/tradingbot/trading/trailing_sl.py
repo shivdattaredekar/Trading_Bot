@@ -328,6 +328,7 @@ class TradeTracker:
 
                 if sl_order_id:
                     log("Bhaai SL hit hua hai")
+                    self._cancel_order_safe(tg_order_id)
 
                 traded_qty = 0
                 try:
