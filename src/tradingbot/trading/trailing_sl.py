@@ -132,7 +132,6 @@ def initialize_trade_data(trades, order_tracker, active_trades, order_data):
             "status": "OPEN",           # OPEN -> EXITING -> CLOSED
             "created_at": datetime.now().isoformat(),
             "sl_order_id": order_data.get("sl_order_id"),
-            "tg_order_id": order_data.get("tg_order_id"),
             "next_trail_rr": 3,
         }
 
@@ -273,7 +272,7 @@ class TradeTracker:
             "disclosedQty": 0,
         }
         try:
-            log(f"🚨 FORCE MARKET EXIT → payload={payload}")
+            log(f"🚨 MARKET EXIT DUE to TG (1:3) HIT for OPTIONS or qty remind for EQUITY → payload={payload}")
             resp = self.fyers.place_order(payload)
             log(f"📥 MARKET EXIT RESPONSE: {resp}")
             return resp or {}
@@ -302,9 +301,9 @@ class TradeTracker:
             stop = float(trade["stop_price"])
             entry = float(trade["entry_price"])
             qty = int(trade.get("qty", 0))
+            lots = qty // 2
 
             sl_order_id = trade.get("sl_order_id")
-            tg_order_id = trade.get("tg_order_id")
             next_rr = trade.get("next_trail_rr", 3)
 
 
@@ -330,7 +329,7 @@ class TradeTracker:
 
                 if sl_order_id:
                     log("Bhaai SL hit hua hai")
-                    self._cancel_order_safe(tg_order_id)
+                    #self._cancel_order_safe()
 
                 traded_qty = 0
                 try:
@@ -372,6 +371,12 @@ class TradeTracker:
             if current_rr < next_rr: 
                 log(f"⏸️ RR={current_rr:.2f} < TRAILING_START_RR — no trailing")
                 continue
+            
+            if next_rr == 3:
+                exit_side = 1 if side == -1 else -1
+                exit_qty = qty // 2 if lots != 1 else qty 
+                self._place_market_exit(symbol, exit_qty, exit_side)
+
 
             trail_rr = current_rr - 1.5
             if trail_rr <= 0:

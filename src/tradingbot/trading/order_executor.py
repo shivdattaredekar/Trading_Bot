@@ -222,11 +222,11 @@ class TradeExecutor:
     # ------------------------------------------------
     #      REGISTER ENTRY + SL IDs WITH TRAILING ENGINE
     # ------------------------------------------------
-    def _register_trade(self, entry_resp: dict, sl_id: str, tg_id: str, stop_price: float):
+    def _register_trade(self, entry_resp: dict, sl_id: str, stop_price: float):
         log("🛠 Registering trade with trailing engine...")
 
         entry_id = entry_resp.get("id") or entry_resp.get("orderNumber")
-        log(f"➡ entry_id = {entry_id}, sl_id={sl_id}, tg_id={tg_id}, stop_price={stop_price}")
+        log(f"➡ entry_id = {entry_id}, sl_id={sl_id}, stop_price={stop_price}")
 
         # 1) Wait for trade fill
         trades = self._wait_for_trade_fill(entry_id)
@@ -248,14 +248,12 @@ class TradeExecutor:
         if sl_id:
             tracker.update_trade_artifacts({"id": sl_id})
         
-        if tg_id:
-            tracker.update_trade_artifacts({"id": tg_id})
+
 
         # 5) Metadata for initialization
         order_data_for_tracker = {
             "stopPrice": stop_price,
             "sl_order_id": sl_id,
-            "tg_order_id": tg_id
         }
 
         # 6) Initialize trade
@@ -343,19 +341,20 @@ class TradeExecutor:
             else:
                 log(f"⚠ SL ORDER FAILED → {sl_resp}")
 
-            # Step 9: Target LIMIT order
-            tg_order = self.prepare_target_order(symbol, qty, target, side,
-                                                tick)
-            tg_resp = self.execute_order(tg_order)
-            tg_id = tg_resp.get("id") if tg_resp.get("code") == 1101 else None
+            # # Step 9: Target LIMIT order
+            # tg_order = self.prepare_target_order(symbol, qty, target, side,
+            #                                     tick)
+            # tg_resp = self.execute_order(tg_order)
+            # tg_id = tg_resp.get("id") if tg_resp.get("code") == 1101 else None
 
-            if tg_id:
-                log(f"✔ TG ORDER SUCCESS → tg_id={tg_id}")
-            else:
-                log(f"⚠ TG ORDER FAILED → {tg_resp}")
+            # if tg_id:
+            #     log(f"✔ TG ORDER SUCCESS → tg_id={tg_id}")
+            # else:
+            #     log(f"⚠ TG ORDER FAILED → {tg_resp}")
+
 
             # Step 8: Register everything with trailing engine
-            tracker = self._register_trade(entry_resp, sl_id, tg_id, SP)
+            tracker = self._register_trade(entry_resp, sl_id, SP)
 
             # Step 9: Final trading logs
             self.handle_order_response(symbol, entry_resp, price, risk, target)
