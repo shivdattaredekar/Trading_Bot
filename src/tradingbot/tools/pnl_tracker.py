@@ -5,7 +5,6 @@ from typing import Dict, List
 
 from openpyxl import Workbook, load_workbook
 from openpyxl.utils import get_column_letter
-from src.tradingbot.login.fyers_session import FyersSession
 
 from tradingbot.utils.logger import log
 
@@ -41,8 +40,7 @@ def load_active_trades(path: str = ACTIVE_TRADES_FILE) -> Dict[str, dict]:
 # --------------------------------------------------
 # FETCH TRADEBOOK FROM FYERS
 # --------------------------------------------------
-def fetch_tradebook() -> List[dict]:
-    fyers = FyersSession.get()
+def fetch_tradebook(fyers) -> List[dict]:
 
     resp = fyers.tradebook()
     if resp.get("code") != 200:
@@ -148,15 +146,3 @@ def export_to_excel(rows: List[Dict]):
     wb.save(OUTPUT_FILE)
     log(f"📤 Appended {len(rows)} trades to {OUTPUT_FILE}")
 
-
-# --------------------------------------------------
-# MAIN
-# --------------------------------------------------
-if __name__ == "__main__":
-    active_trades = load_active_trades()
-    tradebook = fetch_tradebook()
-
-    rows = build_tradewise_pnl(tradebook, active_trades)
-    export_to_excel(rows)
-
-    log(f"✅ Total CLOSED trades appended: {len(rows)}")

@@ -172,7 +172,7 @@ def main():
             log("📊 Running end-of-day PnL export...")
 
             active_trades = load_active_trades()
-            tradebook = fetch_tradebook()
+            tradebook = fetch_tradebook(fyers)
 
             rows = build_tradewise_pnl(tradebook, active_trades)
             export_to_excel(rows)
