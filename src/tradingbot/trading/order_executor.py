@@ -139,7 +139,7 @@ class TradeExecutor:
         side = 1 if entry_side == -1 else -1
         payload = { 
             "symbol": symbol,
-            "qty": qty/2,
+            "qty": qty//2,
             "type": 1,
             "side": side,
             "productType": "INTRADAY",

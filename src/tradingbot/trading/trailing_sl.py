@@ -14,7 +14,7 @@ ORDER_TRACKER = "order_tracker.json"
 ACTIVE_TRADES = "active_trades.json"
 
 # Trailing parameters (user configurable)
-TRAILING_RR = 3
+#TRAILING_RR = int(os.getenv("TARGET_COUNT", 30))
 TARGET_COUNT = int(os.getenv("TARGET_COUNT", 30))
 TICK_FALLBACK = 0.05
 
@@ -133,6 +133,7 @@ def initialize_trade_data(trades, order_tracker, active_trades, order_data):
             "created_at": datetime.now().isoformat(),
             "sl_order_id": order_data.get("sl_order_id"),
             "tg_order_id": order_data.get("tg_order_id"),
+            "next_trail_rr": 3,
         }
 
         log(f"✅ Initialized trade {order_id}: side={side}, entry={entry}, SL={stop_price}")
@@ -304,6 +305,7 @@ class TradeTracker:
 
             sl_order_id = trade.get("sl_order_id")
             tg_order_id = trade.get("tg_order_id")
+            next_rr = trade.get("next_trail_rr", 3)
 
 
             risk = abs(entry - stop)
@@ -367,7 +369,7 @@ class TradeTracker:
             # -------------------------------------------------
             current_rr = abs(ltp - entry) / risk
 
-            if current_rr < TRAILING_RR:
+            if current_rr < next_rr: 
                 log(f"⏸️ RR={current_rr:.2f} < TRAILING_START_RR — no trailing")
                 continue
 
@@ -400,8 +402,7 @@ class TradeTracker:
 
             #trade["stop_price"] = new_sl
             trade["achieved_rr"] = int(current_rr)
-
-            TRAILING_RR+=1
+            trade["next_trail_rr"] = next_rr + 1
             
             if sl_order_id:
                 if qty == 65:
