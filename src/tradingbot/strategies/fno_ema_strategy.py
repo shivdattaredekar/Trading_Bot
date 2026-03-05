@@ -66,7 +66,7 @@ class FnOStockHandler:
         valid = []
         for sym in opts:
             parts = sym.split()
-            year, month, day, strike = parts[1], parts[2], int(parts[3]), int(parts[4])
+            year, month, day, strike = parts[3], parts[2], int(parts[1]), int(parts[4])
 
             if (
                 year == cur_year and
