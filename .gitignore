@@ -12,6 +12,7 @@ backtesting/
 artifacts/
 filtered_stocks/
 GapUp_stocks/
+backup/
 
 # API / credentials
 fyersApi/
