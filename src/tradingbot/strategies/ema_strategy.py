@@ -133,14 +133,14 @@ class EMAStrategy(BaseStrategy):
                     age = (datetime.now() - self.option_ctx.time).seconds
                     log(f"⏱ Option context age: {age}s")
 
-                    if age > 3:
+                    if age > 5:
                         log("⛔ Option price STALE → skipping trade")
                         continue
 
                     unique_key = (symbol, datetime.now().strftime("%Y-%m-%d %H:%M"))
-                    if unique_key in self.already_traded:
-                        log(f"🔁 Trade already taken for this minute → skipping, please see already taken trades: {self.already_traded} ")
-                        continue
+                    # if unique_key in self.already_traded:
+                    #     log(f"🔁 Trade already taken for this minute → skipping, please see already taken trades: {self.already_traded} ")
+                    #     continue
 
                     log(f"🚀 Executing FnO trade → {self.option_ctx.symbol}")
 

@@ -388,3 +388,12 @@ class TradeExecutor:
         else:
             log(f"❌ Trade FAILED for {symbol}")
             log_trade_result(self.trade_key or symbol, datetime.now().strftime("%Y-%m-%d %H:%M:%S"), price, sl, target, "failed")
+
+
+
+
+
+
+
+
+            

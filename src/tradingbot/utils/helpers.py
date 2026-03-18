@@ -264,6 +264,9 @@ def check_trades(trade_key, file_path=TRADE_LOG_FILE):
 
     with open(file_path, mode="r") as file:
         reader = csv.DictReader(file)
+
+        reader.fieldnames = [field.strip() for field in reader.fieldnames]
+
         for row in reader:
             try:
                 trade_time = datetime.strptime(
