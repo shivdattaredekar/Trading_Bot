@@ -46,7 +46,7 @@ from src.tradingbot.tools.pnl_tracker import (
 
 FILTERED_FILE = "filtered_stocks.json"
 MARKET_START = dtime(9, 15)
-MARKET_END = dtime(15, 0)
+MARKET_END = dtime(15, 45)
 MARKET_CLOSED_SLEEP_SEC = 60
 MAX_CLOSED_ITERS = 3
 
