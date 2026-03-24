@@ -107,6 +107,14 @@ class EMAStrategy(BaseStrategy):
                 signal_triggered = evaluate_trade_signal(candles, ema, symbol)
 
                 for signal in signal_triggered:
+                    
+                    # Skip the trade if signal recency is more than 1
+                    time = datetime.strptime(signal.get('time'), "%Y-%m-%d %H:%M")
+                    signal_time = datetime.now() - time
+                    signal_recency = signal_time.seconds() / 60 
+                    if signal_recency < 1:
+                        continue
+
                     log(f"🚦 Index EMA signal triggered for Time: {signal['time']}")
 
                     if signal['time'] == "no signal":
@@ -133,8 +141,8 @@ class EMAStrategy(BaseStrategy):
                     age = (datetime.now() - self.option_ctx.time).seconds
                     log(f"⏱ Option context age: {age}s")
 
-                    if age > 5:
-                        log("⛔ Option price STALE → skipping trade")
+                    if age > 7:
+                        log("⛔ Option price STALE it means older than 7 secs → skipping trade")
                         continue
 
                     unique_key = (symbol, datetime.now().strftime("%Y-%m-%d %H:%M"))
