@@ -111,7 +111,7 @@ class EMAStrategy(BaseStrategy):
                     # Skip the trade if signal recency is more than 1
                     time = datetime.strptime(signal.get('time'), "%Y-%m-%d %H:%M")
                     signal_time = datetime.now() - time
-                    signal_recency = signal_time.seconds() / 60 
+                    signal_recency = signal_time.seconds / 60 
                     if signal_recency < 1:
                         continue
 
