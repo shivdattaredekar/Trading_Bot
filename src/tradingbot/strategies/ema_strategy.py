@@ -122,7 +122,7 @@ class EMAStrategy(BaseStrategy):
                         continue
 
                     if datetime.strptime(signal['time'], "%Y-%m-%d %H:%M").date() < datetime.now().date():
-                        log(f"Skipping the signal from yesterday's setup which was at {signal['time']}")
+                        #log(f"Skipping the signal from yesterday's setup which was at {signal['time']}")
                         continue
 
                     
