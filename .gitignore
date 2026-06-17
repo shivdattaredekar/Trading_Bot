@@ -1,12 +1,28 @@
-venv
+# Environments
+venv/
+env/
 .env
-tradingsetup.egg-info
-filtered_stocks
-filtered_stocks
-GapUp_stocks
-fyersApi
-fyersRequest
-index_stocks.xlsx
-changes
 
+# Logs
+logs/
+*.log
 
+# Backtesting & artifacts
+backtesting/
+artifacts/
+filtered_stocks/
+GapUp_stocks/
+backup/
+
+# API / credentials
+fyersApi/
+fyersRequest/
+
+# Data files
+*.xlsx
+*.csv
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/

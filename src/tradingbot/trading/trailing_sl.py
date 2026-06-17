@@ -1,278 +1,418 @@
+# src/tradingbot/trading/trailing_sl.py
+
 import os
 import json
+import time
 from datetime import datetime
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Optional
 
 from src.tradingbot.utils.logger import log
+from src.tradingbot.login.fyers_session import FyersSession
 
-from src.tradingbot.login.auth import get_fyers_instance
-
-fyers = get_fyers_instance()
 
 ORDER_TRACKER = "order_tracker.json"
 ACTIVE_TRADES = "active_trades.json"
-DEFAULT_TARGET_COUNT = 30
 
+# Trailing parameters (user configurable)
+#TRAILING_RR = int(os.getenv("TARGET_COUNT", 30))
+TARGET_COUNT = int(os.getenv("TARGET_COUNT", 30))
+TICK_FALLBACK = 0.05
 
 # -------------------------
-# State helpers
+# STATE LOAD & SAVE
 # -------------------------
 def load_state():
+    log("📥 Loading order_tracker & active_trades from JSON...")
     if os.path.exists(ORDER_TRACKER):
         with open(ORDER_TRACKER, "r") as f:
             order_tracker = json.load(f)
     else:
+        log("⚠️ ORDER_TRACKER not found. Using empty list.")
         order_tracker = []
 
     if os.path.exists(ACTIVE_TRADES):
         with open(ACTIVE_TRADES, "r") as f:
             active_trades = json.load(f)
     else:
+        log("⚠️ ACTIVE_TRADES not found. Using empty dict.")
         active_trades = {}
 
+    log(f"📌 Loaded order_tracker={order_tracker}")
+    log(f"📌 Loaded active_trades count={len(active_trades)}")
     return order_tracker, active_trades
 
+def save_state(order_tracker, active_trades):
+    if order_tracker == [] and active_trades == {}:
+        log("⚠️ Skip saving: empty state detected (safety).")
+        return
 
-def save_state(order_tracker: List[str], active_trades: Dict[str, dict]):
-    with open(ORDER_TRACKER, "w") as f:
-        json.dump(order_tracker, f, indent=4, default=str)
-    with open(ACTIVE_TRADES, "w") as f:
-        json.dump(active_trades, f, indent=4, default=str)
-    log("State saved successfully.")
+    log("💾 Saving state → order_tracker.json + active_trades.json")
 
+    tmp1 = ORDER_TRACKER + ".tmp"
+    tmp2 = ACTIVE_TRADES + ".tmp"
+
+    with open(tmp1, "w") as f:
+        json.dump(order_tracker, f, indent=4)
+    with open(tmp2, "w") as f:
+        json.dump(active_trades, f, indent=4)
+
+    os.replace(tmp1, ORDER_TRACKER)
+    os.replace(tmp2, ACTIVE_TRADES)
+
+    log("💾 State saved successfully.")
 
 # -------------------------
-# Initialize trade record
+# TICK HELPERS
 # -------------------------
-def initialize_trade_data(
-    trades: List[dict],
-    order_tracker: List[str],
-    active_trades: Dict[str, dict],
-    order_data: dict,
-    target_count: int = DEFAULT_TARGET_COUNT,
-) -> Dict[str, dict]:
-    """
-    Create/augment active_trades entries based on executed trades and order_data.
-    - trades: list returned from fyers.tradebook()['tradeBook'] (or pre-saved json)
-    - order_tracker: list of tracked order ids
-    - order_data: the order payload used to place the order (should include stopPrice if available)
-    """
-    for trade in trades:
-        order_id = trade.get("orderNumber") or trade.get("id") or trade.get("order_id")
+def tick_round(price: float, tick: float) -> float:
+    try:
+        if tick <= 0:
+            return round(price, 2)
+        q = round(round(price / tick) * tick, 8)
+        return float(round(q, 8))
+    except Exception as e:
+        log(f"⚠️ tick_round error: {e}")
+        return round(price, 2)
+
+def get_symbol_tick_size(symbol: str) -> float:
+    log(f"🔍 Fetching tick size for {symbol}...")
+    try:
+        fyers = FyersSession.get()
+        resp = fyers.quotes({"symbols": symbol})
+        d = resp.get("d") or resp.get("data") or []
+        if isinstance(d, list) and len(d) > 0:
+            for key in ["tickSize", "tick_size", "tick"]:
+                if key in d[0]:
+                    tick = float(d[0][key])
+                    log(f"🔎 Tick size for {symbol} = {tick}")
+                    return tick
+    except Exception as e:
+        log(f"⚠️ Tick size lookup failed for {symbol}: {e}")
+
+    log(f"⚠️ Tick size fallback used = {TICK_FALLBACK}")
+    return TICK_FALLBACK
+
+# -------------------------
+# TRADE INIT / TRACKER
+# -------------------------
+def initialize_trade_data(trades, order_tracker, active_trades, order_data):
+    log("🚀 Running initialize_trade_data()...")
+    for tr in trades:
+        order_id = tr.get("orderNumber")
+        log(f"➡️ Inspecting trade from tradebook: order_id={order_id}")
+
         if not order_id:
             continue
+        if order_id not in order_tracker:
+            continue
+        if order_id in active_trades:
+            log(f"⏭️ order_id {order_id} already initialized. Skipping...")
+            continue
 
-        # Only initialize if this order id is in our order_tracker and not already active
-        if order_id in order_tracker and order_id not in active_trades:
-            entry = float(trade["tradePrice"])
-            stop_price = None
-            # Accept different keys that may be present in your order_data
-            for k in ("stopPrice", "stop_price", "stopLoss"):
-                if k in order_data:
-                    stop_price = float(order_data[k])
-                    break
-            if stop_price is None:
-                # fallback to a simple default (should not happen in real runs)
-                log(f"⚠️ No stop price in order_data for {order_id}, using entry as stop (unsafe).")
-                stop_price = entry
+        entry = float(tr.get("tradePrice") or tr.get("price") or tr.get("avgPrice") or 0)
+        stop_price = float(order_data.get("stopPrice", entry))
+        risk = abs(entry - stop_price)
+        if risk <= 0:
+            risk = max(entry * 0.001, 0.05)
+        side = int(tr.get("side", 1))
 
-            risk = abs(entry - stop_price)
-            if risk == 0:
-                # avoid zero risk
-                risk = max(entry * 0.001, 0.01)
-
-            side = int(trade.get("side", 1))  # 1 == buy/long, -1 == sell/short
-
-            # build targets as a list (index 0 = first target)
-            if side == 1:
-                targets = [round(entry + (i + 1) * risk, 5) for i in range(target_count)]
-            else:
-                targets = [round(entry - (i + 1) * risk, 5) for i in range(target_count)]
-
-            active_trades[order_id] = {
-                "symbol": trade["symbol"],
-                "qty": int(trade.get("tradedQty", trade.get("qty", 0))),
-                "entry_price": round(entry, 5),
-                "stop_price": round(stop_price, 5),
-                "side": side,
-                "achieved_rr": 0,   # number of targets achieved so far
-                "targets": targets,
-                "status": "OPEN",
-                "created_at": datetime.now().isoformat(),
-            }
-
-            log(f"Initialized trade {order_id} -> entry: {entry}, stop: {stop_price}, side: {side}, targets: {targets[:3]}...")
-
-    return active_trades
-
-
-# -------------------------
-# TradeTracker class
-# -------------------------
-class TradeTracker:
-    def __init__(self, fyers_client, order_tracker: List[str], active_trades: Dict[str, dict]):
-        self.fyers = fyers_client
-        self.order_tracker = order_tracker
-        self.active_trades = active_trades
-
-    def update_trade_artifacts(self, trade_response: dict):
-        """
-        Add the placed order id to order_tracker (de-duplicated).
-        trade_response must contain 'id' and preferably 'code' to indicate success.
-        """
-        if not trade_response:
-            log("❌ Empty trade_response in update_trade_artifacts")
-            return
-
-        resp_id = trade_response.get("id") or trade_response.get("orderNumber")
-        if not resp_id:
-            log("❌ No id found in trade_response")
-            return
-
-        if resp_id not in self.order_tracker:
-            self.order_tracker.append(resp_id)
-            log(f"✅ Added order id {resp_id} to order_tracker")
+        if side == 1:
+            targets = [round(entry + (i + 1) * risk, 5) for i in range(TARGET_COUNT)]
         else:
-            log(f"⚠️ Order ID {resp_id} already present in order_tracker")
+            targets = [round(entry - (i + 1) * risk, 5) for i in range(TARGET_COUNT)]
 
-    def update_after_trade(self, trades: List[dict], trade_response: dict, order_data: dict):
-        """
-        Called after an order is placed and executed (or partially executed). Initializes active_trades if
-        trade execution appears in the trades (tradebook).
-        """
-        self.active_trades = initialize_trade_data(trades, self.order_tracker, self.active_trades, order_data)
-        save_state(self.order_tracker, self.active_trades)
-        resp_id = trade_response.get("id") or trade_response.get("orderNumber")
-        log(f"✅ Trade processed and saved with id: {resp_id}")
-        return self.active_trades
-
-    def _close_trade(self, order_id: str, reason: str):
-        """Mark trade closed locally; you might also want to cancel/modify remote orders here."""
-        trade = self.active_trades.get(order_id)
-        if not trade:
-            return
-        trade["status"] = "CLOSED"
-        trade["closed_at"] = datetime.now().isoformat()
-        trade["close_reason"] = reason
-        log(f"❌ Trade {order_id} closed. Reason: {reason}")
-
-    def update_trailing_stops(self, symbol: str, ltp: float):
-        """
-        Single-symbol update. Call this for each live LTP tick you get for 'symbol'.
-        """
-        # iterate copy to allow modification of dict
-        for order_id, trade in list(self.active_trades.items()):
-            # skip trades of different symbols
-            if trade.get("symbol") != symbol:
-                continue
-
-            if trade["status"] != "OPEN":
-                continue
-
-            side = int(trade["side"])
-            stop_price = float(trade["stop_price"])
-            entry = float(trade["entry_price"])
-            achieved = int(trade["achieved_rr"])
-            targets: List[float] = trade["targets"]
-
-            # 1) Check stop-loss hit first
-            if side == 1:
-                # Long: price falling to or below stop closes trade
-                if ltp <= stop_price:
-                    self._close_trade(order_id, "SL_HIT")
-                    continue
-            else:
-                # Short: price rising to or above stop closes trade
-                if ltp >= stop_price:
-                    self._close_trade(order_id, "SL_HIT")
-                    continue
-
-            # 2) Check next target
-            # next_target index = achieved (0-based). Example: achieved=0 -> next_target = targets[0]
-            if achieved < len(targets):
-                next_target = float(targets[achieved])
-                target_hit = False
-                if side == 1:
-                    # Long: target hit if LTP >= next_target
-                    if ltp >= next_target:
-                        target_hit = True
-                else:
-                    # Short: target hit if LTP <= next_target
-                    if ltp <= next_target:
-                        target_hit = True
-
-                if target_hit:
-                    # increment achieved count
-                    trade["achieved_rr"] = achieved + 1
-                    new_achieved = trade["achieved_rr"]
-
-                    # Decide new SL:
-                    # - on first achieved (new_achieved == 1) -> set SL to entry (breakeven)
-                    # - on subsequent achieved -> set SL to previous target (i.e., targets[new_achieved - 2])
-                    if new_achieved == 1:
-                        new_sl = entry
-                    else:
-                        # previous target index = new_achieved - 2 (0-based)
-                        prev_target_idx = new_achieved - 2
-                        new_sl = float(targets[prev_target_idx])
-
-                    # Ensure new_sl is on the correct side relative to current price:
-                    # Long: SL must be <= current price (but above previous SL). We ensure monotonic increase.
-                    # Short: SL must be >= current price (but below previous SL). We ensure monotonic decrease.
-                    old_sl = float(trade["stop_price"])
-                    new_sl = round(float(new_sl), 5)
-
-                    # Safety: enforce that SL moves in the right direction (monotonic toward price)
-                    if side == 1:
-                        # ensure new_sl >= old_sl (moves up)
-                        if new_sl < old_sl:
-                            log(f"⚠️ Computed new SL {new_sl} < old SL {old_sl} for long. Using old SL.")
-                            new_sl = old_sl
-                        # also ensure new_sl is not above LTP (we generally allow SL to be below current price)
-                    else:
-                        # short: ensure new_sl <= old_sl (moves down)
-                        if new_sl > old_sl:
-                            log(f"⚠️ Computed new SL {new_sl} > old SL {old_sl} for short. Using old SL.")
-                            new_sl = old_sl
-
-                    # Apply new SL
-                    trade["stop_price"] = new_sl
-
-                    # Persist and ask broker to modify order
-                    save_state(self.order_tracker, self.active_trades)
-                    try:
-                        self.modify_sl(order_id, new_sl)
-                    except Exception as e:
-                        log(f"⚠️ modify_sl exception for {order_id}: {e}")
-
-                    log(f"🔁 Target achieved for {order_id} ({trade['symbol']}): achieved_rr={new_achieved}, new_sl={new_sl}, next_target={(targets[new_achieved] if new_achieved < len(targets) else 'N/A')}")
-                    continue
-
-            # else: no target hit, nothing to do
-            # persist occasionally (could be throttled)
-            # save_state(self.order_tracker, self.active_trades)
-
-    def modify_sl(self, order_id: str, new_sl: float):
-        """
-        Modify stop price for an active order via Fyers API.
-        The payload below is written generically. Adjust the keys according to Fyers' modify API.
-        """
-        log(f"⚙️ Modifying stop price for order {order_id} -> {new_sl}")
-
-        # Example payload - adapt to your exact Fyers SDK method signature
-        payload = {
-            "id": order_id,
-            # Fyers modify API may expect "stopPrice" or another key. Confirm your SDK.
-            "stopPrice": float(new_sl),
-            # other keys if necessary, e.g., "limitPrice": 0, "type": 3
+        active_trades[order_id] = {
+            "symbol": tr.get("symbol"),
+            "qty": int(tr.get("tradedQty", tr.get("qty", 0))),
+            "entry_price": entry,
+            "stop_price": stop_price,
+            "side": side,
+            "achieved_rr": 0,
+            "targets": targets,
+            "status": "OPEN",           # OPEN -> EXITING -> CLOSED
+            "created_at": datetime.now().isoformat(),
+            "sl_order_id": order_data.get("sl_order_id"),
+            "next_trail_rr": 3,
         }
 
-        # Uncomment the real call in production:
-        # response = self.fyers.modify_order(payload)
-        # log(f"Modify response: {response}")
+        log(f"✅ Initialized trade {order_id}: side={side}, entry={entry}, SL={stop_price}")
+    return active_trades
 
-        # For now (or in tests) we simulate:
-        response = {"code": 1101, "message": "simulated modify ok", "data": payload}
-        log(f"✅ SL modification simulated for {order_id} -> {new_sl}. Response: {response}")
-        return response
+class TradeTracker:
+    def __init__(self, fyers_client, order_tracker, active_trades):
+        log("🔧 TradeTracker initialized.")
+        self.fyers = fyers_client
+        self.order_tracker = order_tracker or []
+        self.active_trades = active_trades or {}
 
+    def update_trade_artifacts(self, trade_response):
+        oid = trade_response.get("id")
+        if not oid:
+            return
+        if oid not in self.order_tracker:
+            self.order_tracker.append(oid)
+            log(f"🆕 Added order id → {oid}")
+
+    def update_after_trade(self, trades, trade_response, order_data):
+        self.active_trades = initialize_trade_data(trades, self.order_tracker, self.active_trades, order_data)
+        save_state(self.order_tracker, self.active_trades)
+        return self.active_trades
+
+    def modify_sl(self, sl_order_id: str, new_sl: float, symbol: str, qty:int):
+        tick = get_symbol_tick_size(symbol)
+        new_sl = tick_round(new_sl, tick)
+
+        payload = {
+            "id": sl_order_id,
+            "type": 4,                 # SL-L modify
+            "stopPrice": float(new_sl),
+            "limitPrice": float(new_sl + 1),
+            "qty": qty
+        }
+
+        try:
+            resp = self.fyers.modify_order(payload)
+            log(f"🔧 SL Modify Response → {resp}")
+            return resp
+        except Exception as e:
+            log(f"❌ Modify SL EXCEPTION: {e}")
+            return {"error": str(e)}
+
+
+
+    # -------------------------
+    # Broker helpers (defensive)
+    # -------------------------
+    def _fetch_orderbook(self):
+        """
+        Try to fetch orderbook / orders entries to inspect order status.
+        Robust to multiple response shapes.
+        """
+        try:
+            resp = self.fyers.orderbook() if hasattr(self.fyers, "orderbook") else self.fyers.orders()
+            log(f"📥 orderbook response={resp}")
+            # try common keys
+            orders = resp.get("orders") or resp.get("data") or resp.get("d") or resp.get("orderBook") or []
+            # if orders wrapped under tradeBook etc.
+            if isinstance(orders, dict):
+                # flatten to list of dicts
+                orders_list = []
+                for v in orders.values():
+                    if isinstance(v, list):
+                        orders_list.extend(v)
+                if orders_list:
+                    return orders_list
+            return orders if isinstance(orders, list) else []
+        except Exception as e:
+            log(f"⚠️ _fetch_orderbook exception: {e}")
+            return []
+
+    def _get_order_status(self, order_id: str) -> Dict:
+        """
+        Return a normalized dict describing order status for given order_id.
+        If not found, returns {}.
+        """
+        try:
+            orders = self._fetch_orderbook()
+            for o in orders:
+                # common keys
+                oid = o.get("orderNumber") or o.get("id") or o.get("order_id") or o.get("orderNumber")
+                if str(oid) == str(order_id):
+                    return o
+            return {}
+        except Exception as e:
+            log(f"⚠️ _get_order_status exception: {e}")
+            return {}
+
+    def _fetch_tradebook(self):
+        """
+        Fetch tradebook to compute traded quantities if needed.
+        """
+        try:
+            resp = self.fyers.tradebook()
+            log(f"📥 tradebook response={resp}")
+            tb = resp.get("tradeBook") or resp.get("data") or resp.get("d") or []
+            # normalize to list
+            if isinstance(tb, dict):
+                # flatten
+                flat = []
+                for v in tb.values():
+                    if isinstance(v, list):
+                        flat.extend(v)
+                return flat
+            return tb if isinstance(tb, list) else []
+        except Exception as e:
+            log(f"⚠️ _fetch_tradebook exception: {e}")
+            return []
+
+    def _cancel_order_safe(self, order_id: str):
+        try:
+            log(f"🛑 Canceling order {order_id}")
+            resp = self.fyers.cancel_order({"id": order_id})
+            log(f"🧽 cancel_order response: {resp['code']}")
+            return resp
+        except Exception as e:
+            log(f"❌ cancel_order EXCEPTION for {order_id}: {e}")
+            return None
+
+    def _place_market_exit(self, symbol: str, qty: int, exit_side: int) -> Dict:
+        """
+        Place a market order (type=2 per FYERS V3).
+        """
+        payload = {
+            "symbol": symbol,
+            "qty": qty,
+            "type": 2,               # MARKET
+            "side": exit_side,
+            "productType": "INTRADAY",
+            "limitPrice": 0,
+            "stopPrice": 0,
+            "validity": "DAY",
+            "offlineOrder": False,
+            "disclosedQty": 0,
+        }
+        try:
+            log(f"🚨 MARKET EXIT DUE to TG (1:3) HIT for OPTIONS or qty remind for EQUITY → payload={payload}")
+            resp = self.fyers.place_order(payload)
+            log(f"📥 MARKET EXIT RESPONSE: {resp}")
+            return resp or {}
+        except Exception as e:
+            log(f"❌ MARKET EXIT EXCEPTION: {e}")
+            return {"error": str(e)}
+
+    # -------------------------
+    # Main trailing logic with race-free exit
+    # -------------------------
+    def update_trailing_stops(self, symbol: str, ltp: float):
+        #log(f"\n📡 update_trailing_stops() → symbol={symbol}, ltp={ltp}")
+
+        for oid, trade in list(self.active_trades.items()):
+            log(f"\n➡️ Checking trade oid={oid}")
+
+            if trade.get("status") != "OPEN":
+                log(f"⏭️ Trade {oid} status={trade.get('status')} - skipping")
+                continue
+
+            if trade.get("symbol") != symbol:
+                log(f"⏭️ Symbol mismatch → trade_symbol={trade.get('symbol')} != {symbol}")
+                continue
+
+            side = int(trade["side"])                 # -1 short, +1 long
+            stop = float(trade["stop_price"])
+            entry = float(trade["entry_price"])
+            qty = int(trade.get("qty", 0))
+            lots = qty // 2
+
+            sl_order_id = trade.get("sl_order_id")
+            next_rr = trade.get("next_trail_rr", 3)
+
+
+            risk = abs(entry - stop)
+            if risk <= 0:
+                log("⚠️ Invalid risk — skipping trailing")
+                continue
+
+            # -------------------------------------------------
+            # 1️⃣ SL HIT CHECK (UNCHANGED — DO NOT TOUCH)
+            # -------------------------------------------------
+            sl_hit = False
+            if side == -1 and ltp >= stop:
+                sl_hit = True
+            if side == 1 and ltp <= stop:
+                sl_hit = True
+
+            if sl_hit:
+                log(f"⚠️ SL HIT DETECTED → oid={oid}, stop={stop}, ltp={ltp}")
+
+                trade["status"] = "EXITING"
+                save_state(self.order_tracker, self.active_trades)
+
+                if sl_order_id:
+                    log("Bhaai SL hit hua hai")
+                    #self._cancel_order_safe()
+
+                traded_qty = 0
+                try:
+                    tb = self._fetch_tradebook()
+                    for t in tb:
+                        if str(t.get("orderNumber") or t.get("order_id")) == str(oid):
+                            traded_qty += int(t.get("tradedQty", 0))
+                except Exception as e:
+                    log(f"⚠️ Tradebook qty calc failed: {e}")
+
+                remaining_qty = max(0, qty - traded_qty)
+                log(f"🔎 traded_qty={traded_qty}, remaining_qty={remaining_qty}")
+
+                if remaining_qty <= 0:
+                    trade["status"] = "CLOSED"
+                    trade["closed_at"] = datetime.now().isoformat()
+                    save_state(self.order_tracker, self.active_trades)
+                    continue
+
+                exit_side = 1 if side == -1 else -1
+                exit_resp = self._place_market_exit(symbol, remaining_qty, exit_side)
+
+                trade["status"] = "CLOSED"
+                trade["closed_at"] = datetime.now().isoformat()
+                trade["exit_resp"] = exit_resp
+
+                exit_id = exit_resp.get("id") or exit_resp.get("orderNumber")
+                if exit_id and exit_id not in self.order_tracker:
+                    self.order_tracker.append(exit_id)
+
+                save_state(self.order_tracker, self.active_trades)
+                continue
+
+            # -------------------------------------------------
+            # 2️⃣ LAGGING RR TRAILING LOGIC (NEW)
+            # -------------------------------------------------
+            current_rr = abs(ltp - entry) / risk
+
+            if current_rr < next_rr: 
+                log(f"⏸️ RR={current_rr:.2f} < TRAILING_START_RR — no trailing")
+                continue
+            
+            if next_rr == 3:
+                exit_side = 1 if side == -1 else -1
+                exit_qty = qty // 2 if lots != 1 else qty 
+                self._place_market_exit(symbol, exit_qty, exit_side)
+
+
+            trail_rr = current_rr - 1.5
+            if trail_rr <= 0:
+                continue
+
+            # Compute new SL from RR
+            if side == -1:  # SHORT
+                new_sl = entry - (trail_rr * risk)
+                should_move = new_sl < stop
+            else:           # LONG
+                new_sl = entry + (trail_rr * risk)
+                should_move = new_sl > stop
+
+            if not should_move:
+                log(f"⏭️ RR={current_rr:.2f} → SL already better ({stop})")
+                continue
+
+            tick = get_symbol_tick_size(symbol)
+            new_sl = tick_round(new_sl, tick)
+
+            # -------------------------------------------------
+            # 3️⃣ APPLY TRAIL
+            # -------------------------------------------------
+            log(
+                f"🔁 RR={current_rr:.2f} → "
+                f"SL moved to {trail_rr:.2f}R (price={new_sl}) and at (qty={qty})"
+            )
+
+            #trade["stop_price"] = new_sl
+            trade["achieved_rr"] = int(current_rr)
+            trade["next_trail_rr"] = next_rr + 1
+            
+            if sl_order_id:
+                if qty == 65:
+                    new_var = qty
+                    self.modify_sl(sl_order_id, new_sl, symbol, new_var)
+                self.modify_sl(sl_order_id, new_sl, symbol, 65)
+                log(f"✅ Trailing SL applied to {new_sl}")
+            save_state(self.order_tracker, self.active_trades)

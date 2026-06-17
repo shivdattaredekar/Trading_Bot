@@ -1,3 +1,5 @@
+# src/main.py
+
 import os
 import json
 import time
@@ -5,106 +7,110 @@ import traceback
 from datetime import datetime, time as dtime
 from dotenv import load_dotenv
 
-# --- Trading Bot Imports ---
-from src.tradingbot.data.volumefilter import final_filter_with_volume
-from src.tradingbot.data.datasocket import run_gapup_websocket
-from src.tradingbot.utils.logger import log
-from src.tradingbot.login.auth import get_fyers_instance, is_access_token_valid
-from src.tradingbot.login.authentication import auto_login
-from src.tradingbot.utils.helpers import clean_up, TRADE_LOG_FILE
-from src.tradingbot.trading.trade_manager import TradeManager
-from src.tradingbot.strategies.ema_strategy import EMAStrategy
-from src.tradingbot.strategies.tamo_strategy import SingleStockStrategy
-from src.tradingbot.trading.order_executor import TradeExecutor
-from src.tradingbot.config import CAPITAL_PER_TRADE, MAX_TRADES, RR
+# --- AUTH / API ---
+from src.tradingbot.login.auth import login_and_create_fyers
+from src.tradingbot.login.fyers_session import FyersSession
 
-# --- Constants ---
+
+# --- UTILS ---
+from src.tradingbot.utils.logger import log
+from src.tradingbot.utils.helpers import clean_up, TRADE_LOG_FILE
+from src.tradingbot.router.instrument_router import InstrumentRouter
+
+
+# --- EXECUTION ---
+from src.tradingbot.trading.order_executor import TradeExecutor
+from src.tradingbot.trading.trade_manager import TradeManager
+
+# --- STRATEGIES ---
+from src.tradingbot.strategies.ema_strategy import EMAStrategy
+from src.tradingbot.strategies.fno_ema_strategy import FnOStockHandler
+
+# --- TRAILING SL RUNNER ---
+from src.tradingbot.trading.trailing_sl_runner import start_trailing_runner, stop_trailing_runner
+
+# --- CONFIG ---
+from src.tradingbot.config import (
+    CAPITAL_PER_TRADE,
+    MAX_TRADES,
+)
+
+# --- PNL EXPORT (END OF DAY) ---
+from src.tradingbot.tools.pnl_tracker import (
+    load_active_trades,
+    fetch_tradebook,
+    build_tradewise_pnl,
+    export_to_excel,
+)
+
+# # --- Delaing with TimeZones in VMs
+# from zoneinfo import ZoneInfo
+
+
+
 FILTERED_FILE = "filtered_stocks.json"
-MARKET_START = dtime(9, 15)
-MARKET_END = dtime(15, 0)
+MARKET_START = dtime(9, 10)
+MARKET_END = dtime(15, 45)
+MARKET_CLOSED_SLEEP_SEC = 60
+MAX_CLOSED_ITERS = 3
+
 
 # --------------------------------------------------------
-# 🕐 Market Hours Check
+# Market hours
 # --------------------------------------------------------
 def is_market_open():
     now = datetime.now().time()
     today = datetime.now().strftime('%A')
     return MARKET_START <= now <= MARKET_END and today not in ("Saturday", "Sunday")
 
+
 # --------------------------------------------------------
-# 🚀 Main Trading Bot Entry Point
+# MAIN BOT
 # --------------------------------------------------------
 def main():
-    log("🔹 Starting trading script...")
+    log("🚀 Starting Trading Bot...")
 
-    # Step 0: Clean-up old trade logs
+    # Step 0 — clean previous day files
     clean_up()
 
-    # Step 1: Authentication
-    log("Authenticating with Fyers API...")
-    try:
-        if not is_access_token_valid():
-            auto_login()
-            load_dotenv(override=True)
-        log("Authentication successful.")
-        time.sleep(3)  # ensure access token is loaded properly
+    # Step 1 — Authentication
+    log("🔑 Authenticating with Fyers...")
+    try:    
+        fyers = login_and_create_fyers()    
+        FyersSession.set(fyers)
+        log("🔓 Authentication Successful")
+        time.sleep(3)
     except Exception as e:
-        log(f"Authentication failed: {e}")
+        log(f"❌ Authentication failed: {e}")
         return
 
-    fyers = get_fyers_instance()
+    
 
-    # Step 2: Stock Filtering Logic
-    if os.path.exists(FILTERED_FILE):
-        log(f"Loading previously filtered stocks from {FILTERED_FILE}...")
-        with open(FILTERED_FILE, "r") as f:
-            filtered_stocks = json.load(f)
-    else:
-        log("Fetching new gap-up stocks using WebSocket...")
-        try:
-            run_gapup_websocket(duration=15)
-            gap_file = "GapUp_stocks.json"
-            if not os.path.exists(gap_file):
-                with open(gap_file, "w") as f:
-                    json.dump([], f)
+    # Step 2 — Stock Selection (STATIC for EMA only)
+    log("📌 Using static stocks for EMA strategy (no gap-up websocket).")
 
-            with open(gap_file, "r") as f:
-                gapup_stocks = json.load(f)
+    filtered_stocks = [
+        "NSE:NIFTY50-INDEX",
+    ]
 
-            log(f"Gap-up stocks found: {len(gapup_stocks)}")
-
-            # Apply volume filter with retries
-            retry = 2
-            filtered_stocks = []
-            while retry > 0:
-                try:
-                    filtered_stocks = final_filter_with_volume(fyers, gapup_stocks)
-                    if filtered_stocks:
-                        break
-                    log(f"No stocks passed volume filter. Retrying ({retry-1})...")
-                except Exception as e:
-                    log(f"Volume filter error: {e}")
-                retry -= 1
-                time.sleep(3)
-
-            if not filtered_stocks:
-                log("No stocks passed after retries. Exiting.")
-                return
-
-            with open(FILTERED_FILE, "w") as f:
-                json.dump(filtered_stocks, f)
-
-        except Exception as e:
-            log(f"Error in stock filtering: {e}")
-            return
-
-    # Step 3: Initialize Trade Manager and Strategies
-    # Initialize TradeManager
-    TRADE_FILE = 'trades.txt'
-    trade_manager = TradeManager(int(MAX_TRADES), trade_file=TRADE_FILE)
         
+    fno_handler = FnOStockHandler(
+        fyers,
+        filtered_stocks,
+        symbol="NIFTY",
+        side="PE"
+    )
+
+    
+    
+    log(f"⚡ EMA stocks locked: {filtered_stocks}")
+
+
+    # Step 3 — Setup executor and strategies
+    trade_manager = TradeManager(MAX_TRADES, "trades.txt")
+
     executor = TradeExecutor(
-        fyers=fyers,
+        fyers_client=fyers,
         capital_per_trade=CAPITAL_PER_TRADE,
         max_trades=MAX_TRADES,
         trade_manager=trade_manager,
@@ -112,63 +118,79 @@ def main():
     )
 
     already_traded = set()
-    ema_strategy = EMAStrategy(fyers, executor, filtered_stocks, already_traded)
-    tamo_strategy = SingleStockStrategy("NSE:TMPV-EQ", RR, fyers)
 
-    log("Entering monitoring loop...")
+    ema_strategy = EMAStrategy(
+        fyers=fyers,
+        executor=executor,
+        filtered_stocks=filtered_stocks,
+        already_traded=already_traded,
+        fno_handler=fno_handler
+    )
 
-    counter = 0
-    while True:
-        if not is_market_open():
-            log("Market closed. Sleeping for 60 seconds.")
-            time.sleep(60)
-            counter += 1
-            if counter >= 3:
-                clean_up()
-                log("Market closed for the day. Exiting...")
-                break
-            continue
+    # Step 4 — Start Trailing SL Runner (background thread)
+    start_trailing_runner(fyers, interval=1.0)  # 1 second polling for accuracy
 
-        log(f"Checking trade setups at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    log("🎯 Entering main loop...")
+
+    # Step 5 — Main Loop with closed-market stop after N iterations
+    closed_iters_remaining = MAX_CLOSED_ITERS
+
+    try:
+        while True:
+            if not is_market_open():
+                log(f"⏳ Market closed. Sleeping {MARKET_CLOSED_SLEEP_SEC}s... ({closed_iters_remaining} iterations left before exit)")
+                time.sleep(MARKET_CLOSED_SLEEP_SEC)
+                closed_iters_remaining -= 1
+                if closed_iters_remaining <= 0:
+                    log("🛑 Market closed for long; exiting main loop.")
+                    break
+                # continue checking until we exhaust iterations
+                continue
+            else:
+                # If market is open, reset counter
+                closed_iters_remaining = MAX_CLOSED_ITERS
+
+            try:
+                log(f"🔎 Checking setups at {datetime.now().strftime('%H:%M:%S')}")
+
+                # EMA strategy
+                ema_strategy.evaluate_and_trade()
+
+
+            except Exception:
+                log(f"❌ Main loop error:\n{traceback.format_exc()}")
+
+            time.sleep(2)
+
+    finally:
+        # always attempt clean shutdown
         try:
-            # Step 4: Apply EMA strategy
-            ema_strategy.evaluate_and_trade()
+            log("🔻 Shutting down: stopping trailing runner and saving state.")
 
-            # Step 5: Apply TAMO strategy (once per day after 9:58)
-            tamo_file = "./tamo.txt"
-            os.makedirs(os.path.dirname(tamo_file), exist_ok=True)
+            stop_trailing_runner()
+            clean_up()
 
-            if not os.path.exists(tamo_file):
-                with open(tamo_file, "w") as f:
-                    f.write("")
+            # -------------------------------
+            # END-OF-DAY PNL EXPORT
+            # -------------------------------
+            log("📊 Running end-of-day PnL export...")
 
-            with open(tamo_file, "r") as f:
-                tamo_flag = f.read().strip()
+            active_trades = load_active_trades()
+            tradebook = fetch_tradebook(fyers)
 
-            if datetime.now().strftime("%H:%M") >= "09:58" and not tamo_flag:
-                tamo_signal, side = tamo_strategy.evaluate_trade_signal()
-                if tamo_signal:
-                    executor.place_TAMO_trade(
-                        "NSE:TMPV-EQ",
-                        tamo_signal["entry_price"],
-                        tamo_signal["stop_loss"],
-                        tamo_signal["target"],
-                        tamo_signal["timestamp"],
-                        side
-                    )
+            rows = build_tradewise_pnl(tradebook, active_trades)
+            export_to_excel(rows)
 
+            log(f"✅ End-of-day PnL export complete. Trades exported: {len(rows)}")
 
-                    with open(tamo_file, "w") as f:
-                        f.write(datetime.now().strftime("%Y-%m-%d"))
-                    log(f"TAMO trade executed successfully at {tamo_signal['timestamp']}")
-        except Exception:
-            log(f"Error in trading logic:\n{traceback.format_exc()}")
+        except Exception as e:
+            log(f"⚠ Error during shutdown / PnL export:\n{traceback.format_exc()}")
 
-        time.sleep(10)
+    log("🔺 Bot stopped safely.")
 
 
 # --------------------------------------------------------
-# 🧩 Script Entry
+# App entry
 # --------------------------------------------------------
 if __name__ == "__main__":
     main()

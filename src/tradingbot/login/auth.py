@@ -1,34 +1,59 @@
-from fyers_apiv3 import fyersModel #type:ignore
-from tradingbot.config import CLIENT_ID, FYERS_ACCESS_TOKEN
+from fyers_apiv3 import fyersModel  # type: ignore
 from tradingbot.utils.logger import log
+from tradingbot.login.authentication import auto_login
+from tradingbot.config import CLIENT_ID
+import os
+from dotenv import load_dotenv
 
 
-# Check if the Access token is valid or not
+def login_and_create_fyers():
+    """
+    Single source of truth:
+    - validate existing token if present
+    - else auto-login
+    - return a validated fyers instance
+    """
 
-def is_access_token_valid():
-    # Create a FyersModel instance with the provided credentials
-    fyers = fyersModel.FyersModel(client_id=CLIENT_ID, token=FYERS_ACCESS_TOKEN, log_path=None)
+    log("🔐 Authenticating with Fyers...")
 
-    # Check if the access token is valid
-    response = fyers.get_profile()
-    if response['code'] == 200:
-        log("Access token is valid.")
-        return True
-    else:
-        log("Access token is not valid.")
-        return False
+    # Load env fresh (important)
+    load_dotenv(override=True)
+    token = os.getenv("FYERS_ACCESS_TOKEN")
 
+    # --------------------------------------------------
+    # 1️⃣ Try existing token (returning user)
+    # --------------------------------------------------
+    if token:
+        fyers = fyersModel.FyersModel(
+            client_id=CLIENT_ID,
+            token=token,
+            log_path=None
+        )
 
-# Function to create an authenticated Fyers instance
-def get_fyers_instance():
-    # Create and return the FyersModel instance
-    log("Creating FyersModel instance with access token...")
+        profile = fyers.get_profile()
+        if profile.get("code") == 200:
+            log("🟢 Existing access token valid — reusing session")
+            return fyers
+        else:
+            log("⚠️ Existing token invalid — re-login required")
 
-    try:
-        access_token = FYERS_ACCESS_TOKEN 
-        fyers = fyersModel.FyersModel(client_id=CLIENT_ID, token=access_token, log_path=None)
-        log("Authenticated Fyers instance created.")
-        return fyers
-    except Exception as e:
-        log(f"Error creating Fyers instance: {e}")
-        raise RuntimeError("Failed to create Fyers instance. Please check your credentials and network connection.")
+    # --------------------------------------------------
+    # 2️⃣ Fresh login
+    # --------------------------------------------------
+    token = auto_login()
+    if not token:
+        raise RuntimeError("Auto login failed — no token returned")
+
+    fyers = fyersModel.FyersModel(
+        client_id=CLIENT_ID,
+        token=token,
+        log_path=None
+    )
+
+    profile = fyers.get_profile()
+    if profile.get("code") != 200:
+        log(f"❌ Fyers validation failed: {profile}")
+        raise RuntimeError("Fyers token invalid after login")
+
+    log("🟢 Fyers authenticated & validated successfully")
+    return fyers

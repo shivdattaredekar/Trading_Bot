@@ -17,7 +17,7 @@ def log_trade_result(symbol, timestamp, entry_price, stop_loss, target, status, 
             writer.writerow(["timestamp", "symbol", "entry_price", "stop_loss", "target", "status", "error_message"])
 
         writer.writerow([
-            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            timestamp,
             symbol,
             entry_price,
             stop_loss,
